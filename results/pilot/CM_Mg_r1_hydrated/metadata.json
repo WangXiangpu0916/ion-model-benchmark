@@ -97,5 +97,16 @@
   "production_wall_seconds": 11.00285950000034,
   "ns_per_day": 392.6252080197758,
   "completed_at_utc": "2026-10-05T12:04:14Z",
-  "samples_sha256": "86e984f8bbfc54e625579e8dc9189a914e258ade14cf131975a71f70d6e13d3a"
+  "samples_sha256": "86e984f8bbfc54e625579e8dc9189a914e258ade14cf131975a71f70d6e13d3a",
+  "final_pdb_box_correction": {
+    "corrected_at_utc": "2026-10-05T12:42:34.212500+00:00",
+    "reason": "Original writer retained the initial box in CRYST1 after NPT. Only CRYST1 edge lengths corrected; coordinates and simulation data unchanged.",
+    "source": "Cube root of the final saved production volume; cubic isotropic NPT box.",
+    "box_geometry_evidence": "Serialized system has a cubic default box and one isotropic MonteCarloBarostat.",
+    "source_samples_sha256": "86e984f8bbfc54e625579e8dc9189a914e258ade14cf131975a71f70d6e13d3a",
+    "original_pdb_sha256": "53b85d16a1e4b2079bf3f0c7bfc53f43108948f271a3b9c5c6cb2c0dff3f6bb1",
+    "corrected_pdb_sha256": "13fd3eb4247455df4566a3b5bde896251b3d37e458968f3adb8db4933bd69c70",
+    "original_CRYST1": "CRYST1   30.000   30.000   30.000  90.00  90.00  90.00 P 1           1",
+    "corrected_CRYST1": "CRYST1   29.851   29.851   29.851  90.00  90.00  90.00 P 1           1"
+  }
 }

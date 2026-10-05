@@ -39,6 +39,15 @@
   edges were corrected from the cube root of the last saved NPT volume; atom
   coordinates and raw samples were unchanged. The metadata records the original
   and corrected headers and file hashes. The completed-case audit then passed.
+- Reviewed that completed trajectory's RDF normalization: the shell-volume-
+  weighted mean over 0.8-0.9 nm was 1.00759. Six water identities persisted
+  throughout the saved frames. Its 0.203 nm peak is below the quoted Mg reference
+  interval; this is an observed single-case result, not a model ranking.
+- Applied the same documented CRYST1-only correction to both completed pilots,
+  checking the serialized cubic box and isotropic barostat. Verified corrected
+  PDB dimensions and hashes. The original OpenCL pilot predates the first code
+  commit and has less provenance metadata; it remains excluded from the formal
+  production comparison. Partial pilot plots are retained only under `tmp/`.
 
 ## Assistance and ownership
 
