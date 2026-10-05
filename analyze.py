@@ -375,6 +375,8 @@ def make_figures(output, cases, amide_cases):
             spread = curves.std(axis=0, ddof=1) if len(curves) > 1 else None
             ax.errorbar(cutoffs, curves.mean(axis=0), yerr=spread, color=COLORS[model], fmt="o-", capsize=3, label=model)
         ax.set(title=f"{ion}: shell-cutoff sensitivity", xlabel="Cutoff (nm)", ylabel="Mean water coordination")
+        ax.set_ylim(min(ax.get_ylim()[0], TARGET_CN[ion] - .01), max(ax.get_ylim()[1], TARGET_CN[ion] + .01))
+        ax.ticklabel_format(axis="y", style="plain", useOffset=False)
         ax.legend(fontsize=9)
         ax = axes[row, 1]
         if amide_cases:

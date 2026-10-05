@@ -1,0 +1,11 @@
+Observed trajectories, not independent frames, are replication units; SD is descriptive between-replica variation.
+Fitting targets were used to develop these models; agreement is an implementation/transfer check, not independent validation.
+Mg 0.209 +/- 0.004 nm is a supplied fitting-reference range, not a simulation confidence interval; Ca reference is 0.246 nm.
+Coordination cutoffs Mg 0.30 nm and Ca 0.35 nm, with +/-0.02 nm sensitivity, are diagnostic definitions.
+RDFs average frame histograms normalized by that frame's water number density; cumulative CN averages unweighted counts.
+Mean shell distance pools all in-shell distances; it is different from the RDF peak position.
+No automatic equilibration trimming or convergence pass is applied; input must contain the designated production segment.
+Shell-identity changes are observations between saved frames, not committed exchange events or kinetic rates.
+Minimum-image distance calculation and invariant water-column identities are responsibilities of the simulation writer.
+RDF use requires shortest periodic box edge >1.8 nm; volume alone cannot verify this condition for a general box.
+An amide initial-state difference indicates unresolved sampling; these traces do not estimate affinity or NMDAR function.

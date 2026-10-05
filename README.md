@@ -7,7 +7,7 @@ their use in more complex NMDA receptor simulations.
 ## Intended deliverables
 
 - Runnable simulation and analysis code with documented parameter provenance.
-- Two published ion-water model combinations, two ions and three independent
+- Two published ion-water model combinations, two ions and three seeded
   replicas for the hydration benchmark.
 - A small amide-coordination extension after evaluating the hydration baseline.
 - Quantitative figures, machine-readable summaries and measured local throughput.
@@ -31,16 +31,17 @@ commit. No remote repository has been created or configured.
 
 ## Status
 
-The source-verified protocol, simulation runner and quantitative analysis are
-implemented. An OpenCL hydration pilot has completed; the full hydration
-campaign is running. Acetamide parameters have passed source-versus-conversion
-energy and force checks. Final biological conclusions and a final report are
-pending completion and analysis of the production campaigns.
+All twelve hydration trajectories are complete and have passed the recorded
+quality gate. Their analysis and four figures are saved in `results/analysis`;
+the final combined analysis will replace this hydration-stage snapshot after
+the twenty-four planned amide trajectories finish. Acetamide parameters have
+passed source-versus-conversion energy and force checks. The final report and
+presentation remain pending completion of that extension.
 
 The local host has an NVIDIA GeForce RTX 3050 Laptop GPU with 4 GB VRAM and 16
-logical CPU processors. A short pilot measured 392.6 ns/day; sustained production
-subsequently measured about 80-90 ns/day. Use actual run metadata and logs for
-timing, not the short-pilot estimate.
+logical CPU processors. A short pilot measured 392.6 ns/day; completed hydration
+production rates span 112.8-508.4 ns/day under variable desktop/GPU load. Use
+actual run metadata and logs for timing, not the short-pilot estimate.
 
 ## Run locally
 

@@ -141,6 +141,30 @@
   agreement conditional on actual results and describe between-replica
   variation without implying independently sampled initial hydration states.
 
+- Completed and audited IOD/Ca replica 3 (508.4 ns/day); the hydration process
+  exited successfully with all twelve planned trajectories. Its RDF peak is
+  0.245 nm, mean shell distance 0.247961 nm and CN 7.999. The IOD/Ca group has
+  a mean peak of 0.24433 +/- 0.00115 nm and CN 8.0025 +/- 0.00926. Final-PDB
+  corrections are recorded for every affected old-runner case.
+- Hydration quality gate passed: all saved values are finite; mean temperature
+  spans 298.19-298.58 K, mean water density 32.9165-32.9542 per nm3, and outer
+  RDF averages 0.9940-1.0090. Maximum absolute half-to-half changes are 0.571 K,
+  0.0346 water oxygens per nm3, 22.93 kJ/mol potential energy and 0.027 water CN.
+  No runaway behavior or source-conversion failure warrants holding the amide
+  extension. A focused second review agreed. This gate does not establish
+  equilibration of slow ligand or hydration-state changes.
+- Generated and visually reviewed the four actual hydration-stage figures.
+  The tiny Mg shell-cutoff effect is shown against an explicit coordination
+  scale with a minimum reference-centered range, avoiding an easily missed
+  additive-axis offset. Numerical results are unchanged.
+- Applied the previously reviewed runner reliability patch only after the
+  hydration process exited. Source/protocol/Git provenance is frozen once per
+  invocation; initialized partial samples and metadata are saved atomically;
+  failures are recorded; final PDB uses the final NPT box. System construction,
+  periodic distances and LJ conversion are unchanged by AST comparison. The
+  runnable self-check passed injected-save/failure checks and twelve analytic
+  ion-water energy/force comparisons. Scientific settings remain frozen.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,

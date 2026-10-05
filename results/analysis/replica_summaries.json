@@ -1,0 +1,1783 @@
+{
+  "analysis_notes": [
+    "Observed trajectories, not independent frames, are replication units; SD is descriptive between-replica variation.",
+    "Fitting targets were used to develop these models; agreement is an implementation/transfer check, not independent validation.",
+    "Mg 0.209 +/- 0.004 nm is a supplied fitting-reference range, not a simulation confidence interval; Ca reference is 0.246 nm.",
+    "Coordination cutoffs Mg 0.30 nm and Ca 0.35 nm, with +/-0.02 nm sensitivity, are diagnostic definitions.",
+    "RDFs average frame histograms normalized by that frame's water number density; cumulative CN averages unweighted counts.",
+    "Mean shell distance pools all in-shell distances; it is different from the RDF peak position.",
+    "No automatic equilibration trimming or convergence pass is applied; input must contain the designated production segment.",
+    "Shell-identity changes are observations between saved frames, not committed exchange events or kinetic rates.",
+    "Minimum-image distance calculation and invariant water-column identities are responsibilities of the simulation writer.",
+    "RDF use requires shortest periodic box edge >1.8 nm; volume alone cannot verify this condition for a general box.",
+    "An amide initial-state difference indicates unresolved sampling; these traces do not estimate affinity or NMDAR function."
+  ],
+  "replicas": [
+    {
+      "campaign": "hydration",
+      "model": "CM",
+      "ion": "Ca",
+      "replica": 1,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 877,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.247,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.25266755994825507,
+      "mean_CN": 8.0515,
+      "mean_temperature_K": 298.20301872520696,
+      "mean_water_number_density_nm3": 32.944794265869106,
+      "mean_potential_kj_mol": -37460.969044695616,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.0055,
+        "8": 0.9375,
+        "9": 0.057
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 8.036
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.0515
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.073
+        }
+      ],
+      "shell_identity_changed_intervals": 162,
+      "shell_identity_changed_interval_fraction": 0.08104052026013006,
+      "total_membership_flips": 178,
+      "distinct_waters_seen_in_shell": 82,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.048,
+          "second": 8.055,
+          "second_minus_first": 0.006999999999999673
+        },
+        "temperature_K": {
+          "first": 298.2246923710512,
+          "second": 298.1813450793627,
+          "second_minus_first": -0.04334729168851936
+        },
+        "water_number_density_nm3": {
+          "first": 32.94302118802217,
+          "second": 32.94656734371604,
+          "second_minus_first": 0.0035461556938685135
+        },
+        "potential_kj_mol": {
+          "first": -37462.02997820802,
+          "second": -37459.90811118322,
+          "second_minus_first": 2.121867024798121
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2525271423138811,
+          "second": 0.25280785555613106
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 297.7034368007435,
+          "water_number_density_nm3": 32.97378629007983,
+          "potential_kj_mol": -37493.846645938575
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 8.044,
+          "temperature_K": 298.7823185350689,
+          "water_number_density_nm3": 32.92611870920358,
+          "potential_kj_mol": -37424.356137308976
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.072,
+          "temperature_K": 298.58847429142463,
+          "water_number_density_nm3": 32.94029223746524,
+          "potential_kj_mol": -37467.74858864094
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.056,
+          "temperature_K": 297.824539856968,
+          "water_number_density_nm3": 32.931887515340016,
+          "potential_kj_mol": -37462.16854094359
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.04,
+          "temperature_K": 298.23229569470817,
+          "water_number_density_nm3": 32.96286948566749,
+          "potential_kj_mol": -37480.1603233505
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.068,
+          "temperature_K": 298.0234117913088,
+          "water_number_density_nm3": 32.883683442363285,
+          "potential_kj_mol": -37457.7009632376
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.06,
+          "temperature_K": 298.3022842217798,
+          "water_number_density_nm3": 32.941321163288684,
+          "potential_kj_mol": -37434.8831961237
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.052,
+          "temperature_K": 298.1673886096539,
+          "water_number_density_nm3": 32.998395283544724,
+          "potential_kj_mol": -37466.88796202107
+        }
+      ],
+      "case": "CM_Ca_r1_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Ca_r1_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "CM",
+      "ion": "Ca",
+      "replica": 2,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 877,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.249,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.25246588570454914,
+      "mean_CN": 8.0335,
+      "mean_temperature_K": 298.5709883881548,
+      "mean_water_number_density_nm3": 32.91651299557352,
+      "mean_potential_kj_mol": -37452.192324851654,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.0025,
+        "8": 0.9615,
+        "9": 0.036
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 8.0235
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.0335
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.0635
+        }
+      ],
+      "shell_identity_changed_intervals": 123,
+      "shell_identity_changed_interval_fraction": 0.061530765382691345,
+      "total_membership_flips": 130,
+      "distinct_waters_seen_in_shell": 65,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.047,
+          "second": 8.02,
+          "second_minus_first": -0.027000000000001023
+        },
+        "temperature_K": {
+          "first": 298.448009531357,
+          "second": 298.6939672449525,
+          "second_minus_first": 0.24595771359548735
+        },
+        "water_number_density_nm3": {
+          "first": 32.89922953829706,
+          "second": 32.933796452849975,
+          "second_minus_first": 0.034566914552918604
+        },
+        "potential_kj_mol": {
+          "first": -37444.83170593242,
+          "second": -37459.55294377089,
+          "second_minus_first": -14.721237838472007
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.25253379447342844,
+          "second": 0.25239774831512624
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.056,
+          "temperature_K": 298.46879886452496,
+          "water_number_density_nm3": 32.89589868537717,
+          "potential_kj_mol": -37433.740837989935
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 8.048,
+          "temperature_K": 298.40851949261315,
+          "water_number_density_nm3": 32.88669547062425,
+          "potential_kj_mol": -37449.97591599414
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.048,
+          "temperature_K": 298.03872107793075,
+          "water_number_density_nm3": 32.94956139534883,
+          "potential_kj_mol": -37466.67161317879
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.036,
+          "temperature_K": 298.8759986903589,
+          "water_number_density_nm3": 32.86476260183798,
+          "potential_kj_mol": -37428.93845656679
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 298.85404294904953,
+          "water_number_density_nm3": 32.942582014555526,
+          "potential_kj_mol": -37456.01826420517
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.012,
+          "temperature_K": 298.79398406272395,
+          "water_number_density_nm3": 32.96867665771749,
+          "potential_kj_mol": -37468.99528824283
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 298.79596625229414,
+          "water_number_density_nm3": 32.9149051410593,
+          "potential_kj_mol": -37449.606437858776
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.028,
+          "temperature_K": 298.3318757157424,
+          "water_number_density_nm3": 32.90902199806756,
+          "potential_kj_mol": -37463.59178477679
+        }
+      ],
+      "case": "CM_Ca_r2_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Ca_r2_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "CM",
+      "ion": "Ca",
+      "replica": 3,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 877,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.249,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.25245803806681993,
+      "mean_CN": 8.041,
+      "mean_temperature_K": 298.2744442808793,
+      "mean_water_number_density_nm3": 32.92192594770163,
+      "mean_potential_kj_mol": -37464.90387165578,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.0015,
+        "8": 0.956,
+        "9": 0.0425
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 8.028
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.041
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.071
+        }
+      ],
+      "shell_identity_changed_intervals": 138,
+      "shell_identity_changed_interval_fraction": 0.06903451725862932,
+      "total_membership_flips": 152,
+      "distinct_waters_seen_in_shell": 76,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.044,
+          "second": 8.038,
+          "second_minus_first": -0.006000000000000227
+        },
+        "temperature_K": {
+          "first": 298.2061647296339,
+          "second": 298.3427238321247,
+          "second_minus_first": 0.13655910249082126
+        },
+        "water_number_density_nm3": {
+          "first": 32.915140662541894,
+          "second": 32.928711232861374,
+          "second_minus_first": 0.013570570319480169
+        },
+        "potential_kj_mol": {
+          "first": -37464.927754487624,
+          "second": -37464.87998882392,
+          "second_minus_first": 0.04776566370128421
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2525060943970183,
+          "second": 0.25240994586476523
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.06,
+          "temperature_K": 298.4500501339135,
+          "water_number_density_nm3": 32.88550205622621,
+          "potential_kj_mol": -37438.21034522085
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 8.04,
+          "temperature_K": 298.32623189152935,
+          "water_number_density_nm3": 32.92759315234265,
+          "potential_kj_mol": -37479.92543781545
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.036,
+          "temperature_K": 298.0813610299792,
+          "water_number_density_nm3": 32.925404218394384,
+          "potential_kj_mol": -37463.94770498511
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.04,
+          "temperature_K": 297.9670158631133,
+          "water_number_density_nm3": 32.92206322320435,
+          "potential_kj_mol": -37477.62752992908
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.016,
+          "temperature_K": 298.41627226809027,
+          "water_number_density_nm3": 32.885596245945294,
+          "potential_kj_mol": -37452.20625197586
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.056,
+          "temperature_K": 298.2376660872299,
+          "water_number_density_nm3": 32.9502188222709,
+          "potential_kj_mol": -37462.804848084845
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.036,
+          "temperature_K": 298.1397639397383,
+          "water_number_density_nm3": 32.93659969716969,
+          "potential_kj_mol": -37476.06353805946
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.044,
+          "temperature_K": 298.57719303344044,
+          "water_number_density_nm3": 32.94243016605963,
+          "potential_kj_mol": -37468.44531717554
+        }
+      ],
+      "case": "CM_Ca_r3_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Ca_r3_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "CM",
+      "ion": "Mg",
+      "replica": 1,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 879,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.203,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20423372843489052,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.3040759257518,
+      "mean_water_number_density_nm3": 32.95418264471581,
+      "mean_potential_kj_mol": -37889.040401706436,
+      "chloride_contact_fraction_lt_0p4nm": 0.0005,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.01845853813876,
+          "second": 298.5896933133648,
+          "second_minus_first": 0.5712347752260598
+        },
+        "water_number_density_nm3": {
+          "first": 32.96100097801875,
+          "second": 32.947364311412855,
+          "second_minus_first": -0.013636666605897574
+        },
+        "potential_kj_mol": {
+          "first": -37891.249791862,
+          "second": -37886.83101155087,
+          "second_minus_first": 4.418780311127193
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20421481670935948,
+          "second": 0.20425264016042152
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.83119438059305,
+          "water_number_density_nm3": 32.977056032076185,
+          "potential_kj_mol": -37910.69825587506
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.51541782626873,
+          "water_number_density_nm3": 32.99702469525381,
+          "potential_kj_mol": -37914.036385412845
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.65642297970373,
+          "water_number_density_nm3": 32.90235836673773,
+          "potential_kj_mol": -37845.22448902068
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.07079896598947,
+          "water_number_density_nm3": 32.96756481800729,
+          "potential_kj_mol": -37895.04003713943
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.4954261380818,
+          "water_number_density_nm3": 32.93278736226948,
+          "potential_kj_mol": -37890.43562966604
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.31445844919386,
+          "water_number_density_nm3": 32.928772618602295,
+          "potential_kj_mol": -37886.40417871344
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.5308016380232,
+          "water_number_density_nm3": 32.936320557941016,
+          "potential_kj_mol": -37875.143921929826
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.0180870281603,
+          "water_number_density_nm3": 32.991576706838664,
+          "potential_kj_mol": -37895.340315894144
+        }
+      ],
+      "case": "CM_Mg_r1_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Mg_r1_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "CM",
+      "ion": "Mg",
+      "replica": 2,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 879,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.203,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20428639253228903,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.3555447183133,
+      "mean_water_number_density_nm3": 32.94239653909405,
+      "mean_potential_kj_mol": -37889.77805883496,
+      "chloride_contact_fraction_lt_0p4nm": 0.004,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.4671770304657,
+          "second": 298.243912406161,
+          "second_minus_first": -0.22326462430470428
+        },
+        "water_number_density_nm3": {
+          "first": 32.94952326995578,
+          "second": 32.93526980823232,
+          "second_minus_first": -0.01425346172346309
+        },
+        "potential_kj_mol": {
+          "first": -37888.31400677195,
+          "second": -37891.242110897976,
+          "second_minus_first": -2.9281041260255734
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20430198578288158,
+          "second": 0.20427079928169647
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.6190081386146,
+          "water_number_density_nm3": 32.91195808419825,
+          "potential_kj_mol": -37849.656524038815
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.1519902314938,
+          "water_number_density_nm3": 32.938444097243874,
+          "potential_kj_mol": -37914.10256121009
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.80173759651217,
+          "water_number_density_nm3": 32.960357496692964,
+          "potential_kj_mol": -37885.08125774594
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.2959721552421,
+          "water_number_density_nm3": 32.987333401688026,
+          "potential_kj_mol": -37904.41568409297
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.5423402373788,
+          "water_number_density_nm3": 32.8875235757099,
+          "potential_kj_mol": -37863.35189093429
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.9612362467801,
+          "water_number_density_nm3": 32.950715196625744,
+          "potential_kj_mol": -37910.29767313674
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.43830132208063,
+          "water_number_density_nm3": 32.93457581196258,
+          "potential_kj_mol": -37896.04425580439
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.0337718184043,
+          "water_number_density_nm3": 32.96826464863105,
+          "potential_kj_mol": -37895.27462371646
+        }
+      ],
+      "case": "CM_Mg_r2_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Mg_r2_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "CM",
+      "ion": "Mg",
+      "replica": 3,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 879,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.203,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20428791196644305,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.5545473883221,
+      "mean_water_number_density_nm3": 32.93288177115577,
+      "mean_potential_kj_mol": -37888.40217665266,
+      "chloride_contact_fraction_lt_0p4nm": 0.0065,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.62073375494197,
+          "second": 298.4883610217022,
+          "second_minus_first": -0.1323727332397766
+        },
+        "water_number_density_nm3": {
+          "first": 32.94984772323011,
+          "second": 32.915915819081434,
+          "second_minus_first": -0.0339319041486732
+        },
+        "potential_kj_mol": {
+          "first": -37876.936902860434,
+          "second": -37899.86745044488,
+          "second_minus_first": -22.930547584444867
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20427271215866008,
+          "second": 0.20430311177422603
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.49566019411304,
+          "water_number_density_nm3": 32.918638514072924,
+          "potential_kj_mol": -37852.73325662624
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.85589673058644,
+          "water_number_density_nm3": 32.970984276881026,
+          "potential_kj_mol": -37883.96985334788
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.2418699267799,
+          "water_number_density_nm3": 32.950692298657735,
+          "potential_kj_mol": -37893.56826162005
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.8895081682885,
+          "water_number_density_nm3": 32.959075803308764,
+          "potential_kj_mol": -37877.47623984754
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.6765179436761,
+          "water_number_density_nm3": 32.91315182378942,
+          "potential_kj_mol": -37899.44438528481
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.960288641502,
+          "water_number_density_nm3": 32.88472716140391,
+          "potential_kj_mol": -37887.162880511096
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.7450590464883,
+          "water_number_density_nm3": 32.94808614644135,
+          "potential_kj_mol": -37934.81828095025
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.57157845514223,
+          "water_number_density_nm3": 32.91769814469106,
+          "potential_kj_mol": -37878.044255033325
+        }
+      ],
+      "case": "CM_Mg_r3_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Mg_r3_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "IOD",
+      "ion": "Ca",
+      "replica": 1,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 877,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.243,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.24797772886630198,
+      "mean_CN": 8.013,
+      "mean_temperature_K": 298.458027003152,
+      "mean_water_number_density_nm3": 32.94365566100597,
+      "mean_potential_kj_mol": -37501.1156050108,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.006,
+        "8": 0.975,
+        "9": 0.019
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 8.002
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.013
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.0355
+        }
+      ],
+      "shell_identity_changed_intervals": 88,
+      "shell_identity_changed_interval_fraction": 0.04402201100550275,
+      "total_membership_flips": 98,
+      "distinct_waters_seen_in_shell": 53,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.024,
+          "second": 8.002,
+          "second_minus_first": -0.021999999999998465
+        },
+        "temperature_K": {
+          "first": 298.3107819028613,
+          "second": 298.6052721034427,
+          "second_minus_first": 0.29449020058137876
+        },
+        "water_number_density_nm3": {
+          "first": 32.952096091948086,
+          "second": 32.935215230063854,
+          "second_minus_first": -0.01688086188423199
+        },
+        "potential_kj_mol": {
+          "first": -37503.533119332256,
+          "second": -37498.698090689344,
+          "second_minus_first": 4.835028642912221
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2480820416457067,
+          "second": 0.247873129298451
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.016,
+          "temperature_K": 297.8730219928755,
+          "water_number_density_nm3": 33.0096045400006,
+          "potential_kj_mol": -37544.34052636395
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 298.3593439765414,
+          "water_number_density_nm3": 32.96185296440858,
+          "potential_kj_mol": -37498.86215558432
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.032,
+          "temperature_K": 298.55437079459153,
+          "water_number_density_nm3": 32.92892013205126,
+          "potential_kj_mol": -37500.674631043985
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.028,
+          "temperature_K": 298.45639084743675,
+          "water_number_density_nm3": 32.90800673133189,
+          "potential_kj_mol": -37470.25516433677
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.004,
+          "temperature_K": 298.0973777499881,
+          "water_number_density_nm3": 32.956360767763165,
+          "potential_kj_mol": -37522.59901066179
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.0,
+          "temperature_K": 298.55245608063615,
+          "water_number_density_nm3": 32.88185271700463,
+          "potential_kj_mol": -37487.51160163153
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.008,
+          "temperature_K": 299.0050153700033,
+          "water_number_density_nm3": 32.99447128054492,
+          "potential_kj_mol": -37498.95506863402
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 7.996,
+          "temperature_K": 298.76623921314314,
+          "water_number_density_nm3": 32.908176154942716,
+          "potential_kj_mol": -37485.72668183005
+        }
+      ],
+      "case": "IOD_Ca_r1_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Ca_r1_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "IOD",
+      "ion": "Ca",
+      "replica": 2,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 877,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.245,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.24785857127081215,
+      "mean_CN": 7.9955,
+      "mean_temperature_K": 298.2334131640941,
+      "mean_water_number_density_nm3": 32.931360600693964,
+      "mean_potential_kj_mol": -37502.04694079687,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.0165,
+        "8": 0.9715,
+        "9": 0.012
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.9875
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 7.9955
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.0175
+        }
+      ],
+      "shell_identity_changed_intervals": 74,
+      "shell_identity_changed_interval_fraction": 0.03701850925462731,
+      "total_membership_flips": 82,
+      "distinct_waters_seen_in_shell": 46,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 7.996,
+          "second": 7.995,
+          "second_minus_first": -0.001000000000000334
+        },
+        "temperature_K": {
+          "first": 298.3121703595393,
+          "second": 298.15465596864885,
+          "second_minus_first": -0.15751439089046926
+        },
+        "water_number_density_nm3": {
+          "first": 32.92949184386793,
+          "second": 32.933229357520005,
+          "second_minus_first": 0.0037375136520765295
+        },
+        "potential_kj_mol": {
+          "first": -37498.014106509174,
+          "second": -37506.07977508457,
+          "second_minus_first": -8.06566857539292
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.24784540974829958,
+          "second": 0.24787173443954388
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 7.992,
+          "temperature_K": 298.63242082587743,
+          "water_number_density_nm3": 32.91934141680418,
+          "potential_kj_mol": -37494.210205699965
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 7.988,
+          "temperature_K": 297.90119818473994,
+          "water_number_density_nm3": 32.93447613811324,
+          "potential_kj_mol": -37511.199325884045
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 7.992,
+          "temperature_K": 298.2707381617901,
+          "water_number_density_nm3": 32.947373918043425,
+          "potential_kj_mol": -37473.7539907351
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.012,
+          "temperature_K": 298.44432426574974,
+          "water_number_density_nm3": 32.91677590251087,
+          "potential_kj_mol": -37512.89290371758
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 7.972,
+          "temperature_K": 298.19827719637055,
+          "water_number_density_nm3": 32.94339403494022,
+          "potential_kj_mol": -37508.77585598017
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.008,
+          "temperature_K": 298.3645384722649,
+          "water_number_density_nm3": 32.88817899518696,
+          "potential_kj_mol": -37473.01867064947
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.0,
+          "temperature_K": 298.0457401415415,
+          "water_number_density_nm3": 32.92897518569078,
+          "potential_kj_mol": -37511.17958853164
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.0,
+          "temperature_K": 298.01006806441836,
+          "water_number_density_nm3": 32.97236921426206,
+          "potential_kj_mol": -37531.344985177
+        }
+      ],
+      "case": "IOD_Ca_r2_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Ca_r2_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "IOD",
+      "ion": "Ca",
+      "replica": 3,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 877,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.245,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.2479609596837698,
+      "mean_CN": 7.999,
+      "mean_temperature_K": 298.1891844399406,
+      "mean_water_number_density_nm3": 32.93756492579881,
+      "mean_potential_kj_mol": -37504.710883243875,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.0135,
+        "8": 0.974,
+        "9": 0.0125
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.9895
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 7.999
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.0275
+        }
+      ],
+      "shell_identity_changed_intervals": 83,
+      "shell_identity_changed_interval_fraction": 0.0415207603801901,
+      "total_membership_flips": 96,
+      "distinct_waters_seen_in_shell": 50,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.011,
+          "second": 7.987,
+          "second_minus_first": -0.023999999999999133
+        },
+        "temperature_K": {
+          "first": 298.23320769875045,
+          "second": 298.1451611811308,
+          "second_minus_first": -0.08804651761965943
+        },
+        "water_number_density_nm3": {
+          "first": 32.92386494695367,
+          "second": 32.95126490464395,
+          "second_minus_first": 0.027399957690278143
+        },
+        "potential_kj_mol": {
+          "first": -37498.30157824442,
+          "second": -37511.12018824334,
+          "second_minus_first": -12.818609998917964
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.248050090338002,
+          "second": 0.24787156120235576
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.028,
+          "temperature_K": 298.1682628797511,
+          "water_number_density_nm3": 32.884110664926,
+          "potential_kj_mol": -37471.3492958588
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 7.996,
+          "temperature_K": 297.63440579915584,
+          "water_number_density_nm3": 33.00958334167315,
+          "potential_kj_mol": -37533.174576304766
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.0,
+          "temperature_K": 298.0568677651675,
+          "water_number_density_nm3": 32.88438810601181,
+          "potential_kj_mol": -37518.17825262666
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 299.07329435092737,
+          "water_number_density_nm3": 32.917377675203724,
+          "potential_kj_mol": -37470.50418818742
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 7.988,
+          "temperature_K": 297.20923652680165,
+          "water_number_density_nm3": 32.942730622976946,
+          "potential_kj_mol": -37512.00003785751
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 7.956,
+          "temperature_K": 299.20550306538314,
+          "water_number_density_nm3": 32.96795505509036,
+          "potential_kj_mol": -37506.97597846881
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.004,
+          "temperature_K": 298.1657373601298,
+          "water_number_density_nm3": 32.94461514315597,
+          "potential_kj_mol": -37503.779750757865
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.0,
+          "temperature_K": 298.0001677722084,
+          "water_number_density_nm3": 32.94975879735252,
+          "potential_kj_mol": -37521.72498588916
+        }
+      ],
+      "case": "IOD_Ca_r3_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Ca_r3_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "IOD",
+      "ion": "Mg",
+      "replica": 1,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 879,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.20700000000000002,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20857615425561865,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.46076803816504,
+      "mean_water_number_density_nm3": 32.94856858506019,
+      "mean_potential_kj_mol": -37830.27956957053,
+      "chloride_contact_fraction_lt_0p4nm": 0.0015,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.42527441857686,
+          "second": 298.49626165775334,
+          "second_minus_first": 0.07098723917647476
+        },
+        "water_number_density_nm3": {
+          "first": 32.95717224256923,
+          "second": 32.939964927551145,
+          "second_minus_first": -0.01720731501808359
+        },
+        "potential_kj_mol": {
+          "first": -37827.27377483043,
+          "second": -37833.28536431063,
+          "second_minus_first": -6.0115894802002
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20858933186531067,
+          "second": 0.20856297664592663
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.00848694028423,
+          "water_number_density_nm3": 32.94893857179067,
+          "potential_kj_mol": -37830.5780778807
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.86916392311736,
+          "water_number_density_nm3": 32.96104588930717,
+          "potential_kj_mol": -37827.876362988696
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.14650471594945,
+          "water_number_density_nm3": 32.93851170480759,
+          "potential_kj_mol": -37795.32704049504
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.6769420949563,
+          "water_number_density_nm3": 32.980192804371484,
+          "potential_kj_mol": -37855.31361795733
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.34205470038467,
+          "water_number_density_nm3": 32.929891435294614,
+          "potential_kj_mol": -37804.633666050526
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.38742874052423,
+          "water_number_density_nm3": 32.917602294292905,
+          "potential_kj_mol": -37826.173456538854
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.3026770178371,
+          "water_number_density_nm3": 32.98029562731816,
+          "potential_kj_mol": -37844.33299318803
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.95288617226726,
+          "water_number_density_nm3": 32.93207035329891,
+          "potential_kj_mol": -37858.00134146512
+        }
+      ],
+      "case": "IOD_Mg_r1_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Mg_r1_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "IOD",
+      "ion": "Mg",
+      "replica": 2,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 879,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.20700000000000002,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.2086360593450566,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.520355289605,
+      "mean_water_number_density_nm3": 32.943278221087766,
+      "mean_potential_kj_mol": -37832.3627978161,
+      "chloride_contact_fraction_lt_0p4nm": 0.003,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.3730912099301,
+          "second": 298.6676193692798,
+          "second_minus_first": 0.2945281593496816
+        },
+        "water_number_density_nm3": {
+          "first": 32.9522102535592,
+          "second": 32.93434618861633,
+          "second_minus_first": -0.017864064942870073
+        },
+        "potential_kj_mol": {
+          "first": -37836.9762318024,
+          "second": -37827.749363829804,
+          "second_minus_first": 9.226867972596665
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2086557710344593,
+          "second": 0.20861634765565396
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.021392236094,
+          "water_number_density_nm3": 32.89797566738655,
+          "potential_kj_mol": -37847.809697235
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.99053736428533,
+          "water_number_density_nm3": 32.93663015308687,
+          "potential_kj_mol": -37841.15179721135
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.40689082595986,
+          "water_number_density_nm3": 33.006605002230806,
+          "potential_kj_mol": -37854.716118954035
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.0735444133816,
+          "water_number_density_nm3": 32.96763019153259,
+          "potential_kj_mol": -37804.227313809235
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.902080432015,
+          "water_number_density_nm3": 32.95535764980778,
+          "potential_kj_mol": -37851.986442914946
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.3614722514633,
+          "water_number_density_nm3": 32.88838345693574,
+          "potential_kj_mol": -37806.974879087924
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.57760125965916,
+          "water_number_density_nm3": 32.95311721195125,
+          "potential_kj_mol": -37836.187482438254
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.8293235339818,
+          "water_number_density_nm3": 32.94052643577054,
+          "potential_kj_mol": -37815.84865087811
+        }
+      ],
+      "case": "IOD_Mg_r2_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Mg_r2_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "hydration",
+      "model": "IOD",
+      "ion": "Mg",
+      "replica": 3,
+      "initial_state": "hydrated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 879,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.20700000000000002,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20862366261457405,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.58080807302986,
+      "mean_water_number_density_nm3": 32.92640917557716,
+      "mean_potential_kj_mol": -37816.283464515436,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0005
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.7409070566789,
+          "second": 298.42070908938086,
+          "second_minus_first": -0.32019796729804284
+        },
+        "water_number_density_nm3": {
+          "first": 32.919997444020154,
+          "second": 32.932820907134186,
+          "second_minus_first": 0.012823463114031597
+        },
+        "potential_kj_mol": {
+          "first": -37809.1756963371,
+          "second": -37823.391232693764,
+          "second_minus_first": -14.215536356663506
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20857910016427436,
+          "second": 0.2086682250648737
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.32872517033394,
+          "water_number_density_nm3": 32.9258176855999,
+          "potential_kj_mol": -37809.78142348974
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.8878012666429,
+          "water_number_density_nm3": 32.923825736626156,
+          "potential_kj_mol": -37806.83906976561
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.3182981551665,
+          "water_number_density_nm3": 32.860161774737165,
+          "potential_kj_mol": -37799.068073796676
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.42880363457243,
+          "water_number_density_nm3": 32.970184579117415,
+          "potential_kj_mol": -37821.01421829642
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.7107680500287,
+          "water_number_density_nm3": 32.969004614089016,
+          "potential_kj_mol": -37843.736470120755
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.47433874327936,
+          "water_number_density_nm3": 32.85958057092746,
+          "potential_kj_mol": -37804.55598003714
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.85868788390326,
+          "water_number_density_nm3": 32.94573999481282,
+          "potential_kj_mol": -37818.22944278459
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.639041680312,
+          "water_number_density_nm3": 32.95695844870745,
+          "potential_kj_mol": -37827.043037832525
+        }
+      ],
+      "case": "IOD_Mg_r3_hydrated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Mg_r3_hydrated\\metadata.json"
+    }
+  ],
+  "hydration_group_summaries": [
+    {
+      "ion": "Mg",
+      "model": "CM",
+      "replicas": 3,
+      "rdf_peak_nm_mean": 0.20299999999999999,
+      "rdf_peak_nm_SD": 3.3993498887762956e-17,
+      "mean_shell_distance_nm_mean": 0.20426934431120755,
+      "mean_shell_distance_nm_SD": 3.085360845037247e-05,
+      "mean_CN_mean": 6.0,
+      "mean_CN_SD": 0.0,
+      "shell_identity_changed_interval_fraction_mean": 0.0,
+      "shell_identity_changed_interval_fraction_SD": 0.0,
+      "chloride_contact_fraction_lt_0p4nm_mean": 0.0036666666666666666,
+      "chloride_contact_fraction_lt_0p4nm_SD": 0.003013856886670854
+    },
+    {
+      "ion": "Mg",
+      "model": "IOD",
+      "replicas": 3,
+      "rdf_peak_nm_mean": 0.207,
+      "rdf_peak_nm_SD": 3.3993498887762956e-17,
+      "mean_shell_distance_nm_mean": 0.20861195873841645,
+      "mean_shell_distance_nm_SD": 3.162104477997055e-05,
+      "mean_CN_mean": 6.0,
+      "mean_CN_SD": 0.0,
+      "shell_identity_changed_interval_fraction_mean": 0.0,
+      "shell_identity_changed_interval_fraction_SD": 0.0,
+      "chloride_contact_fraction_lt_0p4nm_mean": 0.0015000000000000002,
+      "chloride_contact_fraction_lt_0p4nm_SD": 0.0015000000000000002
+    },
+    {
+      "ion": "Ca",
+      "model": "CM",
+      "replicas": 3,
+      "rdf_peak_nm_mean": 0.24833333333333332,
+      "rdf_peak_nm_SD": 0.0011547005383792527,
+      "mean_shell_distance_nm_mean": 0.2525304945732081,
+      "mean_shell_distance_nm_SD": 0.00011876693198053014,
+      "mean_CN_mean": 8.042,
+      "mean_CN_SD": 0.009041570660012904,
+      "shell_identity_changed_interval_fraction_mean": 0.0705352676338169,
+      "shell_identity_changed_interval_fraction_SD": 0.009841078325615807,
+      "chloride_contact_fraction_lt_0p4nm_mean": 0.0,
+      "chloride_contact_fraction_lt_0p4nm_SD": 0.0
+    },
+    {
+      "ion": "Ca",
+      "model": "IOD",
+      "replicas": 3,
+      "rdf_peak_nm_mean": 0.24433333333333332,
+      "rdf_peak_nm_SD": 0.0011547005383792527,
+      "mean_shell_distance_nm_mean": 0.24793241994029466,
+      "mean_shell_distance_nm_SD": 6.450209964761145e-05,
+      "mean_CN_mean": 8.0025,
+      "mean_CN_SD": 0.009260129588726138,
+      "shell_identity_changed_interval_fraction_mean": 0.04085376021344005,
+      "shell_identity_changed_interval_fraction_SD": 0.0035490739792884396,
+      "chloride_contact_fraction_lt_0p4nm_mean": 0.0,
+      "chloride_contact_fraction_lt_0p4nm_SD": 0.0
+    }
+  ]
+}
