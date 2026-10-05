@@ -125,6 +125,10 @@ def verify_case(path, campaign, identity, protocol):
     require(np.isclose(epsilon.value_in_unit(unit.kilojoule_per_mole), 4.184 * parameter["epsilon_kcal_mol"], rtol=1e-10), "Cation epsilon differs")
     require(meta["degrees_of_freedom"] == 3 * system.getNumParticles() - system.getNumConstraints() - 3, "Temperature degrees of freedom differ")
     final = app.PDBFile(str(directory / "final.pdb"))
+    correction = meta.get("final_pdb_box_correction")
+    if correction:
+        verify_hash(directory / "final.pdb", correction["corrected_pdb_sha256"])
+        require(correction["source_samples_sha256"] == meta["samples_sha256"], "PDB correction references different samples")
     final_vectors = np.asarray(final.topology.getPeriodicBoxVectors().value_in_unit(unit.nanometer))
     require(np.allclose(final_vectors, np.eye(3) * last_box, atol=6e-5, rtol=0), "Final PDB box differs from final NPT sample")
     require(len(list(final.topology.atoms())) == len(atoms), "Final PDB atom count differs")

@@ -55,6 +55,22 @@
   equilibrium exchange or the still-pending CM/IOD comparison. Its final PDB
   header received the same provenance-recorded correction.
 
+## 6 October 2026
+
+- Completed and audited CM/Mg replica 3 (141.3 ns/day), including the documented
+  final-PDB correction. All three CM/Mg replicas now have their planned 2000
+  production frames. Their RDF peaks are all 0.203 nm and water CN is 6.0.
+  The pooled in-shell distance, averaged across replicas, is
+  0.204269 +/- 0.000031 nm (sample SD); mean temperature is
+  298.40 +/- 0.13 K. Outer RDF averages over 0.8-0.9 nm span 1.00545-1.00759.
+  No saved-frame shell membership changes were observed in these three runs;
+  local repeatability does not resolve slow exchange or establish equilibrium.
+- Runtime inspection found concurrent interactive GPU use. No other process or
+  hardware setting was changed. Report timing is consequently described as
+  observed workflow throughput rather than isolated hardware performance.
+- Extended the existing audit to verify recorded corrected-PDB hashes against
+  their referenced sample hashes. Confirmed Git preserves those PDB bytes.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
