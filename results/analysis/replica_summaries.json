@@ -1716,6 +1716,3562 @@
       ],
       "case": "IOD_Mg_r3_hydrated",
       "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Mg_r3_hydrated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Ca",
+      "replica": 1,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 869,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.251,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.2523750294477566,
+      "mean_CN": 7.0465,
+      "mean_temperature_K": 298.43848510545547,
+      "mean_water_number_density_nm3": 32.80825715457601,
+      "mean_potential_kj_mol": -37398.449200128794,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 0.001,
+        "7": 0.9515,
+        "8": 0.0475
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.037
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 7.0465
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 7.0685
+        }
+      ],
+      "shell_identity_changed_intervals": 112,
+      "shell_identity_changed_interval_fraction": 0.0560280140070035,
+      "total_membership_flips": 114,
+      "distinct_waters_seen_in_shell": 54,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 7.044,
+          "second": 7.049,
+          "second_minus_first": 0.005000000000000782
+        },
+        "temperature_K": {
+          "first": 298.24912972929314,
+          "second": 298.62784048161774,
+          "second_minus_first": 0.3787107523245936
+        },
+        "water_number_density_nm3": {
+          "first": 32.79895076212589,
+          "second": 32.81756354702615,
+          "second_minus_first": 0.018612784900255974
+        },
+        "potential_kj_mol": {
+          "first": -37390.56498890093,
+          "second": -37406.33341135665,
+          "second_minus_first": -15.76842245572334
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2524106878319767,
+          "second": 0.2523393963567584
+        },
+        "amide_distance_nm": {
+          "first": 0.24769080558360493,
+          "second": 0.24734952125098034
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 7.028,
+          "temperature_K": 298.47937586345114,
+          "water_number_density_nm3": 32.82615901271833,
+          "potential_kj_mol": -37396.520018801835
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 7.02,
+          "temperature_K": 298.5255516789813,
+          "water_number_density_nm3": 32.803336612449066,
+          "potential_kj_mol": -37385.808535710545
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 7.076,
+          "temperature_K": 297.7989889386231,
+          "water_number_density_nm3": 32.7931717856892,
+          "potential_kj_mol": -37390.38960649084
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 7.052,
+          "temperature_K": 298.1926024361173,
+          "water_number_density_nm3": 32.773135637646966,
+          "potential_kj_mol": -37389.5417946005
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 7.052,
+          "temperature_K": 299.2242078089651,
+          "water_number_density_nm3": 32.82293351279796,
+          "potential_kj_mol": -37393.777592560706
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 7.012,
+          "temperature_K": 298.8860547185421,
+          "water_number_density_nm3": 32.82560643949961,
+          "potential_kj_mol": -37408.134604961204
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 7.06,
+          "temperature_K": 298.168519153888,
+          "water_number_density_nm3": 32.80489576230834,
+          "potential_kj_mol": -37398.14597643889
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 7.072,
+          "temperature_K": 298.23258024507584,
+          "water_number_density_nm3": 32.8168184734987,
+          "potential_kj_mol": -37425.275471465786
+        }
+      ],
+      "mean_amide_distance_nm": 0.24752016341729263,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.999,
+      "case": "CM_Ca_r1_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r1_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Ca",
+      "replica": 1,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 864,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.249,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.2524256067280155,
+      "mean_CN": 8.0355,
+      "mean_temperature_K": 298.1738001955461,
+      "mean_water_number_density_nm3": 32.82019623944992,
+      "mean_potential_kj_mol": -37218.2646029838,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.001,
+        "8": 0.9625,
+        "9": 0.0365
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 8.025
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.0355
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.0625
+        }
+      ],
+      "shell_identity_changed_intervals": 113,
+      "shell_identity_changed_interval_fraction": 0.05652826413206603,
+      "total_membership_flips": 122,
+      "distinct_waters_seen_in_shell": 65,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.03,
+          "second": 8.041,
+          "second_minus_first": 0.011000000000001009
+        },
+        "temperature_K": {
+          "first": 297.9926150106025,
+          "second": 298.3549853804897,
+          "second_minus_first": 0.3623703698872305
+        },
+        "water_number_density_nm3": {
+          "first": 32.80711641681165,
+          "second": 32.83327606208819,
+          "second_minus_first": 0.026159645276536025
+        },
+        "potential_kj_mol": {
+          "first": -37221.39205129935,
+          "second": -37215.13715466826,
+          "second_minus_first": 6.254896631093288
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.25233863941573564,
+          "second": 0.2525124550699639
+        },
+        "amide_distance_nm": {
+          "first": 1.3237973755040329,
+          "second": 1.388005776732607
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.024,
+          "temperature_K": 298.16441128898504,
+          "water_number_density_nm3": 32.805714798220606,
+          "potential_kj_mol": -37215.34347233114
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 8.04,
+          "temperature_K": 297.76040992112735,
+          "water_number_density_nm3": 32.83381979457692,
+          "potential_kj_mol": -37228.735891963704
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.036,
+          "temperature_K": 298.17499539605933,
+          "water_number_density_nm3": 32.788488675150205,
+          "potential_kj_mol": -37226.938430035705
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 297.8706434362384,
+          "water_number_density_nm3": 32.80044239929886,
+          "potential_kj_mol": -37214.55041086687
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.032,
+          "temperature_K": 298.62117453711585,
+          "water_number_density_nm3": 32.80263509706812,
+          "potential_kj_mol": -37249.62336172441
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.06,
+          "temperature_K": 298.3397433140753,
+          "water_number_density_nm3": 32.84271465766545,
+          "potential_kj_mol": -37219.499874029054
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.044,
+          "temperature_K": 298.45272947707025,
+          "water_number_density_nm3": 32.837605298762554,
+          "potential_kj_mol": -37188.81689796674
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.028,
+          "temperature_K": 298.00629419369756,
+          "water_number_density_nm3": 32.85014919485663,
+          "potential_kj_mol": -37202.60848495282
+        }
+      ],
+      "mean_amide_distance_nm": 1.35590157611832,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "CM_Ca_r1_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r1_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Ca",
+      "replica": 2,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 869,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.249,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.25240355532954195,
+      "mean_CN": 7.201,
+      "mean_temperature_K": 298.3081499350327,
+      "mean_water_number_density_nm3": 32.79638963225372,
+      "mean_potential_kj_mol": -37407.361457017294,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 0.0005,
+        "7": 0.808,
+        "8": 0.1815,
+        "9": 0.01
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.191
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 7.201
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 7.226
+        }
+      ],
+      "shell_identity_changed_intervals": 111,
+      "shell_identity_changed_interval_fraction": 0.05552776388194097,
+      "total_membership_flips": 117,
+      "distinct_waters_seen_in_shell": 61,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 7.023,
+          "second": 7.379,
+          "second_minus_first": 0.35599999999999987
+        },
+        "temperature_K": {
+          "first": 298.6149903233391,
+          "second": 298.00130954672636,
+          "second_minus_first": -0.613680776612739
+        },
+        "water_number_density_nm3": {
+          "first": 32.7816519030222,
+          "second": 32.81112736148523,
+          "second_minus_first": 0.02947545846302546
+        },
+        "potential_kj_mol": {
+          "first": -37392.568181988776,
+          "second": -37422.15473204581,
+          "second_minus_first": -29.58655005703622
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2522855091770541,
+          "second": 0.25251590634308335
+        },
+        "amide_distance_nm": {
+          "first": 0.24712742885569633,
+          "second": 0.5324911671855543
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 7.02,
+          "temperature_K": 298.806461137425,
+          "water_number_density_nm3": 32.80079533703096,
+          "potential_kj_mol": -37393.27076699859
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 7.028,
+          "temperature_K": 298.31338242286165,
+          "water_number_density_nm3": 32.7693643033529,
+          "potential_kj_mol": -37402.60253986697
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 7.032,
+          "temperature_K": 298.9351187875613,
+          "water_number_density_nm3": 32.80879796002005,
+          "potential_kj_mol": -37379.54388683503
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 7.012,
+          "temperature_K": 298.4049989455085,
+          "water_number_density_nm3": 32.747650011684904,
+          "potential_kj_mol": -37394.8555342545
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 7.04,
+          "temperature_K": 297.6531352425508,
+          "water_number_density_nm3": 32.79278405822198,
+          "potential_kj_mol": -37418.734993534345
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 7.064,
+          "temperature_K": 298.1254248791392,
+          "water_number_density_nm3": 32.84370357647542,
+          "potential_kj_mol": -37423.796743443534
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 7.352,
+          "temperature_K": 297.91236229425226,
+          "water_number_density_nm3": 32.774945360332474,
+          "potential_kj_mol": -37406.28926114198
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.06,
+          "temperature_K": 298.3143157709633,
+          "water_number_density_nm3": 32.83307645091101,
+          "potential_kj_mol": -37439.7979300634
+        }
+      ],
+      "mean_amide_distance_nm": 0.3898092980206253,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.842,
+      "case": "CM_Ca_r2_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r2_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Ca",
+      "replica": 2,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 864,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.249,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.25250269941207065,
+      "mean_CN": 8.0435,
+      "mean_temperature_K": 298.48661219052997,
+      "mean_water_number_density_nm3": 32.812536722150796,
+      "mean_potential_kj_mol": -37208.592886504,
+      "chloride_contact_fraction_lt_0p4nm": 0.0005,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.003,
+        "8": 0.9505,
+        "9": 0.0465
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 8.0295
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.0435
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.076
+        }
+      ],
+      "shell_identity_changed_intervals": 138,
+      "shell_identity_changed_interval_fraction": 0.06903451725862932,
+      "total_membership_flips": 152,
+      "distinct_waters_seen_in_shell": 79,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.039,
+          "second": 8.048,
+          "second_minus_first": 0.009000000000000341
+        },
+        "temperature_K": {
+          "first": 298.6960284281009,
+          "second": 298.2771959529591,
+          "second_minus_first": -0.41883247514175537
+        },
+        "water_number_density_nm3": {
+          "first": 32.82435962095935,
+          "second": 32.80071382334224,
+          "second_minus_first": -0.023645797617106723
+        },
+        "potential_kj_mol": {
+          "first": -37204.27775358684,
+          "second": -37212.90801942115,
+          "second_minus_first": -8.630265834312013
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.25247714395383086,
+          "second": 0.2525282262918904
+        },
+        "amide_distance_nm": {
+          "first": 1.3914425600359075,
+          "second": 1.6468406058284295
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.044,
+          "temperature_K": 298.6936181799001,
+          "water_number_density_nm3": 32.84597623320253,
+          "potential_kj_mol": -37194.37467648588
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 8.068,
+          "temperature_K": 298.13890208933987,
+          "water_number_density_nm3": 32.80754369714049,
+          "potential_kj_mol": -37235.685077247545
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.028,
+          "temperature_K": 299.0848089464949,
+          "water_number_density_nm3": 32.83286280034816,
+          "potential_kj_mol": -37178.17754920724
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.016,
+          "temperature_K": 298.86678449666863,
+          "water_number_density_nm3": 32.811055753146256,
+          "potential_kj_mol": -37208.873711406675
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 299.15564434738934,
+          "water_number_density_nm3": 32.76244068129331,
+          "potential_kj_mol": -37175.54613322522
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.084,
+          "temperature_K": 298.111645566731,
+          "water_number_density_nm3": 32.8008858143896,
+          "potential_kj_mol": -37201.313511867775
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.04,
+          "temperature_K": 297.7897510630081,
+          "water_number_density_nm3": 32.819950943193355,
+          "potential_kj_mol": -37235.85627275048
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.048,
+          "temperature_K": 298.0517428347081,
+          "water_number_density_nm3": 32.819577854492714,
+          "potential_kj_mol": -37238.91615984112
+        }
+      ],
+      "mean_amide_distance_nm": 1.5191415829321686,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "CM_Ca_r2_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r2_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Ca",
+      "replica": 3,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 869,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.249,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.2525056189352222,
+      "mean_CN": 7.8965,
+      "mean_temperature_K": 298.6643451037432,
+      "mean_water_number_density_nm3": 32.81389508227993,
+      "mean_potential_kj_mol": -37399.87144638233,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.145,
+        "8": 0.8135,
+        "9": 0.0415
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.884
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 7.8965
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 7.9275
+        }
+      ],
+      "shell_identity_changed_intervals": 135,
+      "shell_identity_changed_interval_fraction": 0.06753376688344172,
+      "total_membership_flips": 143,
+      "distinct_waters_seen_in_shell": 70,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 7.74,
+          "second": 8.053,
+          "second_minus_first": 0.3130000000000006
+        },
+        "temperature_K": {
+          "first": 298.66424043799867,
+          "second": 298.6644497694877,
+          "second_minus_first": 0.0002093314890316833
+        },
+        "water_number_density_nm3": {
+          "first": 32.820883242852474,
+          "second": 32.80690692170739,
+          "second_minus_first": -0.013976321145086956
+        },
+        "potential_kj_mol": {
+          "first": -37401.09598616393,
+          "second": -37398.64690660073,
+          "second_minus_first": 2.4490795632009394
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.25243124977639786,
+          "second": 0.2525770975505582
+        },
+        "amide_distance_nm": {
+          "first": 1.0233471111194472,
+          "second": 1.6442465584445143
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 7.04,
+          "temperature_K": 298.6036047013916,
+          "water_number_density_nm3": 32.855371966448686,
+          "potential_kj_mol": -37432.58620994316
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 7.824,
+          "temperature_K": 298.6796423255463,
+          "water_number_density_nm3": 32.80598091784099,
+          "potential_kj_mol": -37385.57169608906
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.04,
+          "temperature_K": 298.45149488642323,
+          "water_number_density_nm3": 32.817430426334916,
+          "potential_kj_mol": -37393.898023730544
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.056,
+          "temperature_K": 298.92221983863374,
+          "water_number_density_nm3": 32.804749660785326,
+          "potential_kj_mol": -37392.32801489293
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.044,
+          "temperature_K": 298.89749341213275,
+          "water_number_density_nm3": 32.83582955819504,
+          "potential_kj_mol": -37413.36862147783
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.06,
+          "temperature_K": 298.63282190333865,
+          "water_number_density_nm3": 32.78583177636346,
+          "potential_kj_mol": -37393.34614851712
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.04,
+          "temperature_K": 298.31178292851627,
+          "water_number_density_nm3": 32.83317761591993,
+          "potential_kj_mol": -37408.36065565507
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.068,
+          "temperature_K": 298.8157008339632,
+          "water_number_density_nm3": 32.7727887363511,
+          "potential_kj_mol": -37379.512200752884
+        }
+      ],
+      "mean_amide_distance_nm": 1.3337968347819806,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.1485,
+      "case": "CM_Ca_r3_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r3_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Ca",
+      "replica": 3,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 864,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.249,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.2525410081886674,
+      "mean_CN": 8.0425,
+      "mean_temperature_K": 298.7582496137862,
+      "mean_water_number_density_nm3": 32.813776503512635,
+      "mean_potential_kj_mol": -37202.587080344005,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.003,
+        "8": 0.9515,
+        "9": 0.0455
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 8.03
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.0425
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.0675
+        }
+      ],
+      "shell_identity_changed_intervals": 137,
+      "shell_identity_changed_interval_fraction": 0.06853426713356678,
+      "total_membership_flips": 148,
+      "distinct_waters_seen_in_shell": 75,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.047,
+          "second": 8.038,
+          "second_minus_first": -0.009000000000000341
+        },
+        "temperature_K": {
+          "first": 298.93496504584505,
+          "second": 298.5815341817273,
+          "second_minus_first": -0.3534308641177404
+        },
+        "water_number_density_nm3": {
+          "first": 32.82406154606015,
+          "second": 32.803491460965134,
+          "second_minus_first": -0.020570085095016566
+        },
+        "potential_kj_mol": {
+          "first": -37193.67880014289,
+          "second": -37211.49536054513,
+          "second_minus_first": -17.81656040224334
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2526209225110331,
+          "second": 0.25246100438771246
+        },
+        "amide_distance_nm": {
+          "first": 1.4963501542014888,
+          "second": 1.2064259095259786
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.056,
+          "temperature_K": 298.9648275624163,
+          "water_number_density_nm3": 32.82278904239711,
+          "potential_kj_mol": -37178.0119218193
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 8.028,
+          "temperature_K": 298.67686460048867,
+          "water_number_density_nm3": 32.82462410458438,
+          "potential_kj_mol": -37201.16368352492
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.04,
+          "temperature_K": 299.6543714821563,
+          "water_number_density_nm3": 32.81196250164288,
+          "potential_kj_mol": -37182.919116018245
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.064,
+          "temperature_K": 298.4437965383188,
+          "water_number_density_nm3": 32.83687053561623,
+          "potential_kj_mol": -37212.62047920905
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.024,
+          "temperature_K": 298.5091794306494,
+          "water_number_density_nm3": 32.8012422755892,
+          "potential_kj_mol": -37218.39499079698
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.056,
+          "temperature_K": 298.29549465616174,
+          "water_number_density_nm3": 32.78087230354543,
+          "potential_kj_mol": -37202.3524229424
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 298.96965433591373,
+          "water_number_density_nm3": 32.78899458463686,
+          "potential_kj_mol": -37209.62943351391
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.052,
+          "temperature_K": 298.55180830418465,
+          "water_number_density_nm3": 32.84285668008902,
+          "potential_kj_mol": -37215.60459492723
+        }
+      ],
+      "mean_amide_distance_nm": 1.3513880318637337,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "CM_Ca_r3_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r3_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Mg",
+      "replica": 1,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 870,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.203,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.2039161160841584,
+      "mean_CN": 5.0,
+      "mean_temperature_K": 298.45485178601496,
+      "mean_water_number_density_nm3": 32.83006909081312,
+      "mean_potential_kj_mol": -37789.64678767997,
+      "chloride_contact_fraction_lt_0p4nm": 0.001,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "5": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 5.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 5,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 5.0,
+          "second": 5.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.616196584046,
+          "second": 298.29350698798396,
+          "second_minus_first": -0.32268959606204817
+        },
+        "water_number_density_nm3": {
+          "first": 32.82404671986369,
+          "second": 32.836091461762564,
+          "second_minus_first": 0.012044741898876055
+        },
+        "potential_kj_mol": {
+          "first": -37791.6007998576,
+          "second": -37787.69277550234,
+          "second_minus_first": 3.9080243552598404
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20395536203384398,
+          "second": 0.20387687013447284
+        },
+        "amide_distance_nm": {
+          "first": 0.20081245312656912,
+          "second": 0.2007488130042842
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 299.9391154392908,
+          "water_number_density_nm3": 32.83058781898001,
+          "potential_kj_mol": -37752.47280976971
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 299.0727376091475,
+          "water_number_density_nm3": 32.75231548469187,
+          "potential_kj_mol": -37760.19877640136
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.9383522981275,
+          "water_number_density_nm3": 32.86674536767296,
+          "potential_kj_mol": -37844.305201574956
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.5145809896183,
+          "water_number_density_nm3": 32.84653820810992,
+          "potential_kj_mol": -37809.42641168439
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.0206281028247,
+          "water_number_density_nm3": 32.8465620442114,
+          "potential_kj_mol": -37776.011291992436
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.5217773628621,
+          "water_number_density_nm3": 32.83360882457556,
+          "potential_kj_mol": -37786.33673160394
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.45372966947303,
+          "water_number_density_nm3": 32.81798766511282,
+          "potential_kj_mol": -37782.57378772362
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.1778928167761,
+          "water_number_density_nm3": 32.84620731315046,
+          "potential_kj_mol": -37805.84929068939
+        }
+      ],
+      "mean_amide_distance_nm": 0.20078063306542668,
+      "amide_fraction_within_diagnostic_water_cutoff": 1.0,
+      "case": "CM_Mg_r1_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r1_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Mg",
+      "replica": 1,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 866,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.201,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20426011131082972,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.43455930219756,
+      "mean_water_number_density_nm3": 32.82644317250176,
+      "mean_potential_kj_mol": -37624.21154105072,
+      "chloride_contact_fraction_lt_0p4nm": 0.0005,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.3489724566812,
+          "second": 298.5201461477139,
+          "second_minus_first": 0.17117369103266356
+        },
+        "water_number_density_nm3": {
+          "first": 32.80512701101709,
+          "second": 32.84775933398643,
+          "second_minus_first": 0.0426323229693395
+        },
+        "potential_kj_mol": {
+          "first": -37605.45447902021,
+          "second": -37642.96860308121,
+          "second_minus_first": -37.51412406099553
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20430902554591496,
+          "second": 0.20421119707574448
+        },
+        "amide_distance_nm": {
+          "first": 1.4720177543474888,
+          "second": 1.4561517955214927
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.241712384424,
+          "water_number_density_nm3": 32.7932020355653,
+          "potential_kj_mol": -37590.17038288118
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.5058568175694,
+          "water_number_density_nm3": 32.841181990301315,
+          "potential_kj_mol": -37619.10119996059
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.0008973066476,
+          "water_number_density_nm3": 32.82347270693811,
+          "potential_kj_mol": -37628.36479116246
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.6474233180841,
+          "water_number_density_nm3": 32.762651311263646,
+          "potential_kj_mol": -37584.18154207664
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.0806462007167,
+          "water_number_density_nm3": 32.86438588007287,
+          "potential_kj_mol": -37625.4457306433
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.5894658291652,
+          "water_number_density_nm3": 32.808441905677476,
+          "potential_kj_mol": -37648.76512765207
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.6803243739422,
+          "water_number_density_nm3": 32.86977999647424,
+          "potential_kj_mol": -37648.53802158359
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.7301481870314,
+          "water_number_density_nm3": 32.84842955372113,
+          "potential_kj_mol": -37649.12553244588
+        }
+      ],
+      "mean_amide_distance_nm": 1.4640847749344907,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "CM_Mg_r1_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r1_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Mg",
+      "replica": 2,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 870,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.201,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20389582550823687,
+      "mean_CN": 5.0,
+      "mean_temperature_K": 298.54827717871154,
+      "mean_water_number_density_nm3": 32.7976117954138,
+      "mean_potential_kj_mol": -37786.423598682224,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "5": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 5.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 5,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 5.0,
+          "second": 5.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.71597508171794,
+          "second": 298.38057927570514,
+          "second_minus_first": -0.33539580601279795
+        },
+        "water_number_density_nm3": {
+          "first": 32.793983833908975,
+          "second": 32.80123975691862,
+          "second_minus_first": 0.007255923009644505
+        },
+        "potential_kj_mol": {
+          "first": -37776.455631060555,
+          "second": -37796.391566303886,
+          "second_minus_first": -19.935935243331187
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20394118188619614,
+          "second": 0.20385046913027763
+        },
+        "amide_distance_nm": {
+          "first": 0.20086166652923776,
+          "second": 0.20099732145974847
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.30996841932273,
+          "water_number_density_nm3": 32.82071423755081,
+          "potential_kj_mol": -37800.649425373296
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 299.03080668993584,
+          "water_number_density_nm3": 32.79235097023438,
+          "potential_kj_mol": -37753.35639537787
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 299.0781619853257,
+          "water_number_density_nm3": 32.81657228188965,
+          "potential_kj_mol": -37776.88380004434
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.4449632322874,
+          "water_number_density_nm3": 32.74629784596106,
+          "potential_kj_mol": -37774.93290344671
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.83149227852584,
+          "water_number_density_nm3": 32.745913107643894,
+          "potential_kj_mol": -37790.84992122391
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 299.09305899132914,
+          "water_number_density_nm3": 32.825242493854496,
+          "potential_kj_mol": -37796.53810768495
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.9618148450055,
+          "water_number_density_nm3": 32.777466817522715,
+          "potential_kj_mol": -37771.58147692968
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.63595098795986,
+          "water_number_density_nm3": 32.856336608653386,
+          "potential_kj_mol": -37826.59675937699
+        }
+      ],
+      "mean_amide_distance_nm": 0.2009294939944931,
+      "amide_fraction_within_diagnostic_water_cutoff": 1.0,
+      "case": "CM_Mg_r2_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r2_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Mg",
+      "replica": 2,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 866,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.203,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20425860020890832,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.4282391993456,
+      "mean_water_number_density_nm3": 32.84292073277989,
+      "mean_potential_kj_mol": -37633.42665476425,
+      "chloride_contact_fraction_lt_0p4nm": 0.0005,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.3228178227361,
+          "second": 298.5336605759552,
+          "second_minus_first": 0.21084275321908308
+        },
+        "water_number_density_nm3": {
+          "first": 32.85697441362294,
+          "second": 32.82886705193683,
+          "second_minus_first": -0.02810736168611072
+        },
+        "potential_kj_mol": {
+          "first": -37644.75269149639,
+          "second": -37622.100618032106,
+          "second_minus_first": 22.652073464283603
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2042095654855172,
+          "second": 0.20430763493229945
+        },
+        "amide_distance_nm": {
+          "first": 1.4487823443853705,
+          "second": 1.2977921750006762
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.4886164241705,
+          "water_number_density_nm3": 32.88517941339243,
+          "potential_kj_mol": -37646.231555881976
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.39174174752713,
+          "water_number_density_nm3": 32.85730565692641,
+          "potential_kj_mol": -37648.13143573357
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.22707199508847,
+          "water_number_density_nm3": 32.82861359446394,
+          "potential_kj_mol": -37639.61386596969
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.1838411241583,
+          "water_number_density_nm3": 32.85679898970898,
+          "potential_kj_mol": -37645.03390840032
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.9672558481194,
+          "water_number_density_nm3": 32.81000859816988,
+          "potential_kj_mol": -37615.09300194217
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.0913606382401,
+          "water_number_density_nm3": 32.85531962143089,
+          "potential_kj_mol": -37638.52377363795
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.1701866269462,
+          "water_number_density_nm3": 32.82527335272496,
+          "potential_kj_mol": -37639.849155275166
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.9058391905152,
+          "water_number_density_nm3": 32.8248666354216,
+          "potential_kj_mol": -37594.936541273135
+        }
+      ],
+      "mean_amide_distance_nm": 1.3732872596930232,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "CM_Mg_r2_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r2_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Mg",
+      "replica": 3,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 870,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.203,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20390598099678756,
+      "mean_CN": 5.0,
+      "mean_temperature_K": 298.3858124876587,
+      "mean_water_number_density_nm3": 32.81320537457548,
+      "mean_potential_kj_mol": -37790.996763810515,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "5": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 5.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 5,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 5.0,
+          "second": 5.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.4063806487691,
+          "second": 298.3652443265483,
+          "second_minus_first": -0.041136322220779675
+        },
+        "water_number_density_nm3": {
+          "first": 32.820462106538024,
+          "second": 32.80594864261294,
+          "second_minus_first": -0.014513463925084125
+        },
+        "potential_kj_mol": {
+          "first": -37792.27138774521,
+          "second": -37789.72213987582,
+          "second_minus_first": 2.549247869392275
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20393207208514214,
+          "second": 0.20387988990843295
+        },
+        "amide_distance_nm": {
+          "first": 0.20073623549783307,
+          "second": 0.2008009971069589
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.5392853506996,
+          "water_number_density_nm3": 32.85216264865274,
+          "potential_kj_mol": -37783.392422883146
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.1979555607005,
+          "water_number_density_nm3": 32.77679915402319,
+          "potential_kj_mol": -37779.39907357775
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 299.2663995716631,
+          "water_number_density_nm3": 32.80185051917865,
+          "potential_kj_mol": -37796.692330824946
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.62188211201317,
+          "water_number_density_nm3": 32.85103610429752,
+          "potential_kj_mol": -37809.60172369501
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.0931026721083,
+          "water_number_density_nm3": 32.82067587389425,
+          "potential_kj_mol": -37802.02935348744
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.7945182417831,
+          "water_number_density_nm3": 32.79313130014715,
+          "potential_kj_mol": -37769.586683410525
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.2429093538265,
+          "water_number_density_nm3": 32.85089900772368,
+          "potential_kj_mol": -37824.57053398502
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.3304470384753,
+          "water_number_density_nm3": 32.75908838868667,
+          "potential_kj_mol": -37762.70198862031
+        }
+      ],
+      "mean_amide_distance_nm": 0.20076861630239598,
+      "amide_fraction_within_diagnostic_water_cutoff": 1.0,
+      "case": "CM_Mg_r3_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r3_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "CM",
+      "ion": "Mg",
+      "replica": 3,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 866,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.203,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20423252379645904,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.3361764523576,
+      "mean_water_number_density_nm3": 32.830386442663674,
+      "mean_potential_kj_mol": -37632.939689136016,
+      "chloride_contact_fraction_lt_0p4nm": 0.0015,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.3336535480149,
+          "second": 298.3386993567003,
+          "second_minus_first": 0.005045808685395059
+        },
+        "water_number_density_nm3": {
+          "first": 32.84249957189732,
+          "second": 32.81827331343001,
+          "second_minus_first": -0.024226258467308526
+        },
+        "potential_kj_mol": {
+          "first": -37634.688037414206,
+          "second": -37631.19134085782,
+          "second_minus_first": 3.496696556387178
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20424625284473102,
+          "second": 0.20421879474818708
+        },
+        "amide_distance_nm": {
+          "first": 1.4287275829951076,
+          "second": 1.4144017842003906
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.7681961786023,
+          "water_number_density_nm3": 32.80411015079555,
+          "potential_kj_mol": -37623.49326962423
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.7683354260997,
+          "water_number_density_nm3": 32.88803196239678,
+          "potential_kj_mol": -37657.72608458851
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.8860625366066,
+          "water_number_density_nm3": 32.817049099430484,
+          "potential_kj_mol": -37603.59065290792
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.91202005075104,
+          "water_number_density_nm3": 32.860807074966445,
+          "potential_kj_mol": -37653.94214253616
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.0185568807893,
+          "water_number_density_nm3": 32.82993697827511,
+          "potential_kj_mol": -37617.001799389676
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.7118180091801,
+          "water_number_density_nm3": 32.812427538275756,
+          "potential_kj_mol": -37618.32628443063
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.6159358717478,
+          "water_number_density_nm3": 32.79771860119068,
+          "potential_kj_mol": -37619.211868195074
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.0084866650841,
+          "water_number_density_nm3": 32.83301013597849,
+          "potential_kj_mol": -37670.22541141591
+        }
+      ],
+      "mean_amide_distance_nm": 1.4215646835977491,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "CM_Mg_r3_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r3_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Ca",
+      "replica": 1,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 869,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.243,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.24793422648937294,
+      "mean_CN": 7.99,
+      "mean_temperature_K": 298.3100893644176,
+      "mean_water_number_density_nm3": 32.83944163193632,
+      "mean_potential_kj_mol": -37457.87066674082,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 0.0005,
+        "7": 0.0225,
+        "8": 0.9635,
+        "9": 0.0135
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.982
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 7.99
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.016
+        }
+      ],
+      "shell_identity_changed_intervals": 80,
+      "shell_identity_changed_interval_fraction": 0.0400200100050025,
+      "total_membership_flips": 85,
+      "distinct_waters_seen_in_shell": 42,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 7.979,
+          "second": 8.001,
+          "second_minus_first": 0.021999999999999353
+        },
+        "temperature_K": {
+          "first": 298.1425543910454,
+          "second": 298.47762433778973,
+          "second_minus_first": 0.33506994674434054
+        },
+        "water_number_density_nm3": {
+          "first": 32.8207009234667,
+          "second": 32.858182340405925,
+          "second_minus_first": 0.037481416939222356
+        },
+        "potential_kj_mol": {
+          "first": -37456.24701955289,
+          "second": -37459.49431392875,
+          "second_minus_first": -3.2472943758621113
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2479253279724311,
+          "second": 0.24794310053845164
+        },
+        "amide_distance_nm": {
+          "first": 1.5154099588596759,
+          "second": 1.3427291073013408
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 7.952,
+          "temperature_K": 298.31850402765656,
+          "water_number_density_nm3": 32.761340651379754,
+          "potential_kj_mol": -37425.51681587097
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 7.996,
+          "temperature_K": 298.4937446891495,
+          "water_number_density_nm3": 32.814763301488,
+          "potential_kj_mol": -37458.331844260036
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 7.968,
+          "temperature_K": 297.62564540846796,
+          "water_number_density_nm3": 32.90140981996397,
+          "potential_kj_mol": -37499.41210380872
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.0,
+          "temperature_K": 298.13232343890775,
+          "water_number_density_nm3": 32.805289921035104,
+          "potential_kj_mol": -37441.727314271855
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.008,
+          "temperature_K": 298.7917660657689,
+          "water_number_density_nm3": 32.86728176198686,
+          "potential_kj_mol": -37469.3062284562
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.004,
+          "temperature_K": 297.7255826659615,
+          "water_number_density_nm3": 32.82106229181006,
+          "potential_kj_mol": -37453.59031910944
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 7.976,
+          "temperature_K": 298.33348450649936,
+          "water_number_density_nm3": 32.853188344199964,
+          "potential_kj_mol": -37457.698729401105
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.016,
+          "temperature_K": 299.0596641129292,
+          "water_number_density_nm3": 32.8911969636268,
+          "potential_kj_mol": -37457.38197874828
+        }
+      ],
+      "mean_amide_distance_nm": 1.4290695330805083,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.005,
+      "case": "IOD_Ca_r1_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r1_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Ca",
+      "replica": 1,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 864,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.241,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.24802054141902702,
+      "mean_CN": 8.004,
+      "mean_temperature_K": 298.4318971311044,
+      "mean_water_number_density_nm3": 32.81312525586598,
+      "mean_potential_kj_mol": -37241.12664109848,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.005,
+        "8": 0.986,
+        "9": 0.009
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.9955
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.004
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.0275
+        }
+      ],
+      "shell_identity_changed_intervals": 56,
+      "shell_identity_changed_interval_fraction": 0.02801400700350175,
+      "total_membership_flips": 62,
+      "distinct_waters_seen_in_shell": 37,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.002,
+          "second": 8.006,
+          "second_minus_first": 0.0039999999999995595
+        },
+        "temperature_K": {
+          "first": 298.53117561934073,
+          "second": 298.33261864286806,
+          "second_minus_first": -0.19855697647267334
+        },
+        "water_number_density_nm3": {
+          "first": 32.805011749442734,
+          "second": 32.82123876228921,
+          "second_minus_first": 0.016227012846478317
+        },
+        "potential_kj_mol": {
+          "first": -37236.005920121985,
+          "second": -37246.24736207498,
+          "second_minus_first": -10.241441952995956
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.24806211082838797,
+          "second": 0.24797899277879393
+        },
+        "amide_distance_nm": {
+          "first": 0.9919321160422171,
+          "second": 1.3300378172251681
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.004,
+          "temperature_K": 299.4739708781231,
+          "water_number_density_nm3": 32.80031319250134,
+          "potential_kj_mol": -37218.99539096061
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 297.45075902350993,
+          "water_number_density_nm3": 32.85538662541179,
+          "potential_kj_mol": -37282.911585348484
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 7.992,
+          "temperature_K": 298.7702151646534,
+          "water_number_density_nm3": 32.7719932227876,
+          "potential_kj_mol": -37198.035654922154
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 7.992,
+          "temperature_K": 298.42975741107637,
+          "water_number_density_nm3": 32.7923539570702,
+          "potential_kj_mol": -37244.0810492567
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 7.996,
+          "temperature_K": 299.5191773564017,
+          "water_number_density_nm3": 32.823484819875404,
+          "potential_kj_mol": -37231.83689584156
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.004,
+          "temperature_K": 297.7367742249271,
+          "water_number_density_nm3": 32.80832893860515,
+          "potential_kj_mol": -37257.22920651049
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.016,
+          "temperature_K": 298.32224833759017,
+          "water_number_density_nm3": 32.829095418401266,
+          "potential_kj_mol": -37225.665075464276
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.008,
+          "temperature_K": 297.7522746525532,
+          "water_number_density_nm3": 32.824045872275036,
+          "potential_kj_mol": -37270.25827048358
+        }
+      ],
+      "mean_amide_distance_nm": 1.1609849666336927,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "IOD_Ca_r1_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r1_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Ca",
+      "replica": 2,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 869,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.243,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.24803690787792756,
+      "mean_CN": 7.787,
+      "mean_temperature_K": 298.5623826183696,
+      "mean_water_number_density_nm3": 32.8140691377498,
+      "mean_potential_kj_mol": -37451.49393922365,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 0.0025,
+        "7": 0.222,
+        "8": 0.7615,
+        "9": 0.014
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.775
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 7.787
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 7.813
+        }
+      ],
+      "shell_identity_changed_intervals": 94,
+      "shell_identity_changed_interval_fraction": 0.04702351175587794,
+      "total_membership_flips": 104,
+      "distinct_waters_seen_in_shell": 58,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 7.572,
+          "second": 8.002,
+          "second_minus_first": 0.4300000000000006
+        },
+        "temperature_K": {
+          "first": 298.59764999086144,
+          "second": 298.5271152458778,
+          "second_minus_first": -0.07053474498366086
+        },
+        "water_number_density_nm3": {
+          "first": 32.809629642326534,
+          "second": 32.81850863317307,
+          "second_minus_first": 0.008878990846532986
+        },
+        "potential_kj_mol": {
+          "first": -37445.65030103976,
+          "second": -37457.33757740753,
+          "second_minus_first": -11.687276367774757
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2481005664893199,
+          "second": 0.24797667006169877
+        },
+        "amide_distance_nm": {
+          "first": 0.868860485231487,
+          "second": 1.4184907930236201
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.996,
+          "temperature_K": 298.9086235675664,
+          "water_number_density_nm3": 32.80587174563105,
+          "potential_kj_mol": -37422.77268096051
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 7.252,
+          "temperature_K": 298.38733668532655,
+          "water_number_density_nm3": 32.79680229725549,
+          "potential_kj_mol": -37465.79590526182
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 298.36978865529744,
+          "water_number_density_nm3": 32.79928665523865,
+          "potential_kj_mol": -37438.52615387391
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 298.7248510552555,
+          "water_number_density_nm3": 32.83655787118096,
+          "potential_kj_mol": -37455.50646406279
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.012,
+          "temperature_K": 298.29212334831357,
+          "water_number_density_nm3": 32.79743576082173,
+          "potential_kj_mol": -37448.72209503076
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 7.988,
+          "temperature_K": 298.53368578069484,
+          "water_number_density_nm3": 32.86045745615404,
+          "potential_kj_mol": -37478.023479549185
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.016,
+          "temperature_K": 299.0331687276438,
+          "water_number_density_nm3": 32.75175446979423,
+          "potential_kj_mol": -37406.76975740875
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 7.992,
+          "temperature_K": 298.24948312685893,
+          "water_number_density_nm3": 32.86438684592231,
+          "potential_kj_mol": -37495.834977641425
+        }
+      ],
+      "mean_amide_distance_nm": 1.1436756391275535,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.221,
+      "case": "IOD_Ca_r2_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r2_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Ca",
+      "replica": 2,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 864,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.245,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.24786409413907676,
+      "mean_CN": 8.0,
+      "mean_temperature_K": 298.4636605371387,
+      "mean_water_number_density_nm3": 32.82369016327327,
+      "mean_potential_kj_mol": -37240.58495254414,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.015,
+        "8": 0.97,
+        "9": 0.015
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.9905
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.0
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.0215
+        }
+      ],
+      "shell_identity_changed_intervals": 87,
+      "shell_identity_changed_interval_fraction": 0.04352176088044022,
+      "total_membership_flips": 96,
+      "distinct_waters_seen_in_shell": 51,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.003,
+          "second": 7.997,
+          "second_minus_first": -0.006000000000000227
+        },
+        "temperature_K": {
+          "first": 298.39310821506723,
+          "second": 298.5342128592101,
+          "second_minus_first": 0.14110464414284252
+        },
+        "water_number_density_nm3": {
+          "first": 32.83720198806514,
+          "second": 32.8101783384814,
+          "second_minus_first": -0.027023649583739484
+        },
+        "potential_kj_mol": {
+          "first": -37240.52716223125,
+          "second": -37240.64274285703,
+          "second_minus_first": -0.11558062578114914
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2478875778778395,
+          "second": 0.24784059278090267
+        },
+        "amide_distance_nm": {
+          "first": 1.4472292436451453,
+          "second": 1.6329991184620927
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 8.028,
+          "temperature_K": 297.9449209419492,
+          "water_number_density_nm3": 32.85736592263802,
+          "potential_kj_mol": -37230.50066510156
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 7.996,
+          "temperature_K": 298.2039084139308,
+          "water_number_density_nm3": 32.83299325718895,
+          "potential_kj_mol": -37247.360946838424
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.0,
+          "temperature_K": 298.9262555915674,
+          "water_number_density_nm3": 32.844430519101444,
+          "potential_kj_mol": -37257.1864608853
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 7.988,
+          "temperature_K": 298.4973479128216,
+          "water_number_density_nm3": 32.814018253332165,
+          "potential_kj_mol": -37227.06057609971
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.008,
+          "temperature_K": 298.08070675933595,
+          "water_number_density_nm3": 32.840608991811074,
+          "potential_kj_mol": -37251.076252702085
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 8.008,
+          "temperature_K": 298.1416233980502,
+          "water_number_density_nm3": 32.80307295443388,
+          "potential_kj_mol": -37247.473166988566
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 7.984,
+          "temperature_K": 298.7743420518206,
+          "water_number_density_nm3": 32.83556129365231,
+          "potential_kj_mol": -37238.87403448698
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 7.988,
+          "temperature_K": 299.14017922763355,
+          "water_number_density_nm3": 32.761470114028334,
+          "potential_kj_mol": -37225.14751725049
+        }
+      ],
+      "mean_amide_distance_nm": 1.540114181053619,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "IOD_Ca_r2_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r2_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Ca",
+      "replica": 3,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 869,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.245,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.24779816122499804,
+      "mean_CN": 7.6015,
+      "mean_temperature_K": 298.58265246582556,
+      "mean_water_number_density_nm3": 32.83995845445572,
+      "mean_potential_kj_mol": -37439.53984466378,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 0.001,
+        "7": 0.402,
+        "8": 0.5915,
+        "9": 0.0055
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.594
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 7.6015
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 7.6285
+        }
+      ],
+      "shell_identity_changed_intervals": 75,
+      "shell_identity_changed_interval_fraction": 0.03751875937968985,
+      "total_membership_flips": 81,
+      "distinct_waters_seen_in_shell": 43,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 7.219,
+          "second": 7.984,
+          "second_minus_first": 0.7649999999999997
+        },
+        "temperature_K": {
+          "first": 298.34420613484616,
+          "second": 298.821098796805,
+          "second_minus_first": 0.47689266195885693
+        },
+        "water_number_density_nm3": {
+          "first": 32.85239739344179,
+          "second": 32.82751951546965,
+          "second_minus_first": -0.024877877972137696
+        },
+        "potential_kj_mol": {
+          "first": -37450.303142622666,
+          "second": -37428.77654670489,
+          "second_minus_first": 21.52659591777774
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.24769089319052368,
+          "second": 0.24789515119755196
+        },
+        "amide_distance_nm": {
+          "first": 0.4700550527300726,
+          "second": 1.304931499405319
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 7.004,
+          "temperature_K": 298.1022595099913,
+          "water_number_density_nm3": 32.89060959865158,
+          "potential_kj_mol": -37460.81282273201
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 7.004,
+          "temperature_K": 299.20176786429585,
+          "water_number_density_nm3": 32.8242370551175,
+          "potential_kj_mol": -37417.98194240268
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 7.016,
+          "temperature_K": 298.101556750922,
+          "water_number_density_nm3": 32.843474637625214,
+          "potential_kj_mol": -37461.22917693579
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 7.852,
+          "temperature_K": 297.9712404141754,
+          "water_number_density_nm3": 32.85126828237286,
+          "potential_kj_mol": -37461.188628420176
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 7.988,
+          "temperature_K": 298.8398280926644,
+          "water_number_density_nm3": 32.83488119312856,
+          "potential_kj_mol": -37437.746900849175
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 7.944,
+          "temperature_K": 298.83310552812554,
+          "water_number_density_nm3": 32.824669499214174,
+          "potential_kj_mol": -37418.665920298605
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 8.008,
+          "temperature_K": 298.4072429378241,
+          "water_number_density_nm3": 32.830926947407846,
+          "potential_kj_mol": -37422.263766256714
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 7.996,
+          "temperature_K": 299.2042186286059,
+          "water_number_density_nm3": 32.81960042212805,
+          "potential_kj_mol": -37436.42959941505
+        }
+      ],
+      "mean_amide_distance_nm": 0.8874932760676957,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.3925,
+      "case": "IOD_Ca_r3_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r3_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Ca",
+      "replica": 3,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 864,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.35,
+      "rdf_peak_nm": 0.243,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.24803846868086057,
+      "mean_CN": 8.002,
+      "mean_temperature_K": 298.40304408307725,
+      "mean_water_number_density_nm3": 32.83004559711069,
+      "mean_potential_kj_mol": -37242.49777146715,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "7": 0.0155,
+        "8": 0.967,
+        "9": 0.0175
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.32999999999999996,
+          "mean_CN": 7.989
+        },
+        {
+          "cutoff_nm": 0.35,
+          "mean_CN": 8.002
+        },
+        {
+          "cutoff_nm": 0.37,
+          "mean_CN": 8.0265
+        }
+      ],
+      "shell_identity_changed_intervals": 88,
+      "shell_identity_changed_interval_fraction": 0.04402201100550275,
+      "total_membership_flips": 94,
+      "distinct_waters_seen_in_shell": 49,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 8.005,
+          "second": 7.999,
+          "second_minus_first": -0.0060000000000011156
+        },
+        "temperature_K": {
+          "first": 298.15588951914077,
+          "second": 298.6501986470136,
+          "second_minus_first": 0.49430912787283887
+        },
+        "water_number_density_nm3": {
+          "first": 32.819271478395386,
+          "second": 32.840819715826,
+          "second_minus_first": 0.021548237430614847
+        },
+        "potential_kj_mol": {
+          "first": -37230.64104416483,
+          "second": -37254.35449876946,
+          "second_minus_first": -23.713454604629078
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.2480332339632742,
+          "second": 0.24804370732497596
+        },
+        "amide_distance_nm": {
+          "first": 1.431059138329887,
+          "second": 1.3981154006969236
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 7.976,
+          "temperature_K": 297.6151751158927,
+          "water_number_density_nm3": 32.82878156807748,
+          "potential_kj_mol": -37265.19007831466
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 8.012,
+          "temperature_K": 297.590245618419,
+          "water_number_density_nm3": 32.84849753085205,
+          "potential_kj_mol": -37245.71171181716
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 8.036,
+          "temperature_K": 298.9538254538255,
+          "water_number_density_nm3": 32.78583112001791,
+          "potential_kj_mol": -37211.64597620988
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 7.996,
+          "temperature_K": 298.46431188842587,
+          "water_number_density_nm3": 32.8139756946341,
+          "potential_kj_mol": -37200.01641031763
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 8.02,
+          "temperature_K": 298.65217312517194,
+          "water_number_density_nm3": 32.80103919659033,
+          "potential_kj_mol": -37254.89536631748
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 7.976,
+          "temperature_K": 298.7952507176343,
+          "water_number_density_nm3": 32.80436497080485,
+          "potential_kj_mol": -37233.777668292074
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 7.996,
+          "temperature_K": 298.4953056852837,
+          "water_number_density_nm3": 32.865882818377315,
+          "potential_kj_mol": -37267.95863440974
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 8.004,
+          "temperature_K": 298.6580650599645,
+          "water_number_density_nm3": 32.8919918775315,
+          "potential_kj_mol": -37260.786326058565
+        }
+      ],
+      "mean_amide_distance_nm": 1.4145872695134054,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "IOD_Ca_r3_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r3_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Mg",
+      "replica": 1,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 870,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.20700000000000002,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20826342432945966,
+      "mean_CN": 5.0,
+      "mean_temperature_K": 298.30493448968537,
+      "mean_water_number_density_nm3": 32.79619421858955,
+      "mean_potential_kj_mol": -37740.58713223082,
+      "chloride_contact_fraction_lt_0p4nm": 0.0,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "5": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 5.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 5,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 5.0,
+          "second": 5.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.29041475522547,
+          "second": 298.31945422414526,
+          "second_minus_first": 0.029039468919791034
+        },
+        "water_number_density_nm3": {
+          "first": 32.78920118063915,
+          "second": 32.80318725653996,
+          "second_minus_first": 0.013986075900810135
+        },
+        "potential_kj_mol": {
+          "first": -37733.47457592757,
+          "second": -37747.69968853408,
+          "second_minus_first": -14.225112606509356
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20818319890201092,
+          "second": 0.20834364975690842
+        },
+        "amide_distance_nm": {
+          "first": 0.2051789091389161,
+          "second": 0.20475179021351853
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.4500050122813,
+          "water_number_density_nm3": 32.77086733923584,
+          "potential_kj_mol": -37716.41372696497
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.3663207984993,
+          "water_number_density_nm3": 32.813541554251145,
+          "potential_kj_mol": -37755.99501375155
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.83279131830466,
+          "water_number_density_nm3": 32.80608466176215,
+          "potential_kj_mol": -37758.78855209938
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.5125418918168,
+          "water_number_density_nm3": 32.76631116730746,
+          "potential_kj_mol": -37702.7010108944
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 299.39369067300555,
+          "water_number_density_nm3": 32.77970781161766,
+          "potential_kj_mol": -37723.85610205756
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.0231987360567,
+          "water_number_density_nm3": 32.79202241051664,
+          "potential_kj_mol": -37780.61565798673
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.8564314645268,
+          "water_number_density_nm3": 32.8303836250595,
+          "potential_kj_mol": -37735.0714644092
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.0044960229921,
+          "water_number_density_nm3": 32.81063517896604,
+          "potential_kj_mol": -37751.255529682836
+        }
+      ],
+      "mean_amide_distance_nm": 0.2049653496762173,
+      "amide_fraction_within_diagnostic_water_cutoff": 1.0,
+      "case": "IOD_Mg_r1_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r1_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Mg",
+      "replica": 1,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870001,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 866,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.20700000000000002,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.2085835513472557,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.45393960110437,
+      "mean_water_number_density_nm3": 32.82006404280621,
+      "mean_potential_kj_mol": -37569.20860939574,
+      "chloride_contact_fraction_lt_0p4nm": 0.003,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.4602410909796,
+          "second": 298.4476381112291,
+          "second_minus_first": -0.012602979750511167
+        },
+        "water_number_density_nm3": {
+          "first": 32.82799056358418,
+          "second": 32.812137522028245,
+          "second_minus_first": -0.015853041555935476
+        },
+        "potential_kj_mol": {
+          "first": -37578.963776289755,
+          "second": -37559.45344250173,
+          "second_minus_first": 19.51033378802822
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20859189407527448,
+          "second": 0.20857520861923695
+        },
+        "amide_distance_nm": {
+          "first": 1.6580611852545317,
+          "second": 1.4118046768688204
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.02533934913293,
+          "water_number_density_nm3": 32.836153443408314,
+          "potential_kj_mol": -37591.32009516618
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.4330226054676,
+          "water_number_density_nm3": 32.843589130865645,
+          "potential_kj_mol": -37584.3956196758
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.4733448885849,
+          "water_number_density_nm3": 32.81837654961892,
+          "potential_kj_mol": -37569.54182968481
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.9092575207329,
+          "water_number_density_nm3": 32.81384313044384,
+          "potential_kj_mol": -37570.59756063222
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.27242540348,
+          "water_number_density_nm3": 32.81200632805763,
+          "potential_kj_mol": -37568.13206821585
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.7898259805611,
+          "water_number_density_nm3": 32.840313961918625,
+          "potential_kj_mol": -37547.91469657248
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.1805947550534,
+          "water_number_density_nm3": 32.78581988993617,
+          "potential_kj_mol": -37537.391693940786
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.54770630582186,
+          "water_number_density_nm3": 32.810409908200555,
+          "potential_kj_mol": -37584.37531127781
+        }
+      ],
+      "mean_amide_distance_nm": 1.5349329310616762,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "IOD_Mg_r1_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r1_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Mg",
+      "replica": 2,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 870,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.20700000000000002,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20828845438212157,
+      "mean_CN": 5.0,
+      "mean_temperature_K": 298.40884908622746,
+      "mean_water_number_density_nm3": 32.792766899269104,
+      "mean_potential_kj_mol": -37737.811486973944,
+      "chloride_contact_fraction_lt_0p4nm": 0.001,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "5": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 5.0005
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 5,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 5.0,
+          "second": 5.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.2119715506899,
+          "second": 298.6057266217651,
+          "second_minus_first": 0.3937550710751907
+        },
+        "water_number_density_nm3": {
+          "first": 32.79069644175753,
+          "second": 32.79483735678067,
+          "second_minus_first": 0.00414091502313596
+        },
+        "potential_kj_mol": {
+          "first": -37732.34554460046,
+          "second": -37743.27742934743,
+          "second_minus_first": -10.931884746969445
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20827965893149375,
+          "second": 0.20829724983274936
+        },
+        "amide_distance_nm": {
+          "first": 0.20493187581266706,
+          "second": 0.20503360581120345
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.70037564905186,
+          "water_number_density_nm3": 32.76804911051897,
+          "potential_kj_mol": -37703.59173127589
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.245825231893,
+          "water_number_density_nm3": 32.79191021176122,
+          "potential_kj_mol": -37741.3262780654
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.6938438658507,
+          "water_number_density_nm3": 32.81281033619556,
+          "potential_kj_mol": -37731.36587316129
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.2078414559641,
+          "water_number_density_nm3": 32.790016108554354,
+          "potential_kj_mol": -37753.09829589925
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.5449408715387,
+          "water_number_density_nm3": 32.76460354459216,
+          "potential_kj_mol": -37753.22109065893
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 299.1206639050127,
+          "water_number_density_nm3": 32.814397560114315,
+          "potential_kj_mol": -37754.55805155714
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.7793636509659,
+          "water_number_density_nm3": 32.809163997048884,
+          "potential_kj_mol": -37746.05434655977
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.97793805954313,
+          "water_number_density_nm3": 32.791184325367304,
+          "potential_kj_mol": -37719.27622861385
+        }
+      ],
+      "mean_amide_distance_nm": 0.20498274081193524,
+      "amide_fraction_within_diagnostic_water_cutoff": 1.0,
+      "case": "IOD_Mg_r2_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r2_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Mg",
+      "replica": 2,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870002,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 866,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.20700000000000002,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20854691805317999,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.52823458069156,
+      "mean_water_number_density_nm3": 32.817777270461974,
+      "mean_potential_kj_mol": -37577.24954611374,
+      "chloride_contact_fraction_lt_0p4nm": 0.002,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.0015
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.3596516499169,
+          "second": 298.69681751146624,
+          "second_minus_first": 0.3371658615493516
+        },
+        "water_number_density_nm3": {
+          "first": 32.83140946104386,
+          "second": 32.80414507988007,
+          "second_minus_first": -0.027264381163789153
+        },
+        "potential_kj_mol": {
+          "first": -37580.58429375787,
+          "second": -37573.9147984696,
+          "second_minus_first": 6.669495288268081
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20856412573158742,
+          "second": 0.20852971037477255
+        },
+        "amide_distance_nm": {
+          "first": 1.5417837035514534,
+          "second": 1.5739866497872737
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.60700124618995,
+          "water_number_density_nm3": 32.82597030363208,
+          "potential_kj_mol": -37568.97008958234
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.5082618268087,
+          "water_number_density_nm3": 32.81762903861282,
+          "potential_kj_mol": -37583.79507624658
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.8574127057121,
+          "water_number_density_nm3": 32.84116436863672,
+          "potential_kj_mol": -37576.36842323435
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.4659308209567,
+          "water_number_density_nm3": 32.84087413329382,
+          "potential_kj_mol": -37593.203585968215
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.3935855715667,
+          "water_number_density_nm3": 32.815217129313865,
+          "potential_kj_mol": -37559.486426121075
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.8261832300678,
+          "water_number_density_nm3": 32.8333840632755,
+          "potential_kj_mol": -37579.73204314162
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.7284164304001,
+          "water_number_density_nm3": 32.78552482642384,
+          "potential_kj_mol": -37577.004361648884
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.8390848138301,
+          "water_number_density_nm3": 32.78245430050709,
+          "potential_kj_mol": -37579.43636296679
+        }
+      ],
+      "mean_amide_distance_nm": 1.5578851766693635,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "IOD_Mg_r2_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r2_separated\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Mg",
+      "replica": 3,
+      "initial_state": "contact",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 920003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 870,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.20700000000000002,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20831805697381497,
+      "mean_CN": 5.0,
+      "mean_temperature_K": 298.288244364841,
+      "mean_water_number_density_nm3": 32.81002629225453,
+      "mean_potential_kj_mol": -37732.00307807532,
+      "chloride_contact_fraction_lt_0p4nm": 0.0005,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "5": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 5.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 5.001
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 5,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 5.0,
+          "second": 5.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.1638355756607,
+          "second": 298.41265315402126,
+          "second_minus_first": 0.2488175783605584
+        },
+        "water_number_density_nm3": {
+          "first": 32.809078367461375,
+          "second": 32.81097421704768,
+          "second_minus_first": 0.001895849586304621
+        },
+        "potential_kj_mol": {
+          "first": -37737.165545490665,
+          "second": -37726.84061065997,
+          "second_minus_first": 10.324934830692655
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20827757595181465,
+          "second": 0.20835853799581527
+        },
+        "amide_distance_nm": {
+          "first": 0.2050653596921304,
+          "second": 0.20504861974535135
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.9042209840707,
+          "water_number_density_nm3": 32.83891138029178,
+          "potential_kj_mol": -37753.9196449652
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.45644281375866,
+          "water_number_density_nm3": 32.8047115973117,
+          "potential_kj_mol": -37717.101949480726
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.3427962713196,
+          "water_number_density_nm3": 32.78426425902211,
+          "potential_kj_mol": -37737.00068130973
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 297.95188223349385,
+          "water_number_density_nm3": 32.8084262332199,
+          "potential_kj_mol": -37740.63990620701
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.1380463598194,
+          "water_number_density_nm3": 32.84204488971942,
+          "potential_kj_mol": -37735.792790871856
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.0103278544978,
+          "water_number_density_nm3": 32.74800898535102,
+          "potential_kj_mol": -37723.79094381252
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 298.3810005007853,
+          "water_number_density_nm3": 32.82872474734378,
+          "potential_kj_mol": -37711.259994292275
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 5.0,
+          "temperature_K": 299.12123790098263,
+          "water_number_density_nm3": 32.825118245776494,
+          "potential_kj_mol": -37736.51871366321
+        }
+      ],
+      "mean_amide_distance_nm": 0.20505698971874087,
+      "amide_fraction_within_diagnostic_water_cutoff": 1.0,
+      "case": "IOD_Mg_r3_contact",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r3_contact\\metadata.json"
+    },
+    {
+      "campaign": "amide",
+      "model": "IOD",
+      "ion": "Mg",
+      "replica": 3,
+      "initial_state": "separated",
+      "production_ps": 2000.0,
+      "sample_interval_ps": 1.0,
+      "seed": 870003,
+      "target_temperature_K": 298.15,
+      "frames": 2000,
+      "water_count": 866,
+      "first_saved_time_ps": 1.0,
+      "last_saved_time_ps": 2000.0,
+      "shell_cutoff_nm": 0.3,
+      "rdf_peak_nm": 0.20700000000000002,
+      "rdf_peak_at_search_boundary": false,
+      "mean_shell_distance_nm": 0.20863691760972142,
+      "mean_CN": 6.0,
+      "mean_temperature_K": 298.4051248417766,
+      "mean_water_number_density_nm3": 32.793293160502195,
+      "mean_potential_kj_mol": -37565.56573031588,
+      "chloride_contact_fraction_lt_0p4nm": 0.0025,
+      "chloride_distance_observed_frames": 2000,
+      "CN_distribution": {
+        "6": 1.0
+      },
+      "cutoff_sensitivity": [
+        {
+          "cutoff_nm": 0.27999999999999997,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.3,
+          "mean_CN": 6.0
+        },
+        {
+          "cutoff_nm": 0.32,
+          "mean_CN": 6.001
+        }
+      ],
+      "shell_identity_changed_intervals": 0,
+      "shell_identity_changed_interval_fraction": 0.0,
+      "total_membership_flips": 0,
+      "distinct_waters_seen_in_shell": 6,
+      "identity_observation_intervals": 1999,
+      "halves": {
+        "CN": {
+          "first": 6.0,
+          "second": 6.0,
+          "second_minus_first": 0.0
+        },
+        "temperature_K": {
+          "first": 298.676304209888,
+          "second": 298.1339454736653,
+          "second_minus_first": -0.5423587362226954
+        },
+        "water_number_density_nm3": {
+          "first": 32.8040236321591,
+          "second": 32.78256268884529,
+          "second_minus_first": -0.02146094331381221
+        },
+        "potential_kj_mol": {
+          "first": -37561.62626554349,
+          "second": -37569.50519508828,
+          "second_minus_first": -7.878929544785933
+        },
+        "mean_shell_distance_nm": {
+          "first": 0.20857311226179204,
+          "second": 0.20870072295765082
+        },
+        "amide_distance_nm": {
+          "first": 1.2952042311294991,
+          "second": 1.4531727578792957
+        }
+      },
+      "block_means": [
+        {
+          "time_ps": 125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.0494954454809,
+          "water_number_density_nm3": 32.76736828440857,
+          "potential_kj_mol": -37557.26827865614
+        },
+        {
+          "time_ps": 375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 299.84023305528206,
+          "water_number_density_nm3": 32.85690089904742,
+          "potential_kj_mol": -37536.05761081795
+        },
+        {
+          "time_ps": 625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.5110515930704,
+          "water_number_density_nm3": 32.769728779386206,
+          "potential_kj_mol": -37564.89242163868
+        },
+        {
+          "time_ps": 875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.3044367457187,
+          "water_number_density_nm3": 32.82209656579422,
+          "potential_kj_mol": -37588.2867510612
+        },
+        {
+          "time_ps": 1125.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.191781325754,
+          "water_number_density_nm3": 32.74926903430011,
+          "potential_kj_mol": -37579.750879954416
+        },
+        {
+          "time_ps": 1375.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 297.8537903894833,
+          "water_number_density_nm3": 32.77362463384985,
+          "potential_kj_mol": -37561.98210044633
+        },
+        {
+          "time_ps": 1625.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.37941384592676,
+          "water_number_density_nm3": 32.78202868392619,
+          "potential_kj_mol": -37545.77698347375
+        },
+        {
+          "time_ps": 1875.5,
+          "frames": 250,
+          "CN": 6.0,
+          "temperature_K": 298.11079633349675,
+          "water_number_density_nm3": 32.825328403305015,
+          "potential_kj_mol": -37590.51081647861
+        }
+      ],
+      "mean_amide_distance_nm": 1.3741884945043974,
+      "amide_fraction_within_diagnostic_water_cutoff": 0.0,
+      "case": "IOD_Mg_r3_separated",
+      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r3_separated\\metadata.json"
     }
   ],
   "hydration_group_summaries": [

@@ -209,6 +209,8 @@ def facts(data):
         "max_cn_half_change": max(cn_drift), "max_temperature_half_change": max(temp_drift),
         "max_cutoff_CN_span": max(sensitivity),
         "no_identity_changes": sum(r["shell_identity_changed_intervals"] == 0 for r in hydration),
+        "zero_contact_separated": sum(r["amide_fraction_within_diagnostic_water_cutoff"] == 0 for r in rows
+                                      if r["campaign"] == "amide" and r["initial_state"] == "separated"),
         "max_conversion_energy_error": max(e["absolute_energy_error_kj_mol"] for e in errors),
         "max_conversion_force_error": max(e["max_absolute_force_error_kj_mol_nm"] for e in errors),
         # One ion per box: <1/V> follows exactly from fixed water count / frame density.
@@ -354,7 +356,7 @@ def build_pdf(data, author, report_date):
     figure("figure1_rdf.png")
     para("Figure 2. Individual-replica metal-water oxygen RDFs and equally weighted group means. Each frame's histogram is normalized by its own water number density. The CSV retains the full 0-0.9 nm range; histogram bins are 0.002 nm.", "small")
     table(["Group", "Pooled in-shell mean distance (nm)", "Mean water CN", "Counterion contact fraction (%)"],
-          [[f"{ion} / {model}", formatted_stats(select(rows, "hydration", ion, model), "mean_shell_distance_nm", 4),
+          [[f"{ion} / {model}", formatted_stats(select(rows, "hydration", ion, model), "mean_shell_distance_nm", 6),
             formatted_stats(select(rows, "hydration", ion, model), "mean_CN", 2),
             formatted_stats(select(rows, "hydration", ion, model), "chloride_contact_fraction_lt_0p4nm", 1, 100)]
            for ion, model in product(IONS, MODELS)], [.16, .30, .24, .30])
@@ -384,13 +386,14 @@ def build_pdf(data, author, report_date):
     for ion, model, state in product(IONS, MODELS, ("contact", "separated")):
         group = select(rows, "amide", ion, model, state)
         amide_rows.append([f"{ion} / {model}", state,
-            formatted_stats(group, "mean_amide_distance_nm", 3),
+            formatted_stats(group, "mean_amide_distance_nm", 5),
             formatted_stats(group, "amide_fraction_within_diagnostic_water_cutoff", 1, 100)])
     table(["Group", "Prepared start", "Mean carbonyl-O distance (nm)", "Diagnostic contact fraction (%)"], amide_rows, [.17, .19, .32, .32])
     para("Diagnostic contact is carbonyl oxygen below 0.30 nm (Mg) or 0.35 nm (Ca), reusing the water-shell cutoff as an explicit operational definition. Each table entry is the mean +/- SD across three replicas. Neither the cutoff nor a contact-start trajectory defines a calibrated metal-amide bound state.", "small")
     para("Contact-start minus separated-start fraction contrasts (percentage points): " + "; ".join(f"{ion}/{model} {f['gaps'][ion, model]:+.1f}" for ion, model in product(IONS, MODELS)) + ". Initial-state contrasts reveal finite-time sensitivity; similar fractions alone would not establish equilibration. No equilibrium affinity, free-energy difference or kinetic rate is inferred.", "small", 0)
 
     new_page("Interpretation, reproducibility and references")
+    para(f"<b>Main finding.</b> {f['zero_contact_separated']} of 12 separated-start trajectories showed no saved-frame amide contact. Mg contact-start minus separated-start contrasts were {f['gaps']['Mg', 'CM']:+.1f} percentage points with CM and {f['gaps']['Mg', 'IOD']:+.1f} with IOD. Ca contact-start fractions averaged {formatted_stats(select(rows, 'amide', 'Ca', 'CM', 'contact'), 'amide_fraction_within_diagnostic_water_cutoff', 1, 100)}% with CM and {formatted_stats(select(rows, 'amide', 'Ca', 'IOD', 'contact'), 'amide_fraction_within_diagnostic_water_cutoff', 1, 100)}% with IOD (mean +/- replica SD). The large Ca spread and persistent preparation dependence are the central sampling result; these contact fractions do not rank equilibrium affinities.")
     para("<b>Contribution.</b> This is a completed, reproducible small-system comparison of calibration choices and local coordination observables. It supplies measured hydration differences and an amide sampling diagnostic relevant to planning an Asn-associated ion model. It does not simulate an NMDAR receptor or establish its pore mechanism.")
     para("<b>Next discriminating calculation.</b> Establish reversible sampling and an external metal-amide benchmark before using these combinations for quantitative binding claims. A later pore study would additionally need construct-specific geometry, an adequate ion/protein interaction model and a converged multidimensional sampling strategy. The current data do not select a universal winning force field.")
     devices = sorted({m.get("platform_properties", {}).get("DeviceName", m["platform"]) for m in metadata})
@@ -414,7 +417,8 @@ def presentation(data, author, report_date):
     mg_iod = stats(select(rows, "hydration", "Mg", "IOD"), "rdf_peak_nm")[0]
     ca_cm = stats(select(rows, "hydration", "Ca", "CM"), "rdf_peak_nm")[0]
     ca_iod = stats(select(rows, "hydration", "Ca", "IOD"), "rdf_peak_nm")[0]
-    largest = max(f["gaps"], key=lambda key: abs(f["gaps"][key]))
+    ca_cm_contact, ca_cm_contact_sd = stats(select(rows, "amide", "Ca", "CM", "contact"), "amide_fraction_within_diagnostic_water_cutoff")
+    ca_iod_contact, ca_iod_contact_sd = stats(select(rows, "amide", "Ca", "IOD", "contact"), "amide_fraction_within_diagnostic_water_cutoff")
     text = f"""# Five-minute presentation script
 
 {author} | {report_date}
@@ -443,7 +447,7 @@ These reference distances helped define the model family. Any agreement with the
 
 I checked production halves, consecutive blocks, counterion contact and sensitivity to the shell boundary. The largest absolute hydration coordination change between halves was {f['max_cn_half_change']:.3f}. Moving the cutoff by plus or minus 0.02 nanometres gave a largest coordination span of {f['max_cutoff_CN_span']:.3f}. These diagnostics do not provide a universal convergence certificate.
 
-For the amide test, I measured the carbonyl oxygen distance and the fraction of saved frames inside a stated diagnostic cutoff. The largest absolute contact-start versus separated-start fraction contrast occurred for {largest[0]} with {largest[1]}: contact-start minus separated-start was {f['gaps'][largest]:+.1f} percentage points. The other contrasts are in the table, and all twenty-four trajectories enter the analysis.
+The amide trajectories showed a clear preparation effect: {f['zero_contact_separated']} of twelve separated starts had no saved-frame contacts. For magnesium, contact-start minus separated-start fractions differed by {f['gaps']['Mg', 'CM']:.1f} percentage points with CM and {f['gaps']['Mg', 'IOD']:.1f} with IOD. Calcium contact-start fractions averaged {100*ca_cm_contact:.1f} percent with CM and {100*ca_iod_contact:.1f} with IOD, with large replica standard deviations of {100*ca_cm_contact_sd:.1f} and {100*ca_iod_contact_sd:.1f} percentage points. That variability is part of the result.
 
 Persistent initial-state dependence is a sampling warning. Similar contact fractions would also be insufficient to prove equilibration. These finite-time fractions do not establish an affinity, free-energy difference or residence time.
 

@@ -4,14 +4,14 @@ A small, reproducible molecular dynamics project for discussion with Ben Corry.
 The project tests published Mg2+ and Ca2+ ion-water parameter combinations before
 their use in more complex NMDA receptor simulations.
 
-## Intended deliverables
+## Deliverables
 
 - Runnable simulation and analysis code with documented parameter provenance.
 - Two published ion-water model combinations, two ions and three seeded
   replicas for the hydration benchmark.
-- A small amide-coordination extension after evaluating the hydration baseline.
+- A completed amide-coordination extension following the hydration quality gate.
 - Quantitative figures, machine-readable summaries and measured local throughput.
-- A four-to-six-page English report and a five-minute presentation script.
+- A six-page English report and a five-minute presentation script.
 
 ## Scientific scope
 
@@ -31,17 +31,28 @@ commit. No remote repository has been created or configured.
 
 ## Status
 
-All twelve hydration trajectories are complete and have passed the recorded
-quality gate. Their analysis and four figures are saved in `results/analysis`;
-the final combined analysis will replace this hydration-stage snapshot after
-the twenty-four planned amide trajectories finish. Acetamide parameters have
-passed source-versus-conversion energy and force checks. The final report and
-presentation remain pending completion of that extension.
+All 36 formal trajectories are complete: twelve hydration and twenty-four
+amide runs, each with 2 ns of production, for 72 ns total. Source conversion,
+raw samples and derived summaries have been checked. Final outputs are:
+
+- [Six-page English report](output/pdf/ion_model_benchmark_report.pdf).
+- [Five-minute English presentation](output/pdf/presentation_script.md).
+- [Replica-level data](results/analysis/replica_summaries.csv) and
+  [complete summaries with diagnostics](results/analysis/replica_summaries.json).
+- Four quantitative figures in PNG and PDF under `results/analysis`.
+
+Mean hydration RDF peaks are 0.2030/0.2070 nm for Mg with CM/IOD and
+0.2483/0.2443 nm for Ca. All twelve separated-start amide trajectories have
+zero saved-frame diagnostic contacts. Mg contact starts remain in contact;
+Ca contact-start fractions vary widely between replicas (CM 66.3 +/- 45.3%,
+IOD 20.6 +/- 19.4%; mean +/- sample SD). These are finite-time structural and
+sampling results, not an equilibrium-affinity ranking.
 
 The local host has an NVIDIA GeForce RTX 3050 Laptop GPU with 4 GB VRAM and 16
-logical CPU processors. A short pilot measured 392.6 ns/day; completed hydration
-production rates span 112.8-508.4 ns/day under variable desktop/GPU load. Use
-actual run metadata and logs for timing, not the short-pilot estimate.
+logical CPU processors. Completed production rates span 112.8-508.4 ns/day
+under variable desktop/GPU load; total production divided by summed production
+wall time is 262.4 ns/day. Summed case wall time is 7.02 hours. The earlier
+short pilot is excluded from these completed-study timing figures.
 
 ## Run locally
 
@@ -62,7 +73,7 @@ combined analysis:
 .venv/Scripts/python.exe analyze.py --input results/hydration --amide results/amide --output results/analysis
 ```
 
-Do not start a duplicate campaign while the current one is live. The runner
+Do not start duplicate campaigns concurrently. The runner
 checks existing completed cases using the recorded protocol and sample hash.
 An incomplete directory requires inspection; it is never silently overwritten.
 

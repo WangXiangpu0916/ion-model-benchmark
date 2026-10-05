@@ -208,6 +208,27 @@
   and diagnostic chloride contacts occupy at most 0.003 of saved frames.
   The final six IOD/Ca amide trajectories remain in progress/pending.
 
+- All six IOD/Ca amide trajectories are complete and audited; the campaign
+  exited successfully, completing all thirty-six formal cases and 72 ns of
+  production. IOD/Ca contact-start fractions are 0.0050, 0.2210 and 0.3925;
+  separated-start fractions are all 0.0. Contact-start mean water CN values
+  are 7.9900, 7.7870 and 7.6015, versus 8.0040, 8.0000 and 8.0020 for
+  separated starts. No diagnostic chloride contacts occurred in this group.
+- Generated the combined analysis from all 36 cases. The report builder's
+  mandatory data audit passed before generating the six-page English PDF and
+  presentation. A focused scientific review found no new thermodynamic or
+  counterion issue. Across amide trajectories, mean temperature spans
+  298.174-298.758 K; the largest absolute half-to-half temperature change is
+  0.614 K, and diagnostic chloride contacts occupy at most 0.3% of frames.
+- The principal amide result is preparation dependence: all twelve separated
+  starts have zero saved-frame contacts; all six Mg contact starts retain
+  contact and five shell waters. Ca contact-start fractions average
+  66.3 +/- 45.3% for CM and 20.6 +/- 19.4% for IOD (replica sample SD).
+  Report and presentation now state these findings explicitly. Displayed
+  shell/amide distance precision was increased to avoid rounding nonzero
+  replica standard deviations to zero. Initial six-page visual review passed;
+  the revised final PDF still requires its final render and audit.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
