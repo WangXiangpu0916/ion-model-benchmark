@@ -100,7 +100,7 @@ def formatted_stats(rows, metric, digits=3, scale=1):
 
 def interval(values, digits=2):
     values = [finite(x, "range endpoint") for x in values]
-    return f"{min(values):.{digits}f}-{max(values):.{digits}f}"
+    return f"{min(values):.{digits}f} to {max(values):.{digits}f}"
 
 
 def audit_data(root, analysis, project_python):

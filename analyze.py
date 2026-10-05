@@ -282,9 +282,9 @@ def make_figures(output, cases, amide_cases):
     plt.rcParams.update({"font.size": 9, "axes.spines.top": False, "axes.spines.right": False,
                          "savefig.dpi": 180, "pdf.fonttype": 42})
 
-    def finish(fig, name, note):
+    def finish(fig, name, note, top=0.94):
         fig.text(0.02, 0.01, note, fontsize=8, va="bottom")
-        fig.tight_layout(rect=(0, 0.06, 1, 0.94))
+        fig.tight_layout(rect=(0, 0.06, 1, top))
         for suffix in ("png", "pdf"):
             fig.savefig(output / f"{name}.{suffix}")
         plt.close(fig)
@@ -330,13 +330,15 @@ def make_figures(output, cases, amide_cases):
             ax.legend(fontsize=8)
     finish(fig, "figure2_hydration_metrics", "Colored points: replicas. Black marks: mean +/- SD, not confidence intervals. Agreement is not independent validation.")
 
-    fig, axes = plt.subplots(2, 3, figsize=(12, 7))
-    fig.suptitle("Production diagnostics: consecutive block means, without automatic trimming")
-    metrics = (("CN", "Water coordination"), ("water_number_density_nm3", "Water O density (nm^-3)"),
-               ("temperature_K", "Temperature (K)"))
+    fig, axes = plt.subplots(2, 3, figsize=(9, 6.1))
+    fig.suptitle("Production diagnostics: consecutive block means", fontsize=11)
+    metrics = (("CN", "Water coordination", "coordination"),
+               ("water_number_density_nm3", "Water O density (nm$^{-3}$)", "water density"),
+               ("temperature_K", "Temperature (K)", "temperature"))
     styles = {1: "-", 2: "--", 3: ":"}
+    diagnostic_legend = {}
     for row, ion in enumerate(ION_ORDER):
-        for col, (metric, label) in enumerate(metrics):
+        for col, (metric, label, title) in enumerate(metrics):
             ax = axes[row, col]
             for case in cases:
                 s = case["summary"]
@@ -346,13 +348,21 @@ def make_figures(output, cases, amide_cases):
                 ax.plot([b["time_ps"] for b in blocks], [b[metric] for b in blocks],
                         color=COLORS[s["model"]], ls=styles[s["replica"]], lw=1.2,
                         label=f"{s['model']} r{s['replica']}")
-            ax.set(title=f"{ion}: {label}", xlabel="Production time (ps)", ylabel=label)
-            if col == 0:
-                ax.legend(fontsize=7, ncol=2)
-    finish(fig, "figure3_sampling_diagnostics", "Blocks are correlated diagnostic summaries, not independent replicas. First/second-half changes are in replica_summaries.json.")
+            ax.set_title(f"{ion}: {title}", fontsize=11)
+            ax.set_xlabel("Production time (ps)", fontsize=10)
+            ax.set_ylabel(label, fontsize=10)
+            ax.tick_params(labelsize=10)
+            handles, labels = ax.get_legend_handles_labels()
+            diagnostic_legend.update(zip(labels, handles))
+    fig.legend(diagnostic_legend.values(), diagnostic_legend.keys(), loc="upper center",
+               bbox_to_anchor=(0.5, 0.94), ncol=6, fontsize=9, frameon=False)
+    finish(fig, "figure3_sampling_diagnostics",
+           "Blocks are correlated diagnostics, not independent replicas. No automatic trimming.\n"
+           "First/second-half changes are in replica_summaries.json.", top=0.86)
 
-    fig, axes = plt.subplots(2, 2, figsize=(10, 7))
-    fig.suptitle("Shell-definition sensitivity and " + ("amide initial-state dependence" if amide_cases else "observed shell-identity changes"))
+    fig, axes = plt.subplots(2, 2, figsize=(9, 6.2))
+    fig.suptitle("Shell sensitivity and " + ("amide initial-state dependence" if amide_cases else "observed shell-identity changes"), fontsize=11)
+    amide_legend = {}
     for row, ion in enumerate(ION_ORDER):
         ax = axes[row, 0]
         for _, model, selected in (g for g in groups(cases) if g[0] == ion):
@@ -365,7 +375,7 @@ def make_figures(output, cases, amide_cases):
             spread = curves.std(axis=0, ddof=1) if len(curves) > 1 else None
             ax.errorbar(cutoffs, curves.mean(axis=0), yerr=spread, color=COLORS[model], fmt="o-", capsize=3, label=model)
         ax.set(title=f"{ion}: shell-cutoff sensitivity", xlabel="Cutoff (nm)", ylabel="Mean water coordination")
-        ax.legend(fontsize=8)
+        ax.legend(fontsize=9)
         ax = axes[row, 1]
         if amide_cases:
             for case in amide_cases:
@@ -373,20 +383,29 @@ def make_figures(output, cases, amide_cases):
                 if s["ion"] != ion:
                     continue
                 indices = np.linspace(0, len(case["time_ps"]) - 1, min(2000, len(case["time_ps"])), dtype=int)
-                ax.plot(case["time_ps"][indices], case["amide_distance_nm"][indices], color=COLORS[s["model"]],
-                        ls="-" if s["initial_state"] == "contact" else "--", alpha=0.65, lw=0.8,
-                        label=f"{s['model']} {s['initial_state']} r{s['replica']}")
+                group_label = f"{s['model']} {s['initial_state']}"
+                line, = ax.plot(case["time_ps"][indices], case["amide_distance_nm"][indices], color=COLORS[s["model"]],
+                                ls="-" if s["initial_state"] == "contact" else "--", alpha=0.65, lw=0.8)
+                amide_legend.setdefault(group_label, line)
             ax.set(title=f"{ion}: carbonyl-O distance", xlabel="Production time (ps)", ylabel="Metal-amide O (nm)")
-            ax.legend(fontsize=6, ncol=2)
         else:
             for x, model in enumerate(MODEL_ORDER):
                 selected = [c for c in cases if c["summary"]["ion"] == ion and c["summary"]["model"] == model]
                 scatter_replicas(ax, selected, "shell_identity_changed_interval_fraction", x, COLORS[model], 100)
             ax.set(title=f"{ion}: adjacent saved-frame comparison", xticks=[0, 1], xticklabels=MODEL_ORDER,
                    xlim=(-0.4, 1.4), ylabel="Intervals with membership changes (%)")
-    note = ("Initial-state dependence signals unresolved sampling; distances are not binding affinities. Shell cutoffs are diagnostic."
+    for ax in axes.flat:
+        ax.title.set_fontsize(11)
+        ax.xaxis.label.set_fontsize(10)
+        ax.yaxis.label.set_fontsize(10)
+        ax.tick_params(labelsize=10)
+    if amide_cases:
+        fig.legend(amide_legend.values(), amide_legend.keys(), loc="upper center",
+                   bbox_to_anchor=(0.5, 0.94), ncol=4, fontsize=9, frameon=False)
+    note = ("All replica curves are retained: complete design has 3 curves per model/start/ion.\n"
+            "Initial-state dependence signals unresolved sampling; contact is diagnostic, not affinity."
             if amide_cases else "Identity changes depend on frame cadence and shell cutoff; they are not committed exchanges or kinetic rates. Error bars: SD.")
-    finish(fig, "figure4_sensitivity", note)
+    finish(fig, "figure4_sensitivity", note, top=0.86 if amide_cases else 0.94)
 
 
 def self_check():

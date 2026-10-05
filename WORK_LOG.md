@@ -78,6 +78,17 @@
   these are descriptive observations, not committed exchanges or a rate.
   No chloride distance below the diagnostic 0.4 nm cutoff was observed.
   Two further CM/Ca replicas remain pending.
+- Completed and audited CM/Ca replica 2 (112.8 ns/day): RDF peak 0.249 nm,
+  mean shell distance 0.252466 nm, CN 8.0335 and temperature 298.57 K.
+  CN 8 occupied 96.15% of saved frames; 65 distinct shell waters and 130
+  membership flips were observed. The half-to-half CN difference was -0.027;
+  no diagnostic chloride contacts occurred. The two Ca peaks differ by one
+  0.002 nm histogram bin; the third replica remains pending.
+- Increased diagnostic-figure label sizes and replaced repeated amide legends
+  with four model/start entries while retaining every replica curve. Numerical
+  analysis is unchanged. Self-checks and a clearly marked synthetic six-page
+  layout fixture passed; report pages 4 and 5 were visually inspected. Final
+  real-data figures and report still require their own visual review.
 
 ## Assistance and ownership
 
