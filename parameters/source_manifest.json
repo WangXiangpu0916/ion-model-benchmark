@@ -1,0 +1,63 @@
+{
+  "retrieved_date": "2026-10-05",
+  "retrieved_date_timezone": "Australia/Sydney",
+  "files": [
+    {
+      "file": "parameters/freesolv/mobley_8048190.prmtop",
+      "source_url": "https://raw.githubusercontent.com/MobleyLab/FreeSolv/6c7d19b4b565537365ffd22006aa2cd4643200c6/amber.tar.gz",
+      "bytes": 11789,
+      "sha256": "37d5352cd5bfae95b6e5fab19a0145319bb13fa0f55bda54895e20f3a058bb84",
+      "archive_member": "amber/mobley_8048190.prmtop",
+      "archive_sha256": "f1a72d5e2328b3a28dfee3c3590667b756a3ac9c0527e8ddf945044e664389a2",
+      "source_commit": "6c7d19b4b565537365ffd22006aa2cd4643200c6"
+    },
+    {
+      "file": "parameters/freesolv/mobley_8048190.inpcrd",
+      "source_url": "https://raw.githubusercontent.com/MobleyLab/FreeSolv/6c7d19b4b565537365ffd22006aa2cd4643200c6/amber.tar.gz",
+      "bytes": 346,
+      "sha256": "514e5e1e27c1ab4d66cddae96c187fbfe87c3843d219d6c5c8e2ab7d71bcc649",
+      "archive_member": "amber/mobley_8048190.inpcrd",
+      "archive_sha256": "f1a72d5e2328b3a28dfee3c3590667b756a3ac9c0527e8ddf945044e664389a2",
+      "source_commit": "6c7d19b4b565537365ffd22006aa2cd4643200c6"
+    },
+    {
+      "file": "parameters/freesolv/mobley_8048190.frcmod",
+      "source_url": "https://raw.githubusercontent.com/MobleyLab/FreeSolv/6c7d19b4b565537365ffd22006aa2cd4643200c6/amber.tar.gz",
+      "bytes": 284,
+      "sha256": "9d844f05a3ebf7196a5d555cce7cd00d9ddd4ca2bc254ec4f16f44bbfe1abb0f",
+      "archive_member": "amber/mobley_8048190.frcmod",
+      "archive_sha256": "f1a72d5e2328b3a28dfee3c3590667b756a3ac9c0527e8ddf945044e664389a2",
+      "source_commit": "6c7d19b4b565537365ffd22006aa2cd4643200c6"
+    },
+    {
+      "file": "parameters/freesolv/mobley_8048190.mol2",
+      "source_url": "https://raw.githubusercontent.com/MobleyLab/FreeSolv/6c7d19b4b565537365ffd22006aa2cd4643200c6/mol2files_gaff.tar.gz",
+      "bytes": 1075,
+      "sha256": "04cfd88f681f2f77524301fe57bf450601c3c9e41c38a80e346e575e61d3f4f1",
+      "archive_member": "mol2files_gaff/mobley_8048190.mol2",
+      "archive_sha256": "15ece6114442a8eb5e720c0ad25bb48e4a6a35392da36f72b80a6f2f415fd133",
+      "source_commit": "6c7d19b4b565537365ffd22006aa2cd4643200c6"
+    },
+    {
+      "file": "parameters/freesolv/LICENSE",
+      "source_url": "https://raw.githubusercontent.com/MobleyLab/FreeSolv/6c7d19b4b565537365ffd22006aa2cd4643200c6/LICENSE",
+      "bytes": 18652,
+      "sha256": "cce5d01fa4a83b794271bd2c28cffdf99afd43c803e6ddefddae39b591ea7448",
+      "source_commit": "6c7d19b4b565537365ffd22006aa2cd4643200c6"
+    },
+    {
+      "file": "parameters/amber/frcmod.ions234lm_126_tip3p",
+      "source_url": "https://raw.githubusercontent.com/choderalab/ambermini/cfddd43ea945221350b5a4c31b2ba56d25958f6e/share/amber/dat/leap/parm/frcmod.ions234lm_126_tip3p",
+      "bytes": 4848,
+      "sha256": "f8bdb3df35ebdd9047b2e63786b4147265d5f73eb9b5197be3cb71027a2e25f3",
+      "source_commit": "cfddd43ea945221350b5a4c31b2ba56d25958f6e"
+    },
+    {
+      "file": "parameters/amber/frcmod.ions234lm_iod_tip3p",
+      "source_url": "https://raw.githubusercontent.com/choderalab/ambermini/cfddd43ea945221350b5a4c31b2ba56d25958f6e/share/amber/dat/leap/parm/frcmod.ions234lm_iod_tip3p",
+      "bytes": 3815,
+      "sha256": "050707db1ae405b2a585835fe758fe13f10214fd5bdc94892a87f1aab2fd4287",
+      "source_commit": "cfddd43ea945221350b5a4c31b2ba56d25958f6e"
+    }
+  ]
+}

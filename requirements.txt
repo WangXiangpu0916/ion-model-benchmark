@@ -1,0 +1,5 @@
+# Core portable environment; add openmm[cuda12]==8.6.1 for optional CUDA support.
+openmm==8.6.1
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.2

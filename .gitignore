@@ -16,6 +16,8 @@ __pycache__/
 *.h5
 *.hdf5
 results/raw/
+results/**/samples.npz
+results/**/checkpoint*
 tmp/
 
 # Editor and OS files

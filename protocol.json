@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "status": "frozen for hydration production after 50 ps pilot measured 392.6 ns/day",
+  "models": {
+    "CM": {
+      "Mg": {"rmin_half_angstrom": 1.360, "epsilon_kcal_mol": 0.01020237},
+      "Ca": {"rmin_half_angstrom": 1.649, "epsilon_kcal_mol": 0.10592870}
+    },
+    "IOD": {
+      "Mg": {"rmin_half_angstrom": 1.395, "epsilon_kcal_mol": 0.01491700},
+      "Ca": {"rmin_half_angstrom": 1.608, "epsilon_kcal_mol": 0.08337961}
+    }
+  },
+  "temperature_K": 298.15,
+  "pressure_bar": 1.0,
+  "box_nm": 3.0,
+  "timestep_ps": 0.002,
+  "friction_per_ps": 1.0,
+  "cutoff_nm": 1.0,
+  "ewald_tolerance": 0.0001,
+  "sample_interval_ps": 1.0,
+  "equilibration_ps": 100.0,
+  "production_ps": 2000.0,
+  "replicas": [1, 2, 3],
+  "seeds": [870001, 870002, 870003],
+  "coordination_cutoff_nm": {"Mg": 0.30, "Ca": 0.35},
+  "notes": [
+    "Li et al. 2013 CM and IOD 12-6 parameter sets with TIP3P; full +2 elementary charges.",
+    "Lorentz-Berthelot mixing; sigma_nm = 0.2 * Rmin_half_A / 2^(1/6); epsilon_kJ_mol = 4.184 * epsilon_kcal_mol.",
+    "One divalent cation and two chloride counterions per periodic box; no additional salt.",
+    "Hydration metrics include fitting targets and therefore test implementation/target recovery, not independent predictive accuracy.",
+    "No water-exchange rate or NMDAR affinity will be inferred from this finite-time study."
+  ]
+}

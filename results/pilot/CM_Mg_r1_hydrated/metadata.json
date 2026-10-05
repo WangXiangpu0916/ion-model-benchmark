@@ -1,0 +1,101 @@
+{
+  "campaign": "pilot",
+  "model": "CM",
+  "ion": "Mg",
+  "replica": 1,
+  "initial_state": "hydrated",
+  "seed": 870001,
+  "status": "complete",
+  "temperature_K": 298.15,
+  "production_ps": 50.0,
+  "sample_interval_ps": 1.0,
+  "protocol": {
+    "version": 1,
+    "status": "pilot; production duration to be frozen after throughput check",
+    "models": {
+      "CM": {
+        "Mg": {
+          "rmin_half_angstrom": 1.36,
+          "epsilon_kcal_mol": 0.01020237
+        },
+        "Ca": {
+          "rmin_half_angstrom": 1.649,
+          "epsilon_kcal_mol": 0.1059287
+        }
+      },
+      "IOD": {
+        "Mg": {
+          "rmin_half_angstrom": 1.395,
+          "epsilon_kcal_mol": 0.014917
+        },
+        "Ca": {
+          "rmin_half_angstrom": 1.608,
+          "epsilon_kcal_mol": 0.08337961
+        }
+      }
+    },
+    "temperature_K": 298.15,
+    "pressure_bar": 1.0,
+    "box_nm": 3.0,
+    "timestep_ps": 0.002,
+    "friction_per_ps": 1.0,
+    "cutoff_nm": 1.0,
+    "ewald_tolerance": 0.0001,
+    "sample_interval_ps": 1.0,
+    "equilibration_ps": 10.0,
+    "production_ps": 50.0,
+    "replicas": [
+      1,
+      2,
+      3
+    ],
+    "seeds": [
+      870001,
+      870002,
+      870003
+    ],
+    "coordination_cutoff_nm": {
+      "Mg": 0.3,
+      "Ca": 0.35
+    },
+    "notes": [
+      "Li et al. 2013 CM and IOD 12-6 parameter sets with TIP3P; full +2 elementary charges.",
+      "Lorentz-Berthelot mixing; sigma_nm = 0.2 * Rmin_half_A / 2^(1/6); epsilon_kJ_mol = 4.184 * epsilon_kcal_mol.",
+      "One divalent cation and two chloride counterions per periodic box; no additional salt.",
+      "Hydration metrics include fitting targets and therefore test implementation/target recovery, not independent predictive accuracy.",
+      "No water-exchange rate or NMDAR affinity will be inferred from this finite-time study."
+    ]
+  },
+  "openmm_version": "8.6.1.dev-b399af4",
+  "python": "3.12.14",
+  "host_os": "Windows-11-10.0.26200-SP0",
+  "process_id": 21856,
+  "code_sha256": "aca7725c7db105736693f3b0923d9facef05b53fe01acc0b1c84cb2b770129bc",
+  "protocol_sha256": "62cd33232d08b358bcd71720bb36379b91e1d62884d43209099b70e025099ef3",
+  "git_commit": "e1a44b8c56e9096cd3e601772b4bd6fa774ed23b",
+  "started_at_utc": "2026-10-05T12:03:51Z",
+  "platform": "OpenCL",
+  "platform_properties": {
+    "DeviceIndex": "0",
+    "DeviceName": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "OpenCLPlatformIndex": "0",
+    "OpenCLPlatformName": "NVIDIA CUDA",
+    "Precision": "mixed",
+    "UseCpuPme": "false",
+    "DisablePmeStream": "false"
+  },
+  "n_atoms": 2640,
+  "n_water": 879,
+  "n_chloride": 2,
+  "ion_lj_sigma_nm": 0.2423244513341723,
+  "ion_lj_epsilon_kj_mol": 0.042686716080000006,
+  "equilibration_wall_seconds": 11.72505000000092,
+  "degrees_of_freedom": 5280,
+  "completed_frames": 50,
+  "last_sample_ps": 50.0,
+  "wall_seconds": 22.778240699997696,
+  "production_wall_seconds": 11.00285950000034,
+  "ns_per_day": 392.6252080197758,
+  "completed_at_utc": "2026-10-05T12:04:14Z",
+  "samples_sha256": "86e984f8bbfc54e625579e8dc9189a914e258ade14cf131975a71f70d6e13d3a"
+}
