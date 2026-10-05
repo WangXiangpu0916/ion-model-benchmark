@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ForceField>
+  <!--Generated from pinned FreeSolv mobley_8048190.prmtop; see SOURCES.md and source_manifest.json.-->
+  <AtomTypes>
+    <Type name="freesolv-acetamide-C1" element="C" mass="12.01" class="freesolv-acetamide-C1" />
+    <Type name="freesolv-acetamide-C2" element="C" mass="12.01" class="freesolv-acetamide-C2" />
+    <Type name="freesolv-acetamide-O1" element="O" mass="16.0" class="freesolv-acetamide-O1" />
+    <Type name="freesolv-acetamide-N1" element="N" mass="14.01" class="freesolv-acetamide-N1" />
+    <Type name="freesolv-acetamide-H1" element="H" mass="1.008" class="freesolv-acetamide-H1" />
+    <Type name="freesolv-acetamide-H2" element="H" mass="1.008" class="freesolv-acetamide-H2" />
+    <Type name="freesolv-acetamide-H3" element="H" mass="1.008" class="freesolv-acetamide-H3" />
+    <Type name="freesolv-acetamide-H4" element="H" mass="1.008" class="freesolv-acetamide-H4" />
+    <Type name="freesolv-acetamide-H5" element="H" mass="1.008" class="freesolv-acetamide-H5" />
+  </AtomTypes>
+  <Residues>
+    <Residue name="ACM">
+      <Atom name="C1" type="freesolv-acetamide-C1" />
+      <Atom name="C2" type="freesolv-acetamide-C2" />
+      <Atom name="O1" type="freesolv-acetamide-O1" />
+      <Atom name="N1" type="freesolv-acetamide-N1" />
+      <Atom name="H1" type="freesolv-acetamide-H1" />
+      <Atom name="H2" type="freesolv-acetamide-H2" />
+      <Atom name="H3" type="freesolv-acetamide-H3" />
+      <Atom name="H4" type="freesolv-acetamide-H4" />
+      <Atom name="H5" type="freesolv-acetamide-H5" />
+      <Bond atomName1="C1" atomName2="H1" />
+      <Bond atomName1="C1" atomName2="H2" />
+      <Bond atomName1="C1" atomName2="H3" />
+      <Bond atomName1="N1" atomName2="H4" />
+      <Bond atomName1="N1" atomName2="H5" />
+      <Bond atomName1="C1" atomName2="C2" />
+      <Bond atomName1="C2" atomName2="O1" />
+      <Bond atomName1="C2" atomName2="N1" />
+    </Residue>
+  </Residues>
+  <HarmonicBondForce>
+    <Bond type1="freesolv-acetamide-C1" type2="freesolv-acetamide-H1" length="0.10920000000000002" k="282252.64" />
+    <Bond type1="freesolv-acetamide-C1" type2="freesolv-acetamide-H2" length="0.10920000000000002" k="282252.64" />
+    <Bond type1="freesolv-acetamide-C1" type2="freesolv-acetamide-H3" length="0.10920000000000002" k="282252.64" />
+    <Bond type1="freesolv-acetamide-N1" type2="freesolv-acetamide-H4" length="0.10089999999999999" k="343255.36000000004" />
+    <Bond type1="freesolv-acetamide-N1" type2="freesolv-acetamide-H5" length="0.10089999999999999" k="343255.36000000004" />
+    <Bond type1="freesolv-acetamide-C1" type2="freesolv-acetamide-C2" length="0.15080000000000002" k="274721.44000000006" />
+    <Bond type1="freesolv-acetamide-C2" type2="freesolv-acetamide-O1" length="0.12140000000000001" k="542246.4" />
+    <Bond type1="freesolv-acetamide-C2" type2="freesolv-acetamide-N1" length="0.1345" k="400157.76" />
+  </HarmonicBondForce>
+  <HarmonicAngleForce>
+    <Angle type1="freesolv-acetamide-C2" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-H1" angle="1.91427794" k="394.9696" />
+    <Angle type1="freesolv-acetamide-C2" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-H2" angle="1.91427794" k="394.9696" />
+    <Angle type1="freesolv-acetamide-C2" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-H3" angle="1.91427794" k="394.9696" />
+    <Angle type1="freesolv-acetamide-C2" type2="freesolv-acetamide-N1" type3="freesolv-acetamide-H4" angle="2.06751792" k="411.78928" />
+    <Angle type1="freesolv-acetamide-C2" type2="freesolv-acetamide-N1" type3="freesolv-acetamide-H5" angle="2.06751792" k="411.78928" />
+    <Angle type1="freesolv-acetamide-H1" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-H2" angle="1.89106506" k="329.95024" />
+    <Angle type1="freesolv-acetamide-H1" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-H3" angle="1.89106506" k="329.95024" />
+    <Angle type1="freesolv-acetamide-H2" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-H3" angle="1.89106506" k="329.95024" />
+    <Angle type1="freesolv-acetamide-H4" type2="freesolv-acetamide-N1" type3="freesolv-acetamide-H5" angle="2.0568714" k="332.46064" />
+    <Angle type1="freesolv-acetamide-C1" type2="freesolv-acetamide-C2" type3="freesolv-acetamide-O1" angle="2.14867576" k="569.27504" />
+    <Angle type1="freesolv-acetamide-C1" type2="freesolv-acetamide-C2" type3="freesolv-acetamide-N1" angle="2.0097475" k="567.85248" />
+    <Angle type1="freesolv-acetamide-O1" type2="freesolv-acetamide-C2" type3="freesolv-acetamide-N1" angle="2.1298262" k="634.54544" />
+  </HarmonicAngleForce>
+  <PeriodicTorsionForce ordering="amber">
+    <Proper type1="freesolv-acetamide-C1" type2="freesolv-acetamide-C2" type3="freesolv-acetamide-N1" type4="freesolv-acetamide-H4" periodicity1="2" phase1="3.141594" k1="10.46" />
+    <Proper type1="freesolv-acetamide-C1" type2="freesolv-acetamide-C2" type3="freesolv-acetamide-N1" type4="freesolv-acetamide-H5" periodicity1="2" phase1="3.141594" k1="10.46" />
+    <Proper type1="freesolv-acetamide-H1" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-C2" type4="freesolv-acetamide-O1" periodicity1="1" phase1="0.0" k1="3.3472000000000004" periodicity2="3" phase2="3.141594" k2="0.33472" />
+    <Proper type1="freesolv-acetamide-H2" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-C2" type4="freesolv-acetamide-O1" periodicity1="1" phase1="0.0" k1="3.3472000000000004" periodicity2="3" phase2="3.141594" k2="0.33472" />
+    <Proper type1="freesolv-acetamide-H3" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-C2" type4="freesolv-acetamide-O1" periodicity1="1" phase1="0.0" k1="3.3472000000000004" periodicity2="3" phase2="3.141594" k2="0.33472" />
+    <Proper type1="freesolv-acetamide-O1" type2="freesolv-acetamide-C2" type3="freesolv-acetamide-N1" type4="freesolv-acetamide-H4" periodicity1="1" phase1="0.0" k1="8.368" periodicity2="2" phase2="3.141594" k2="10.46" />
+    <Proper type1="freesolv-acetamide-O1" type2="freesolv-acetamide-C2" type3="freesolv-acetamide-N1" type4="freesolv-acetamide-H5" periodicity1="1" phase1="0.0" k1="8.368" periodicity2="2" phase2="3.141594" k2="10.46" />
+    <Proper type1="freesolv-acetamide-H1" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-C2" type4="freesolv-acetamide-N1" periodicity1="2" phase1="3.141594" k1="0.0" />
+    <Proper type1="freesolv-acetamide-H2" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-C2" type4="freesolv-acetamide-N1" periodicity1="2" phase1="3.141594" k1="0.0" />
+    <Proper type1="freesolv-acetamide-H3" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-C2" type4="freesolv-acetamide-N1" periodicity1="2" phase1="3.141594" k1="0.0" />
+    <Improper type1="freesolv-acetamide-N1" type2="freesolv-acetamide-C2" type3="freesolv-acetamide-H4" type4="freesolv-acetamide-H5" periodicity1="2" phase1="3.141594" k1="4.6024" />
+    <Improper type1="freesolv-acetamide-C2" type2="freesolv-acetamide-C1" type3="freesolv-acetamide-N1" type4="freesolv-acetamide-O1" periodicity1="2" phase1="3.141594" k1="43.932" />
+  </PeriodicTorsionForce>
+  <NonbondedForce coulomb14scale="0.8333333333333334" lj14scale="0.5">
+    <Atom type="freesolv-acetamide-C1" charge="-0.1728" sigma="0.33996695084507406" epsilon="0.45772959964740484" />
+    <Atom type="freesolv-acetamide-C2" charge="0.6572000021951125" sigma="0.33996695079448314" epsilon="0.35982400053705343" />
+    <Atom type="freesolv-acetamide-O1" charge="-0.6137999978048875" sigma="0.2959921901644687" epsilon="0.8786399993381852" />
+    <Atom type="freesolv-acetamide-N1" charge="-0.6832000021951126" sigma="0.3249998524031036" epsilon="0.7112799996555186" />
+    <Atom type="freesolv-acetamide-H1" charge="0.0646" sigma="0.26495327872602226" epsilon="0.06568880010977264" />
+    <Atom type="freesolv-acetamide-H2" charge="0.0646" sigma="0.26495327872602226" epsilon="0.06568880010977264" />
+    <Atom type="freesolv-acetamide-H3" charge="0.0646" sigma="0.26495327872602226" epsilon="0.06568880010977264" />
+    <Atom type="freesolv-acetamide-H4" charge="0.3094" sigma="0.10690784617205229" epsilon="0.06568880001765333" />
+    <Atom type="freesolv-acetamide-H5" charge="0.3094" sigma="0.10690784617205229" epsilon="0.06568880001765333" />
+  </NonbondedForce>
+</ForceField>

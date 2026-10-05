@@ -1,0 +1,137 @@
+{
+  "passed": true,
+  "openmm_version": "8.6.1.dev-b399af4",
+  "platform": "Reference",
+  "random_seed": 20261005,
+  "atom_count": 9,
+  "force_counts": {
+    "bonds": 8,
+    "angles": 12,
+    "nonzero_torsion_terms": 14,
+    "nonbonded_exceptions": 30
+  },
+  "improper_terms": 2,
+  "source_zero_k_torsions_omitted_by_openmm_xml_loader": 3,
+  "max_exception_errors_chargeprod_sigma_epsilon": [
+    6.938893903907228e-18,
+    1.6238238531585125e-10,
+    8.439930282433394e-10
+  ],
+  "tolerances": {
+    "absolute_energy_kj_mol": 1e-06,
+    "max_absolute_force_kj_mol_nm": 1e-05
+  },
+  "geometries": [
+    {
+      "perturbation_std_nm": 0.0,
+      "by_force": {
+        "HarmonicBondForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 1.1368683772161603e-13
+        },
+        "HarmonicAngleForce": {
+          "absolute_energy_error_kj_mol": 4.440892098500626e-16,
+          "max_absolute_force_error_kj_mol_nm": 5.684341886080802e-14
+        },
+        "PeriodicTorsionForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 1.1102230246251565e-16
+        },
+        "NonbondedForce": {
+          "absolute_energy_error_kj_mol": 3.8911309729883214e-09,
+          "max_absolute_force_error_kj_mol_nm": 7.896471743151778e-08
+        }
+      }
+    },
+    {
+      "perturbation_std_nm": 0.002,
+      "by_force": {
+        "HarmonicBondForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 2.2737367544323206e-13
+        },
+        "HarmonicAngleForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 2.2737367544323206e-13
+        },
+        "PeriodicTorsionForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 2.842170943040401e-14
+        },
+        "NonbondedForce": {
+          "absolute_energy_error_kj_mol": 4.1963801322708605e-09,
+          "max_absolute_force_error_kj_mol_nm": 8.551546670787502e-08
+        }
+      }
+    },
+    {
+      "perturbation_std_nm": 0.005,
+      "by_force": {
+        "HarmonicBondForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 2.2737367544323206e-13
+        },
+        "HarmonicAngleForce": {
+          "absolute_energy_error_kj_mol": 1.7763568394002505e-15,
+          "max_absolute_force_error_kj_mol_nm": 5.684341886080802e-14
+        },
+        "PeriodicTorsionForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 3.552713678800501e-15
+        },
+        "NonbondedForce": {
+          "absolute_energy_error_kj_mol": 3.6492906474450137e-09,
+          "max_absolute_force_error_kj_mol_nm": 7.512778665841324e-08
+        }
+      }
+    },
+    {
+      "perturbation_std_nm": 0.01,
+      "by_force": {
+        "HarmonicBondForce": {
+          "absolute_energy_error_kj_mol": 5.684341886080802e-14,
+          "max_absolute_force_error_kj_mol_nm": 4.547473508864641e-13
+        },
+        "HarmonicAngleForce": {
+          "absolute_energy_error_kj_mol": 1.4210854715202004e-14,
+          "max_absolute_force_error_kj_mol_nm": 9.094947017729282e-13
+        },
+        "PeriodicTorsionForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 0.0
+        },
+        "NonbondedForce": {
+          "absolute_energy_error_kj_mol": 3.2402738270320697e-09,
+          "max_absolute_force_error_kj_mol_nm": 6.615266556764254e-08
+        }
+      }
+    },
+    {
+      "perturbation_std_nm": 0.02,
+      "by_force": {
+        "HarmonicBondForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 9.094947017729282e-13
+        },
+        "HarmonicAngleForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 4.547473508864641e-13
+        },
+        "PeriodicTorsionForce": {
+          "absolute_energy_error_kj_mol": 0.0,
+          "max_absolute_force_error_kj_mol_nm": 1.4210854715202004e-14
+        },
+        "NonbondedForce": {
+          "absolute_energy_error_kj_mol": 1.0247731552226469e-07,
+          "max_absolute_force_error_kj_mol_nm": 5.021567631047219e-06
+        }
+      }
+    }
+  ],
+  "sha256": {
+    "mobley_8048190.prmtop": "37d5352cd5bfae95b6e5fab19a0145319bb13fa0f55bda54895e20f3a058bb84",
+    "mobley_8048190.inpcrd": "514e5e1e27c1ab4d66cddae96c187fbfe87c3843d219d6c5c8e2ab7d71bcc649",
+    "acetamide.xml": "5c5bd3fcca698efa16cbeada2a3be95a50d16a3f823ad3c690922cd79220e123",
+    "acetamide.pdb": "9e77a95cf5136f04c62febe24a466ddc30e9f483e98129872717f646ff2e3e81"
+  }
+}
