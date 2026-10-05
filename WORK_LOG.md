@@ -70,6 +70,14 @@
   observed workflow throughput rather than isolated hardware performance.
 - Extended the existing audit to verify recorded corrected-PDB hashes against
   their referenced sample hashes. Confirmed Git preserves those PDB bytes.
+- Completed and audited CM/Ca replica 1 (140.6 ns/day): RDF peak 0.247 nm,
+  mean shell distance 0.252668 nm, mean CN 8.0515 and temperature 298.20 K.
+  Diagnostic CN probabilities were 0.0055, 0.9375 and 0.0570 for CN 7, 8 and 9.
+  The outer RDF average over 0.8-0.9 nm was 1.00010. There were 82 distinct
+  in-shell water identities and 178 membership flips between saved frames;
+  these are descriptive observations, not committed exchanges or a rate.
+  No chloride distance below the diagnostic 0.4 nm cutoff was observed.
+  Two further CM/Ca replicas remain pending.
 
 ## Assistance and ownership
 
