@@ -97,6 +97,13 @@
   water-identity changes. The six IOD hydration trajectories are next; these
   CM-only results do not yet establish the parameter-set comparison.
 
+- Completed and audited IOD/Mg replica 1 (125.7 ns/day), including the recorded
+  final-PDB header correction. Its RDF peak is 0.207 nm, mean shell distance
+  0.208576 nm, mean CN 6.0 and temperature 298.46 K. The peak is 0.004 nm
+  above the completed CM/Mg group and inside the quoted Mg reference interval.
+  Six water identities persisted throughout the saved frames. This is one IOD
+  trajectory; the remaining replicas are needed for the planned comparison.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
