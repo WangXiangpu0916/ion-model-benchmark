@@ -165,6 +165,16 @@
   runnable self-check passed injected-save/failure checks and twelve analytic
   ion-water energy/force comparisons. Scientific settings remain frozen.
 
+- Started the preplanned twenty-four-case amide campaign from clean commit
+  39f0175. The first live partial snapshot contained 200 finite, initialized
+  frames and its hash matched the metadata. The first complete CM/Mg/contact
+  trajectory then passed the case audit, including final PDB dimensions and
+  frozen invocation provenance, without a PDB-header correction.
+  It ran at 441.3 ns/day; its diagnostic amide-contact fraction was 1.0, mean
+  metal-carbonyl-O distance 0.200781 nm, water CN 5.0 and temperature 298.45 K.
+  This describes a single contact-start trajectory; its separated counterpart
+  and remaining replicas are still required for the planned comparison.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
