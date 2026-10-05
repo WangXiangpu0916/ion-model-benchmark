@@ -124,6 +124,13 @@
   These repeatable local structural differences do not establish water-exchange
   kinetics. Three IOD/Ca trajectories remain before the hydration quality gate.
 
+- Completed and audited IOD/Ca replica 1 (115.2 ns/day), including the
+  documented final-PDB correction. Its RDF peak is 0.243 nm, mean shell
+  distance 0.247978 nm, mean CN 8.013 and temperature 298.46 K. CN 8 accounts
+  for 97.5% of saved frames; 53 distinct shell-water identities and 98
+  membership flips were recorded. No diagnostic chloride contacts occurred.
+  The two remaining IOD/Ca replicas are needed before interpreting this group.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
