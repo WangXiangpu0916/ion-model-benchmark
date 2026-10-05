@@ -17,3 +17,7 @@ parameters/freesolv/*.inpcrd -text
 parameters/freesolv/*.mol2 -text
 parameters/freesolv/*.frcmod -text
 parameters/freesolv/LICENSE -text
+# Preserve exact bytes for text artifacts referenced by report checksums.
+SOURCES.md -text whitespace=cr-at-eol
+results/analysis/replica_summaries.json -text whitespace=cr-at-eol
+output/pdf/presentation_script.md -text whitespace=cr-at-eol

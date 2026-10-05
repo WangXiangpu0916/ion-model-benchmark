@@ -240,6 +240,12 @@
   metadata, summaries, figures and final deliverables are retained in Git;
   larger raw samples and trajectories remain in their local case directories.
 
+- Post-commit checksum verification detected Git newline normalization in three
+  checksummed text artifacts. Added targeted byte-preservation attributes for
+  SOURCES.md, the complete summary JSON and the presentation script. This
+  retains their existing bytes and recorded hashes when the repository is
+  checked out again; scientific content and the final PDF are unchanged.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
