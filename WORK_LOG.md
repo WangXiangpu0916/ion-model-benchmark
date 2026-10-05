@@ -104,6 +104,17 @@
   Six water identities persisted throughout the saved frames. This is one IOD
   trajectory; the remaining replicas are needed for the planned comparison.
 
+- Focused review of all seven then-complete trajectories found no new issue
+  requiring a rerun. IOD/Mg replica 1 has half-trajectory RDF maxima of 0.205
+  and 0.209 nm versus its pooled 0.207 nm maximum, with similar heights in
+  neighboring bins. Peak-bin movement must be interpreted alongside shell
+  distances and replicate variation; the outer RDF average was 1.0069.
+- Completed and audited IOD/Mg replica 2 (119.3 ns/day), including the
+  documented final-PDB correction. Its RDF peak is also 0.207 nm, mean shell
+  distance 0.208636 nm, mean CN 6.0 and mean temperature 298.52 K. Six waters
+  persisted in the shell at saved frames; the chloride-contact fraction was
+  0.003. The final IOD/Mg replica and three IOD/Ca replicas remain pending.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
