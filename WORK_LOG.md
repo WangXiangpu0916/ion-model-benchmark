@@ -115,6 +115,15 @@
   persisted in the shell at saved frames; the chloride-contact fraction was
   0.003. The final IOD/Mg replica and three IOD/Ca replicas remain pending.
 
+- Completed and audited IOD/Mg replica 3 (138.7 ns/day), including the
+  documented final-PDB correction. All six planned Mg trajectories are now
+  complete. IOD/Mg RDF peaks are all 0.207 nm; its group mean shell distance
+  is 0.208612 +/- 0.000032 nm and temperature 298.52 +/- 0.06 K (sample SDs).
+  Compared with CM, the mean shell distance is larger by 0.004343 nm. Both
+  models retained CN 6 and the same six water identities in each trajectory.
+  These repeatable local structural differences do not establish water-exchange
+  kinetics. Three IOD/Ca trajectories remain before the hydration quality gate.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
