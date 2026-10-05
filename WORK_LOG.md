@@ -182,6 +182,15 @@
   example of finite-time preparation dependence. No affinity or equilibration
   claim is made; both remaining replica pairs are still planned.
 
+- All six CM/Mg amide trajectories are complete and audited. In all three
+  contact-start runs the diagnostic contact fraction is 1.0 and water CN is
+  5.0; all three separated-start runs have contact fraction 0.0 and water CN
+  6.0. Contact-start mean ion-amide-O distances span 0.200769-0.200929 nm;
+  separated-start means span 1.37329-1.46408 nm. Temperatures span
+  298.34-298.55 K, and diagnostic chloride-contact fractions are at most
+  0.0015. This repeated starting-state contrast is retained as a finite-time
+  sampling result. CM/Ca and both IOD groups remain in progress/pending.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
