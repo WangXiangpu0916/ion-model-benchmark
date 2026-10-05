@@ -175,6 +175,13 @@
   This describes a single contact-start trajectory; its separated counterpart
   and remaining replicas are still required for the planned comparison.
 
+- The first CM/Mg/separated amide trajectory passed the case audit at
+  452.3 ns/day. Its diagnostic contact fraction was 0.0, mean ion-amide-O
+  distance 1.46408 nm, water CN 6.0 and temperature 298.43 K. Together with
+  the first contact-start trajectory (fraction 1.0), this provides an initial
+  example of finite-time preparation dependence. No affinity or equilibration
+  claim is made; both remaining replica pairs are still planned.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
