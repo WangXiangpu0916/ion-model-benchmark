@@ -1,0 +1,24 @@
+# Local Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.uv-cache/
+
+# Reproducible, large simulation products stay on this computer.
+# Commit configurations, seeds, manifests, summary data and figures.
+*.dcd
+*.xtc
+*.trr
+*.chk
+*.cpt
+*.nc
+*.h5
+*.hdf5
+results/raw/
+tmp/
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
