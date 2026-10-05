@@ -5,3 +5,10 @@
 *.ps1 text eol=crlf
 *.png binary
 *.pdf binary
+# Preserve exact downloaded bytes for provenance checks across platforms.
+parameters/amber/* -text
+parameters/freesolv/*.prmtop -text
+parameters/freesolv/*.inpcrd -text
+parameters/freesolv/*.mol2 -text
+parameters/freesolv/*.frcmod -text
+parameters/freesolv/LICENSE -text
