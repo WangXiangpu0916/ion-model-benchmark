@@ -18,6 +18,27 @@
   not evidence that slow exchange has equilibrated.
 - Committed source parameters, numerical protocol, runner and pilot as
   `285d52e`. Began the twelve-case hydration campaign on this code revision.
+- Added analysis of RDFs, coordination distributions, replica variation, block
+  diagnostics, cutoff sensitivity and amide distances; analytical self-checks
+  passed. Only completed, checksummed runs enter analysis.
+- Converted the pinned FreeSolv acetamide topology to OpenMM XML. Original and
+  four perturbed geometries passed source-versus-conversion energy/force checks.
+- Enabled the optional CUDA plugin using a process-local DLL search path. A
+  concurrent CUDA pilot completed; its throughput is not an isolated benchmark.
+  The hydration production process continues on OpenCL.
+- Added a read-only completion audit. Code review identified a final-PDB box
+  header bug and missing intermediate sample saves in the simulation runner.
+  The live runner remains unchanged during hydration to preserve recorded source
+  identity. Repairs will be documented and applied before the amide campaign.
+- Prepared a report generator that requires the complete 12+24-case dataset.
+  Formal report generation remains pending; temporary layout fixtures do not
+  represent simulation results.
+- Completed the first 2 ns hydration case, CM/Mg replica 1: 127.4 ns/day,
+  mean temperature 298.30 K, mean diagnostic CN 6.0 and first RDF peak 0.203 nm.
+  This single case is not the completed model comparison. Its final PDB CRYST1
+  edges were corrected from the cube root of the last saved NPT volume; atom
+  coordinates and raw samples were unchanged. The metadata records the original
+  and corrected headers and file hashes. The completed-case audit then passed.
 
 ## Assistance and ownership
 

@@ -2,7 +2,8 @@
 *.py text eol=lf
 *.json text eol=lf
 *.xml text eol=lf
-*.pdb text eol=lf
+*.pdb text eol=lf whitespace=-blank-at-eol,cr-at-eol
+results/**/final.pdb -text
 *.txt text eol=lf
 *.csv text eol=lf
 *.md text eol=lf

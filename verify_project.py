@@ -1,7 +1,8 @@
 """Read-only completion audit; missing work exits 1, and --self-check uses temporary files.
 
 Run with the project Python. If pypdf is only in a bundled environment, provide
---pdf-python PATH. These checks establish artifact consistency, not scientific
+--pdf-python PATH. Use --data-only before building the report. These checks
+establish artifact consistency, not scientific
 correctness, equilibration, or the quality of the report's interpretation.
 """
 
@@ -24,9 +25,6 @@ import analyze
 
 
 ROOT = Path(__file__).resolve().parent
-METRICS = ("mean_CN", "rdf_peak_nm", "mean_shell_distance_nm", "mean_temperature_K",
-           "mean_water_number_density_nm3", "shell_identity_changed_interval_fraction",
-           "chloride_contact_fraction_lt_0p4nm")
 
 
 def require(condition, message):
@@ -92,6 +90,7 @@ def verify_case(path, campaign, identity, protocol):
     frame_count = round(duration / cadence)
     require(np.isclose(frame_count * cadence, duration), "Production duration is not a whole number of sample intervals")
     require(meta["production_ps"] == duration and meta["sample_interval_ps"] == cadence, "Top-level duration/cadence differs")
+    require(meta["temperature_K"] == protocol["temperature_K"], "Top-level temperature differs from protocol")
     require(meta["completed_frames"] == frame_count, "Completed frame count differs from protocol")
     require(np.isfinite(meta["min_box_length_nm"]) and meta["min_box_length_nm"] > 2 * protocol["cutoff_nm"],
             "Missing/invalid minimum periodic box length")
@@ -133,6 +132,26 @@ def verify_case(path, campaign, identity, protocol):
     return summary
 
 
+def same_value(value, expected):
+    """Compare recomputed fields, including JSON-encoded nested CSV cells."""
+    if isinstance(value, str) and not isinstance(expected, str):
+        if value == "" and expected is None:
+            return True
+        if type(expected) is bool:
+            return value == str(expected)  # csv.writer writes Python boolean spelling.
+        try:
+            value = json.loads(value)
+        except ValueError:
+            return False
+    if isinstance(expected, dict):
+        return isinstance(value, dict) and value.keys() == expected.keys() and all(same_value(value[k], v) for k, v in expected.items())
+    if isinstance(expected, list):
+        return isinstance(value, list) and len(value) == len(expected) and all(same_value(v, e) for v, e in zip(value, expected))
+    if type(expected) in (int, float):
+        return type(value) in (int, float) and np.isfinite(value) and np.isclose(value, expected, rtol=1e-9, atol=1e-12)
+    return type(value) is type(expected) and value == expected
+
+
 def verify_analysis(directory, summaries):
     expected = {(campaign, case) for campaign in ("hydration", "amide") for case in expected_cases(campaign)}
     payload = json.loads((directory / "replica_summaries.json").read_text())
@@ -146,12 +165,9 @@ def verify_analysis(directory, summaries):
     require(len(csv_keys) == len(set(csv_keys)) and set(csv_keys) == expected, "Analysis CSV case coverage differs")
     for row in rows + csv_rows:
         key = row["campaign"], row["case"]
-        for metric in METRICS + (("mean_amide_distance_nm",) if key[0] == "amide" else ()):
-            value = row[metric]
-            recomputed = summaries[key][metric]
-            require((recomputed is None and value in (None, "")) or
-                    (recomputed is not None and value not in (None, "") and np.isclose(float(value), recomputed, rtol=1e-9, atol=1e-12)),
-                    f"Analysis {metric} differs from raw data: {key}")
+        for metric, recomputed in summaries[key].items():
+            if metric != "source":  # Absolute source paths can change when a repository is moved.
+                require(metric in row and same_value(row[metric], recomputed), f"Analysis {metric} differs from raw data: {key}")
     groups = payload["hydration_group_summaries"]
     require(len(groups) == 4 and {(r["model"], r["ion"]) for r in groups} == set(itertools.product(("CM", "IOD"), ("Mg", "Ca"))),
             "Hydration group coverage differs")
@@ -213,14 +229,23 @@ def self_check():
         else:
             raise AssertionError("Tampered input was accepted")
     assert len(expected_cases("hydration")) == 12 and len(expected_cases("amide")) == 24
-    print("Self-check passed: hash tampering rejected and exact campaign case counts checked.")
+    nested = {"halves": {"CN": {"second_minus_first": .25}}, "cutoffs": [{"mean_CN": 6.0}]}
+    assert same_value(json.dumps(nested), nested) and same_value("", None)
+    assert same_value("False", False) and same_value("True", True)
+    assert not same_value("True", False)
+    changed = json.loads(json.dumps(nested))
+    changed["halves"]["CN"]["second_minus_first"] = .5
+    assert not same_value(changed, nested) and not same_value("NaN", 6.0)
+    print("Self-check passed: hash/nested-metric tampering rejected and exact campaign case counts checked.")
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--results", type=Path, default=ROOT / "results")
-    parser.add_argument("--report", type=Path, default=ROOT / "report.pdf")
-    parser.add_argument("--presentation", type=Path, default=ROOT / "presentation_script.md")
+    parser.add_argument("--analysis", type=Path, help="Defaults to RESULTS/analysis")
+    parser.add_argument("--data-only", action="store_true", help="Audit raw data, summaries and figures before report generation")
+    parser.add_argument("--report", type=Path, default=ROOT / "output/pdf/ion_model_benchmark_report.pdf")
+    parser.add_argument("--presentation", type=Path, default=ROOT / "output/pdf/presentation_script.md")
     parser.add_argument("--pdf-python", type=Path, default=Path(sys.executable))
     parser.add_argument("--self-check", action="store_true")
     args = parser.parse_args()
@@ -255,10 +280,12 @@ def main():
                 summary = check(f"{campaign}/{name}", lambda: verify_case(directory / name / "metadata.json", campaign, expected[name], protocol))
                 if summary is not None:
                     summaries[campaign, name] = summary
-    check("analysis matches raw data", lambda: verify_analysis(args.results / "analysis", summaries))
-    check("quantitative figures", lambda: verify_figures(args.results / "analysis"))
-    check("English report", lambda: verify_report(args.report, args.pdf_python))
-    check("presentation script", lambda: verify_presentation(args.presentation))
+    analysis = args.analysis or args.results / "analysis"
+    check("analysis matches raw data", lambda: verify_analysis(analysis, summaries))
+    check("quantitative figures", lambda: verify_figures(analysis))
+    if not args.data_only:
+        check("English report", lambda: verify_report(args.report, args.pdf_python))
+        check("presentation script", lambda: verify_presentation(args.presentation))
     status = subprocess.run(["git", "status", "--short"], cwd=ROOT, capture_output=True, text=True)
     print("INFO Git worktree: " + (status.stdout.strip() or ("clean" if status.returncode == 0 else status.stderr.strip())))
     print(f"Audit: {failed} incomplete/failed checks. This is an artifact-consistency audit, not a scientific certification.")

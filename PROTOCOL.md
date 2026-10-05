@@ -32,6 +32,11 @@ thermal throttling and competing workloads can change the timing. A per-case
 one-hour safety ceiling catches an unexpectedly slow or stalled run. Completed
 cases are reused only when their protocol and sample checksum match.
 
+**Runtime update during production:** the 1.5-hour estimate above was extrapolated
+from the short pilot. Sustained throughput initially fell to about 80-90 ns/day
+and later recovered; timing must be taken from completed-case metadata. The
+planned trajectory lengths and numerical protocol remain unchanged.
+
 ## Observables and interpretation
 
 - Ion-water oxygen RDF, normalized by each frame's water density. The analysis

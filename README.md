@@ -17,9 +17,9 @@ their use in more complex NMDA receptor simulations.
 
 The study compares hydration structure, local coordination and sampling
 sensitivity. It does not establish NMDAR binding affinity, ion permeation,
-calcium-magnesium knock-on, or physiological unblock rates. Model comparisons
-include the prescribed water model; differences cannot automatically be assigned
-to ion parameters alone.
+calcium-magnesium knock-on, or physiological unblock rates. CM and IOD use the
+same TIP3P water and interaction conventions, so the comparison isolates these
+two published ion-parameter choices within that fixed setup.
 
 ## Version control
 
@@ -71,6 +71,19 @@ Core requirements support OpenCL/CPU. `requirements-local-lock.txt` records the
 exact local environment including optional CUDA components. The Windows CUDA
 launcher `run_gpu.py` exposes locally installed NVIDIA DLLs only to its process;
 it accepts the same arguments as `simulate.py`, including `--platform CUDA`.
+
+After both campaigns and their combined analysis finish, generate the report:
+
+```powershell
+python build_report.py --project-python .venv/Scripts/python.exe --output output/pdf
+.venv/Scripts/python.exe verify_project.py --pdf-python (Get-Command python).Source
+```
+
+Here `python` denotes a document environment containing ReportLab 4.4.9 and
+`pypdf`; the local Codex bundled Python provides both. The report builder invokes
+the project Python to recompute and audit saved-data metrics before writing a
+six-page PDF, an English presentation script and their checksum manifest.
+The final PDF also requires visual review of every rendered page.
 
 ## What is measured
 
