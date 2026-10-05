@@ -229,6 +229,17 @@
   replica standard deviations to zero. Initial six-page visual review passed;
   the revised final PDF still requires its final render and audit.
 
+- Final delivery verification passed with zero incomplete/failed checks:
+  all 36 case identities, upstream and raw-sample hashes, serialized systems,
+  recomputed JSON/CSV metrics, four figures, the six-page English report and
+  the 672-word presentation script. All six report pages were rendered and
+  visually inspected; revised pages 3, 5 and 6 were checked again. No clipped
+  tables or unreadable text were found. The build manifest records the PDF,
+  script and rendered-page hashes, plus the final audit and review status.
+  All production simulation processes exited normally. Code, completed-case
+  metadata, summaries, figures and final deliverables are retained in Git;
+  larger raw samples and trajectories remain in their local case directories.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,

@@ -1,0 +1,38 @@
+{
+  "report_date_Australia_Sydney": "2026-10-06",
+  "author": "Xiangpu Wang",
+  "git_commit_at_build": "99e457df3801eaa62c66059ea6be5ae0298bb653",
+  "case_counts": {
+    "hydration": 12,
+    "amide": 24
+  },
+  "summary_sha256": "7e60eb9b6c8cb145bc7a73e2cee9055b72d9eb8e1a3944a7400931ebe51c5cc3",
+  "figure_sha256": {
+    "figure1_rdf.png": "d7aaeaa8c28a5bb8bcb072acb1670a1d8ec9a2e086939566316f88ee0cd814fe",
+    "figure2_hydration_metrics.png": "2f99a4cc76525a96bde2d16d2946f8ee8bbf141112a7433bd2927444cadfdf0d",
+    "figure3_sampling_diagnostics.png": "485d5689268bb35642c7b6220ff4bc909e426dae4f37cc3435cdbf46cee50c2e",
+    "figure4_sensitivity.png": "a2f47b88d9b431464facd9cd73455245e55ffbd85e2c51e044bf3f2e65231037"
+  },
+  "SOURCES_md_sha256": "4b8a780cef816367263446704b4f41a1c36cd9a51356891a8690ebd0a8c62137",
+  "pdf_sha256": "a04a73f5cc01a34bc6a5062c600a459435c6bd111c9d089b271ba3f439a1b25b",
+  "presentation_sha256": "7d477a0e993fbd229bf5e9c641f6affa26b51045677465f6d48dfc02fbd98d5e",
+  "data_audit": "PASS parameter provenance: 7 upstream files and acetamide conversion hashes/errors checked\nPASS protocol readable: checked\nPASS hydration inventory: 12 cases\nPASS hydration/CM_Ca_r1_hydrated: checked\nPASS hydration/CM_Ca_r2_hydrated: checked\nPASS hydration/CM_Ca_r3_hydrated: checked\nPASS hydration/CM_Mg_r1_hydrated: checked\nPASS hydration/CM_Mg_r2_hydrated: checked\nPASS hydration/CM_Mg_r3_hydrated: checked\nPASS hydration/IOD_Ca_r1_hydrated: checked\nPASS hydration/IOD_Ca_r2_hydrated: checked\nPASS hydration/IOD_Ca_r3_hydrated: checked\nPASS hydration/IOD_Mg_r1_hydrated: checked\nPASS hydration/IOD_Mg_r2_hydrated: checked\nPASS hydration/IOD_Mg_r3_hydrated: checked\nPASS amide inventory: 24 cases\nPASS amide/CM_Ca_r1_contact: checked\nPASS amide/CM_Ca_r1_separated: checked\nPASS amide/CM_Ca_r2_contact: checked\nPASS amide/CM_Ca_r2_separated: checked\nPASS amide/CM_Ca_r3_contact: checked\nPASS amide/CM_Ca_r3_separated: checked\nPASS amide/CM_Mg_r1_contact: checked\nPASS amide/CM_Mg_r1_separated: checked\nPASS amide/CM_Mg_r2_contact: checked\nPASS amide/CM_Mg_r2_separated: checked\nPASS amide/CM_Mg_r3_contact: checked\nPASS amide/CM_Mg_r3_separated: checked\nPASS amide/IOD_Ca_r1_contact: checked\nPASS amide/IOD_Ca_r1_separated: checked\nPASS amide/IOD_Ca_r2_contact: checked\nPASS amide/IOD_Ca_r2_separated: checked\nPASS amide/IOD_Ca_r3_contact: checked\nPASS amide/IOD_Ca_r3_separated: checked\nPASS amide/IOD_Mg_r1_contact: checked\nPASS amide/IOD_Mg_r1_separated: checked\nPASS amide/IOD_Mg_r2_contact: checked\nPASS amide/IOD_Mg_r2_separated: checked\nPASS amide/IOD_Mg_r3_contact: checked\nPASS amide/IOD_Mg_r3_separated: checked\nPASS analysis matches raw data: 36 exact case identities; JSON/CSV metrics recomputed; four three-replica hydration groups checked\nPASS quantitative figures: Four PNG figures decoded; visual interpretation/layout still requires human review\nINFO Git worktree: ?? output/\nAudit: 0 incomplete/failed checks. This is an artifact-consistency audit, not a scientific certification.",
+  "review_status": "All six pages rendered and visually reviewed by the assistant; revised pages 3, 5 and 6 rechecked. Final artifact audit passed.",
+  "reviewed_at_utc": "2026-10-05T19:20:34.455054+00:00",
+  "final_artifact_audit": {
+    "passed": true,
+    "failed_checks": 0,
+    "formal_cases": 36,
+    "pdf_pages": 6,
+    "presentation_words": 672,
+    "verifier_sha256": "d31c3502ffb30c9a1dc969f1aba8a57b6ea3ddb18bd05192507c6d896cc1233b"
+  },
+  "rendered_page_sha256": {
+    "page-1": "98a01153b25fb8f2663d6844e8bbbdfcc4b8317ec4ccc88ff6826e10a83bbe65",
+    "page-2": "d9d1eb26044ee9595ad5de88a15c6d1ae91e4fb3996c75680d526dbcee8e1824",
+    "page-3": "4be6b2f648a371c4b99e866fc9157204922054a13bd93fb8c6a6ba795eb68b40",
+    "page-4": "7f4df8fcb3c33d94e367e5dae652af5e8af67cc17d58bfa85d847c4a6182eea1",
+    "page-5": "050af75d1f0442760fba92cb2b983cbc051bd4f3abde73753482e66001e81dbf",
+    "page-6": "7d9ffb01710189202507463aedf6ee267e6288d9903f2eba5870e909e6c930fd"
+  }
+}
