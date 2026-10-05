@@ -314,7 +314,7 @@ def build_pdf(data, author, report_date):
     para("An NMDAR-motivated Ca2+/Mg2+ benchmark in TIP3P water and acetamide", "heading", 5)
     para(f"{escape(author)} | Completed local computational study | {f['total_ns']:.1f} ns of production across 36 cases", "small", 6)
     para("<b>Question.</b> How much do two published ion calibrations change local hydration and finite-time amide contact, before attempting an NMDAR pore calculation?", gap=5)
-    para(f"<b>Observed.</b> IOD-minus-CM mean RDF-peak shifts were {f['peak_changes']['Mg']:+.4f} nm for Mg and {f['peak_changes']['Ca']:+.4f} nm for Ca. The table records the independent replica variation and initial-state contrasts; it makes no significance or affinity claim.", gap=6)
+    para(f"<b>Observed.</b> IOD-minus-CM mean RDF-peak shifts were {f['peak_changes']['Mg']:+.4f} nm for Mg and {f['peak_changes']['Ca']:+.4f} nm for Ca. The table records between-replica variation and initial-state contrasts; it makes no significance or affinity claim.", gap=6)
     body = []
     for ion, model in product(IONS, MODELS):
         group = select(rows, "hydration", ion, model)
@@ -359,7 +359,7 @@ def build_pdf(data, author, report_date):
             formatted_stats(select(rows, "hydration", ion, model), "chloride_contact_fraction_lt_0p4nm", 1, 100)]
            for ion, model in product(IONS, MODELS)], [.16, .30, .24, .30])
     para("The pooled in-shell mean distance and the RDF peak are different estimators. The mean conditions on all water oxygens inside the declared shell; the peak is the maximum RDF bin within the predeclared ion-specific window. A peak value is therefore discrete at this bin width, and a small replica SD does not eliminate binning or model uncertainty.")
-    para("The reference peak distances are 0.209 +/- 0.004 nm for Mg and 0.246 nm for Ca; reference coordination values are 6 and 8 [2]. These values belong to the calibration lineage. Agreement, especially for IOD, shows target recovery rather than an independent prediction. No uncertainty is invented for the Ca target or the coordination values.")
+    para("The reference peak distances are 0.209 +/- 0.004 nm for Mg and 0.246 nm for Ca; reference coordination values are 6 and 8 [2]. These values belong to the calibration lineage. Any agreement with these calibration references constitutes target recovery, not independent predictive validation. No uncertainty is invented for the Ca target or the coordination values.")
     para("Water-shell cutoffs are 0.30 nm for Mg and 0.35 nm for Ca. Counterion contact is the fraction of saved frames with the nearest chloride below 0.40 nm. A counterion contact can alter the local environment and is reported rather than silently discarded. Acetamide was absent from these hydration comparisons.")
 
     new_page("Sampling diagnostics and definition sensitivity")
@@ -437,7 +437,7 @@ There were twelve hydration simulations: two ions, two models and three replicas
 
 For magnesium, the mean first RDF peak was {mg_cm:.4f} nanometres with CM and {mg_iod:.4f} with IOD. For calcium, the values were {ca_cm:.4f} and {ca_iod:.4f}. I show every replica, the group mean and standard deviation. Full distributions are available as machine-readable results.
 
-These reference distances helped define the model family. Recovering them, particularly with IOD, checks implementation and target recovery; it does not independently demonstrate better binding predictions. The RDF peak and the mean distance inside a shell are also reported separately because they are different measurements.
+These reference distances helped define the model family. Any agreement with these calibration references constitutes target recovery, not independent predictive validation. The RDF peak and the mean distance inside a shell are also reported separately because they are different measurements.
 
 ## 2:40-3:55 - Sampling and the amide extension
 

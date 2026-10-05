@@ -131,6 +131,16 @@
   membership flips were recorded. No diagnostic chloride contacts occurred.
   The two remaining IOD/Ca replicas are needed before interpreting this group.
 
+- Completed and audited IOD/Ca replica 2 (494.5 ns/day), including the
+  documented final-PDB correction. Its RDF peak is 0.245 nm, mean shell
+  distance 0.247859 nm, CN 7.9955 and temperature 298.23 K. CN 8 occupies
+  97.15% of saved frames; 46 distinct shell-water identities and 82 membership
+  flips were recorded. No diagnostic chloride contacts occurred. The faster
+  throughput is an observed runtime, not a change to the numerical protocol.
+- Revised report and presentation wording to make calibration-reference
+  agreement conditional on actual results and describe between-replica
+  variation without implying independently sampled initial hydration states.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
