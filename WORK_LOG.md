@@ -200,6 +200,14 @@
   and the largest diagnostic chloride-contact fraction is 0.0005.
   All twelve CM amide cases are now complete; twelve IOD cases remain.
 
+- All six IOD/Mg amide trajectories are complete and audited. As with CM/Mg,
+  contact-start fractions are 1.0 with water CN 5.0 in all three replicas;
+  separated-start fractions are 0.0 with water CN 6.0. Contact-start mean
+  ion-amide-O distances span 0.204965-0.205057 nm, compared with
+  0.200769-0.200929 nm for CM/Mg. Mean temperatures span 298.29-298.53 K
+  and diagnostic chloride contacts occupy at most 0.003 of saved frames.
+  The final six IOD/Ca amide trajectories remain in progress/pending.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
