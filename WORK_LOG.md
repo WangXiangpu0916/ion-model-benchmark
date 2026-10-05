@@ -89,6 +89,13 @@
   analysis is unchanged. Self-checks and a clearly marked synthetic six-page
   layout fixture passed; report pages 4 and 5 were visually inspected. Final
   real-data figures and report still require their own visual review.
+- Completed and audited CM/Ca replica 3 (126.3 ns/day); the CM hydration
+  baseline now contains all six planned trajectories. Across the three Ca
+  replicas, mean CN is 8.042 +/- 0.00904, RDF peak 0.24833 +/- 0.00115 nm,
+  and mean in-shell distance 0.252530 +/- 0.000119 nm (between-replica sample
+  SDs). Each trajectory was dominated by CN 8, and all three showed saved-frame
+  water-identity changes. The six IOD hydration trajectories are next; these
+  CM-only results do not yet establish the parameter-set comparison.
 
 ## Assistance and ownership
 
