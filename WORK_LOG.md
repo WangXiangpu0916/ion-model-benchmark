@@ -48,6 +48,12 @@
   PDB dimensions and hashes. The original OpenCL pilot predates the first code
   commit and has less provenance metadata; it remains excluded from the formal
   production comparison. Partial pilot plots are retained only under `tmp/`.
+- Completed and audited CM/Mg replica 2 (118.3 ns/day). Its mean temperature
+  was 298.36 K, first RDF peak 0.203 nm and mean CN 6.0, matching the first
+  replica's local geometry at the recorded resolution. Six water identities
+  persisted through its saved frames. This repeatability does not establish
+  equilibrium exchange or the still-pending CM/IOD comparison. Its final PDB
+  header received the same provenance-recorded correction.
 
 ## Assistance and ownership
 
