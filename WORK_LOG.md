@@ -191,6 +191,15 @@
   0.0015. This repeated starting-state contrast is retained as a finite-time
   sampling result. CM/Ca and both IOD groups remain in progress/pending.
 
+- All six CM/Ca amide trajectories are complete and audited. Contact-start
+  fractions are 0.9990, 0.8420 and 0.1485; all three separated-start fractions
+  are 0.0. Contact-start mean water CN values are 7.0465, 7.2010 and 7.8965,
+  versus 8.0355, 8.0435 and 8.0425 for separated starts. The large spread
+  across contact-start trajectories is retained rather than reduced to a
+  claim of a unique binding state. Mean temperatures span 298.17-298.76 K,
+  and the largest diagnostic chloride-contact fraction is 0.0005.
+  All twelve CM amide cases are now complete; twelve IOD cases remain.
+
 ## Assistance and ownership
 
 OpenAI Codex assisted with literature/source retrieval, experimental design,
