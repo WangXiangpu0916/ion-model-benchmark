@@ -257,3 +257,14 @@ must remain distinguishable in the final report.
 
 The user owns the scientific decisions and should understand and review the
 code, source references and results before presenting or submitting the work.
+
+## Repository relocation — 2026-10-16
+
+- Local checkout: `D:\Documents\Codex\Ion Model Benchmark`. Updated environment activation, tutorial commands,
+  and summary source paths. Scientific values and simulation inputs are unchanged.
+- The report build manifest and tutorial scientific-input hashes remain historical
+  snapshots of the original build, not checksums of the relocated summary files.
+- Summary JSON SHA-256: `7e60eb9b6c8cb145bc7a73e2cee9055b72d9eb8e1a3944a7400931ebe51c5cc3` ->
+  `b4e5d7bdd9850e42f632c7d3176cd45d277e4b4c26d95b63ac9f2c8885f89168` (source paths only).
+- Summary CSV SHA-256: `84dc9442153ef9c4ae7d24d9611d4743b6a3a66a4ff2c75c4d5dc4a0c589ed0c` ->
+  `c783bff33accf3aa325301975472e687a527c6155ea0e033c1999227c51d18ee` (source paths only).

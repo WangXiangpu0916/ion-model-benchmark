@@ -1,0 +1,144 @@
+Ion Model Benchmark 中文桌面教程 — 交付与验收说明
+整理日期：2026-10-09（Australia/Sydney）
+
+打开与学习
+=========
+双击 output/ion-model-benchmark-tutorial-desktop.html，用本机 Edge 打开。
+单个 HTML 已包含正文、样式、JavaScript、36 条案例整理数据和四张正式图。
+不需要服务器、构建命令、网络或浏览器 Python。文件约 5.67 MB。
+保留在 output/ 中，章节末尾的源文件链接也能使用；单独复制 HTML，教学和交互仍完整。
+外部文献链接是可选查证入口，需要网络；它们不是教材运行资源。
+
+建议：先读前六章并操作图表，再读第七章，最后完成第八章。
+顶部八个 Tabs 切换主章，左侧目录定位小节，页尾有前后章导航。
+URL hash 可定位主章与小节；刷新与前进后退保持定位。
+Tabs 支持左右方向键、Home/End；滑块支持方向键；每类教学交互有重置。
+答案默认折叠。表达练习草稿只留在当前页面，刷新会清空；请复制保存自己的笔记。
+
+Python 练习
+===========
+在项目根目录使用现有环境。先自己写，再展开答案或运行参考代码：
+  .venv/Scripts/python.exe output/tutorial-exercises.py 1
+将 1 改成 2–6 执行对应答案，all 执行全部六份答案。
+这些练习只读取已有样本，不运行 MD，也不覆盖正式结果。
+六份练习与页面所示代码一致，均实际执行通过。
+
+课程与实际资料覆盖
+=================
+01 研究问题：README.md；PROTOCOL.md；报告第 1/5/6 页；实际 metadata。
+   从 NMDAR 动机缩小到水合几何、局部配位和有限时间采样；建立指标与证据链。
+02 分子直觉：simulate.py/build_system、distances；protocol.json；每条 n_water/volume。
+   Mg/Ca、水、Cl、乙酰胺；中和、周期边界、有限浓度、共同水模板及受体差异。
+03 参数与势能：SOURCES.md；Amber 两份参数；保存的 system.xml；source_manifest.json；
+   simulate.py/lj_parameters、check_ion_water_pairs；FreeSolv 转换脚本与 conversion_verification.json。
+   CM/IOD 身份与拟合目标；TIP3P、全 +2e、12–6、PME；单位与混合；能量/力验证边界。
+04 实验设计：PROTOCOL.md、protocol.json、simulate.py/run_case、run_gpu.py；36 条 metadata；
+   design-review.md 与 WORK_LOG.md 的时间线。12+24 条、72 ns、实际 seeds、水数和平台可查看。
+05 指标推导：analyze.py/radial_distribution、conditional_distance、membership_changes、read_case、mean_sd。
+   最小镜像、球壳与逐帧密度、峰/条件均距/CN、P(CN)、严格 cutoff、身份、接触比例；
+   温度、数密度、分块和两半；SD/SE/CI/文献不确定性；每个公式解释符号、单位并给算例。
+06 真实结果：36 个 samples.npz、metadata；replica_summaries.json/csv、group_summaries.csv、rdf_curves.csv。
+   12 条水合逐条比较与组均值；精确九档 cutoff；七个实帧/轨迹和身份变化；
+   24 条 amide 的全程与两半距离/比例；三个重复与 125/250/500 ps 分块；观察/解释/假设区分。
+07 Python 与代码：现有 Python 教学内容；当前 simulate.py/analyze.py 八段原文与真实行号。
+   形状、索引、布尔 mask、axis、广播、聚合、文件读取与函数；六步小数组执行。
+08 复算与表达：保留并核对的六个真实 Python 练习；概念反馈与数字练习；项目文件链；
+   verify_project.py、build_report.py；报告/讲稿；最终三分钟表达与证据自评。
+
+真实数据处理
+===========
+export_tutorial_data.py 复用 analyze.read_case，核对每条 samples.npz 的 SHA-256、时间轴和正式汇总。
+所有统计来自完整相关数据。HTML 不加载大型 NPZ 或 DCD，也不用 fetch 读取旁边的 JSON。
+48,000 个 amide 距离和各案例完整 1 ps 诊断序列保留；曲线不平滑、不插值造新观测。
+RDF 导出全 450 bins，图裁剪到 0.60 nm；九档 CN 在全部水氧×2000 帧上重算。
+水氧散点每条仅导出 7 个真实帧中 0.60 nm 内的水，覆盖所有可选 cutoff；不冒充完整空间结构。
+默认半径 CN 分布始终明确标为默认；滑块改变定义时不把旧分布误称为新分布。
+时间窗口和分块只影响教程派生显示，正式科研结果未变。
+
+现有材料评估与复用
+=================
+旧 ion-model-benchmark-tutorial.html 是完整长页；tutorial-python.html、tutorial-practice.html 是内容片段。
+tutorial-data.json 是数据导出；export_tutorial_data.py 是核对后导出工具；check_tutorial.cjs 是浏览器检查。
+保留：审计导出流程、SVG 绘图基础、真实源码节选、有效科学表述和六个有断言的 Python 练习。
+改进：八章 Tabs/hash/内部目录；完整数学推导；真正随参数变的离子–水氧 LJ 曲线；
+逐条结果、窗口/分块/重复对照；数组中间状态；重置与键盘；桌面视觉和离线验收。
+没有安装 Moonshine/ViviDoc 或引入前端框架。最终仍是一个 HTML。
+
+科学资料的角色与调查结果
+=======================
+设计审查里的 dummy、12–6–4 等是备选建议；协议和实际体系采用 CM/IOD 12–6、TIP3P、+2e、Lorentz–Berthelot、PME。
+WORK_LOG 中的未完成状态属于历史；36 条 completed 元数据及原始样本证实最终完成。
+早期 pilot 的 392.6 ns/day 与约 1.5 小时水合估算属于预算；最终生产吞吐 262.4 ns/day 属于实测。
+早期 final.pdb 盒长修正有 metadata 记录；没有因该修正改变距离样本。教程未再改任何科研文件。
+正式报告与讲稿的关键结构、接触比例和完成数字均与原始数据核对。
+审计最初受 Windows 仓库所有者差异影响；仅给当前进程设置 exact safe.directory 后重试通过，无全局 Git 设置更改。
+
+教学参考（已实际检查）
+=====================
+R4DS 第一版与第二版 Data transformation 章：具体数据问题、输入/中间结果、分组后汇总、局部练习。
+  https://r4ds.had.co.nz/transform.html
+  https://r4ds.hadley.nz/data-transform.html
+Moonshine README、STILL.md、critique/SKILL.md：读者核心收获、交互文章与具体证据审查。
+Still 本身是 Vite/React/Velite 编辑结构；这里只借鉴方法，没有集成其环境。
+  https://github.com/enjalot/moonshine
+ViviDoc README 与 interaction_spec_formalization.md：SRTC = State / Render / Transition / Constraint。
+例如 CN 的状态为 case/frame/cutoff，视图为距离和计数，操作为选择/重置，不变量为扩大 cutoff 不减 CN。
+  https://github.com/MisterBrookT/vividoc/blob/main/docs/interaction_spec_formalization.md
+
+两轮 critique 与已修复问题
+=========================
+内容轮：旧版无量纲 LJ 不响应离子模型，不足以教学 → 改为实际离子–TIP3P 水氧成对 LJ，标明缺少静电与环境。
+内容轮：从描述直接跳统计 → 补 2 帧 RDF 手算、密度顺序反例、CN/条件均距/身份中间状态和真实字段映射。
+内容轮：固定八块不足以探索采样 → 用完整序列支持窗口与块长，并并排显示三个 replica。
+内容轮：修订后初态预测反馈容器未插入导致 JS 中断 → 修复并在逐章验收中立即检查控制台。
+内容轮：保留五快照/完整2000点等旧文案与新交互不一致 → 更正七快照、窗口帧数及默认块长说明。
+视觉轮：旧首屏与卡片偏展示 → 改为正文驱动的教材，固定章节导航、独立目录、克制的表格/代码/公式。
+视觉轮：大纵轴使 LJ 势阱过平 → 加势阱细节/含排斥两个范围，显示精确最低点值。
+视觉轮：数组挤在一行 → 按 frame/water 分行，并显式显示 shape。
+交互轮：原生 hash 移走 Tabs 键盘焦点 → 保留键盘目标焦点，处理重复 Home/End 边界。
+交互轮：异步滚动与快速导航竞争 → 同步定位并由页面统一管理 history.scrollRestoration。
+视觉轮：缩放后固定目录可能被加高的导航遮住 → 根据实际 header 高度定位；放大后复验。
+
+最终实际验收
+===========
+浏览器：本机可见 Microsoft Edge 154.0.4258.62，最终以 file:// 打开，无开发服务器。
+真实窗口：1912×948 CSS px；主屏1920×1080。
+额外 viewport：1280、1440、1920；1920 下 CSS zoom 100/125/150%；均无横向页面溢出。
+另以 Edge --force-device-scale-factor=1.25/1.5 检查浏览器设备缩放，实际内容窗口1528×732与1270×594。
+设备缩放是在测试浏览器上强制的，未改 Windows 显示设置；这与 CSS zoom 验收分别记录。
+八章、所有目录/源文件链接、hash小节、刷新、前进后退、前后章、键盘、异常hash回退通过。
+全部离子/模型/重复选择、12×7快照、九档阈值端点、24条amide窗口、真实297→298 ps变化点通过。
+三个诊断指标、三种窗口、三种块长、六步数组、八段源码、六题反馈、数字反馈、重置通过。
+重复切章后自检通过；非当前章的图表延迟初始化；未产生重复监听或动画计时器。
+浏览器网络从首次加载起设为离线；刷新后仍完整；HTTP(S)资源请求=0，缺失资源=0，控制台错误=0。
+所有六个 Python 练习执行通过；RDF450个bin和累计CN与正式CSV一致。
+手算/数值自检覆盖：参数单位与混合、LJ最低点、周期距离、布尔轴、成员变化、逐帧RDF、重复SD、CN单调性。
+12条水合×3指标的250ps块均值与Python正式摘要对照通过。
+verify_project.py 最终审计：0 incomplete/failed checks；36条、正式图表、六页报告、演讲稿通过。
+制作前后40个原科研文件SHA-256一致；没有重跑生产或改冻结协议。
+
+证据文件
+-------
+tutorial-qa/browser-headed.json：最终可见浏览器结果、版本、文件SHA-256与各检查项目。
+tutorial-qa/native-scaling.json：125/150%浏览器设备缩放。
+tutorial-qa/python-exercises.txt：六份练习实际输出。
+tutorial-qa/project-audit.txt：完整项目只读审计。
+tutorial-qa/*.png：正文、势能、RDF推导/结果、amide、代码与缩放截图；已人工查看代表图。
+tutorial-qa/cleanup.json：删除的旧教程/临时文件明细，共29个文件。
+tutorial-scientific-input-hashes.json：制作前的40个科研文件哈希；结束时核对未变。
+
+保留文件与清理
+=============
+主交付只有 ion-model-benchmark-tutorial-desktop.html。其他文件均为可选的复算或验收材料。
+tutorial-data.json 是已核对的导出；export_tutorial_data.py 复用旧工具并补齐诊断序列。
+build_tutorial.py 与 tutorial-source/ 三个文件是本次最终组装源，不是长期更新系统。
+check_tutorial.cjs、check_tutorial_scaling.cjs 是本次验收工具。
+已删除旧完整教程、两个旧HTML片段、旧截图、tmp/assemble_tutorial.py 和本次被合并的制作片段。
+原有研究用 tmp 中的报告审计、盒长修复与历史研究文件不属于教程临时文件，予以保留。
+
+尚未解决的问题 / 验收边界
+======================
+未发现已知教程功能或数据一致性问题。未在 Firefox/Safari 上验收，也未制作移动端或部署版本。
+本次验收保证解释与现有样本一致、交互可用；不构成独立实验或力场普适准确性验证。
+
+最终 HTML SHA-256：91f13dd8578f190d41d335d1aed87e72b4af2478a74e6429e11a56f4158e9ad2

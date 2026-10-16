@@ -154,7 +154,7 @@
         }
       ],
       "case": "CM_Ca_r1_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Ca_r1_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\CM_Ca_r1_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -297,7 +297,7 @@
         }
       ],
       "case": "CM_Ca_r2_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Ca_r2_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\CM_Ca_r2_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -440,7 +440,7 @@
         }
       ],
       "case": "CM_Ca_r3_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Ca_r3_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\CM_Ca_r3_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -581,7 +581,7 @@
         }
       ],
       "case": "CM_Mg_r1_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Mg_r1_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\CM_Mg_r1_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -722,7 +722,7 @@
         }
       ],
       "case": "CM_Mg_r2_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Mg_r2_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\CM_Mg_r2_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -863,7 +863,7 @@
         }
       ],
       "case": "CM_Mg_r3_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\CM_Mg_r3_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\CM_Mg_r3_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -1006,7 +1006,7 @@
         }
       ],
       "case": "IOD_Ca_r1_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Ca_r1_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\IOD_Ca_r1_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -1149,7 +1149,7 @@
         }
       ],
       "case": "IOD_Ca_r2_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Ca_r2_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\IOD_Ca_r2_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -1292,7 +1292,7 @@
         }
       ],
       "case": "IOD_Ca_r3_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Ca_r3_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\IOD_Ca_r3_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -1433,7 +1433,7 @@
         }
       ],
       "case": "IOD_Mg_r1_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Mg_r1_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\IOD_Mg_r1_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -1574,7 +1574,7 @@
         }
       ],
       "case": "IOD_Mg_r2_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Mg_r2_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\IOD_Mg_r2_hydrated\\metadata.json"
     },
     {
       "campaign": "hydration",
@@ -1715,7 +1715,7 @@
         }
       ],
       "case": "IOD_Mg_r3_hydrated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\hydration\\IOD_Mg_r3_hydrated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\hydration\\IOD_Mg_r3_hydrated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -1864,7 +1864,7 @@
       "mean_amide_distance_nm": 0.24752016341729263,
       "amide_fraction_within_diagnostic_water_cutoff": 0.999,
       "case": "CM_Ca_r1_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r1_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Ca_r1_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -2013,7 +2013,7 @@
       "mean_amide_distance_nm": 1.35590157611832,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "CM_Ca_r1_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r1_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Ca_r1_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -2163,7 +2163,7 @@
       "mean_amide_distance_nm": 0.3898092980206253,
       "amide_fraction_within_diagnostic_water_cutoff": 0.842,
       "case": "CM_Ca_r2_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r2_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Ca_r2_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -2312,7 +2312,7 @@
       "mean_amide_distance_nm": 1.5191415829321686,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "CM_Ca_r2_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r2_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Ca_r2_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -2461,7 +2461,7 @@
       "mean_amide_distance_nm": 1.3337968347819806,
       "amide_fraction_within_diagnostic_water_cutoff": 0.1485,
       "case": "CM_Ca_r3_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r3_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Ca_r3_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -2610,7 +2610,7 @@
       "mean_amide_distance_nm": 1.3513880318637337,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "CM_Ca_r3_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Ca_r3_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Ca_r3_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -2757,7 +2757,7 @@
       "mean_amide_distance_nm": 0.20078063306542668,
       "amide_fraction_within_diagnostic_water_cutoff": 1.0,
       "case": "CM_Mg_r1_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r1_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Mg_r1_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -2904,7 +2904,7 @@
       "mean_amide_distance_nm": 1.4640847749344907,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "CM_Mg_r1_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r1_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Mg_r1_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -3051,7 +3051,7 @@
       "mean_amide_distance_nm": 0.2009294939944931,
       "amide_fraction_within_diagnostic_water_cutoff": 1.0,
       "case": "CM_Mg_r2_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r2_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Mg_r2_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -3198,7 +3198,7 @@
       "mean_amide_distance_nm": 1.3732872596930232,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "CM_Mg_r2_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r2_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Mg_r2_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -3345,7 +3345,7 @@
       "mean_amide_distance_nm": 0.20076861630239598,
       "amide_fraction_within_diagnostic_water_cutoff": 1.0,
       "case": "CM_Mg_r3_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r3_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Mg_r3_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -3492,7 +3492,7 @@
       "mean_amide_distance_nm": 1.4215646835977491,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "CM_Mg_r3_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\CM_Mg_r3_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\CM_Mg_r3_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -3642,7 +3642,7 @@
       "mean_amide_distance_nm": 1.4290695330805083,
       "amide_fraction_within_diagnostic_water_cutoff": 0.005,
       "case": "IOD_Ca_r1_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r1_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Ca_r1_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -3791,7 +3791,7 @@
       "mean_amide_distance_nm": 1.1609849666336927,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "IOD_Ca_r1_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r1_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Ca_r1_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -3941,7 +3941,7 @@
       "mean_amide_distance_nm": 1.1436756391275535,
       "amide_fraction_within_diagnostic_water_cutoff": 0.221,
       "case": "IOD_Ca_r2_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r2_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Ca_r2_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -4090,7 +4090,7 @@
       "mean_amide_distance_nm": 1.540114181053619,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "IOD_Ca_r2_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r2_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Ca_r2_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -4240,7 +4240,7 @@
       "mean_amide_distance_nm": 0.8874932760676957,
       "amide_fraction_within_diagnostic_water_cutoff": 0.3925,
       "case": "IOD_Ca_r3_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r3_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Ca_r3_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -4389,7 +4389,7 @@
       "mean_amide_distance_nm": 1.4145872695134054,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "IOD_Ca_r3_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Ca_r3_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Ca_r3_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -4536,7 +4536,7 @@
       "mean_amide_distance_nm": 0.2049653496762173,
       "amide_fraction_within_diagnostic_water_cutoff": 1.0,
       "case": "IOD_Mg_r1_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r1_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Mg_r1_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -4683,7 +4683,7 @@
       "mean_amide_distance_nm": 1.5349329310616762,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "IOD_Mg_r1_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r1_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Mg_r1_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -4830,7 +4830,7 @@
       "mean_amide_distance_nm": 0.20498274081193524,
       "amide_fraction_within_diagnostic_water_cutoff": 1.0,
       "case": "IOD_Mg_r2_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r2_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Mg_r2_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -4977,7 +4977,7 @@
       "mean_amide_distance_nm": 1.5578851766693635,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "IOD_Mg_r2_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r2_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Mg_r2_separated\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -5124,7 +5124,7 @@
       "mean_amide_distance_nm": 0.20505698971874087,
       "amide_fraction_within_diagnostic_water_cutoff": 1.0,
       "case": "IOD_Mg_r3_contact",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r3_contact\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Mg_r3_contact\\metadata.json"
     },
     {
       "campaign": "amide",
@@ -5271,7 +5271,7 @@
       "mean_amide_distance_nm": 1.3741884945043974,
       "amide_fraction_within_diagnostic_water_cutoff": 0.0,
       "case": "IOD_Mg_r3_separated",
-      "source": "D:\\Documents\\ANU\\Courses\\BIOL8700\\NMDAR\\6. Ion Model Benchmark\\results\\amide\\IOD_Mg_r3_separated\\metadata.json"
+      "source": "D:\\Documents\\Codex\\Ion Model Benchmark\\results\\amide\\IOD_Mg_r3_separated\\metadata.json"
     }
   ],
   "hydration_group_summaries": [

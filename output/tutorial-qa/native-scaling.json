@@ -1,0 +1,24 @@
+[
+  {
+    "forcedBrowserDeviceScale": 1.25,
+    "innerWidth": 1528,
+    "innerHeight": 732,
+    "screenWidth": 1228,
+    "screenHeight": 691,
+    "dpr": 1.25,
+    "overflow": false,
+    "headerBottom": 99.95000457763672,
+    "targetTop": 252.25
+  },
+  {
+    "forcedBrowserDeviceScale": 1.5,
+    "innerWidth": 1270,
+    "innerHeight": 594,
+    "screenWidth": 853,
+    "screenHeight": 480,
+    "dpr": 1.5,
+    "overflow": false,
+    "headerBottom": 100.08333587646484,
+    "targetTop": 252.0729217529297
+  }
+]

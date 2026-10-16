@@ -1,0 +1,42 @@
+[
+  {
+    "file": "simulate.py",
+    "start": 85,
+    "count": 3
+  },
+  {
+    "file": "simulate.py",
+    "start": 90,
+    "count": 5
+  },
+  {
+    "file": "simulate.py",
+    "start": 124,
+    "count": 20
+  },
+  {
+    "file": "simulate.py",
+    "start": 187,
+    "count": 16
+  },
+  {
+    "file": "simulate.py",
+    "start": 212,
+    "count": 21
+  },
+  {
+    "file": "analyze.py",
+    "start": 144,
+    "count": 9
+  },
+  {
+    "file": "analyze.py",
+    "start": 45,
+    "count": 15
+  },
+  {
+    "file": "analyze.py",
+    "start": 196,
+    "count": 6
+  }
+]

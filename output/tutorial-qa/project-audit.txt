@@ -1,0 +1,59 @@
+PASS parameter provenance: 7 upstream files and acetamide conversion hashes/errors checked
+PASS protocol readable: checked
+PASS hydration inventory: 12 cases
+PASS hydration/CM_Ca_r1_hydrated: checked
+PASS hydration/CM_Ca_r2_hydrated: checked
+PASS hydration/CM_Ca_r3_hydrated: checked
+PASS hydration/CM_Mg_r1_hydrated: checked
+PASS hydration/CM_Mg_r2_hydrated: checked
+PASS hydration/CM_Mg_r3_hydrated: checked
+PASS hydration/IOD_Ca_r1_hydrated: checked
+PASS hydration/IOD_Ca_r2_hydrated: checked
+PASS hydration/IOD_Ca_r3_hydrated: checked
+PASS hydration/IOD_Mg_r1_hydrated: checked
+PASS hydration/IOD_Mg_r2_hydrated: checked
+PASS hydration/IOD_Mg_r3_hydrated: checked
+PASS amide inventory: 24 cases
+PASS amide/CM_Ca_r1_contact: checked
+PASS amide/CM_Ca_r1_separated: checked
+PASS amide/CM_Ca_r2_contact: checked
+PASS amide/CM_Ca_r2_separated: checked
+PASS amide/CM_Ca_r3_contact: checked
+PASS amide/CM_Ca_r3_separated: checked
+PASS amide/CM_Mg_r1_contact: checked
+PASS amide/CM_Mg_r1_separated: checked
+PASS amide/CM_Mg_r2_contact: checked
+PASS amide/CM_Mg_r2_separated: checked
+PASS amide/CM_Mg_r3_contact: checked
+PASS amide/CM_Mg_r3_separated: checked
+PASS amide/IOD_Ca_r1_contact: checked
+PASS amide/IOD_Ca_r1_separated: checked
+PASS amide/IOD_Ca_r2_contact: checked
+PASS amide/IOD_Ca_r2_separated: checked
+PASS amide/IOD_Ca_r3_contact: checked
+PASS amide/IOD_Ca_r3_separated: checked
+PASS amide/IOD_Mg_r1_contact: checked
+PASS amide/IOD_Mg_r1_separated: checked
+PASS amide/IOD_Mg_r2_contact: checked
+PASS amide/IOD_Mg_r2_separated: checked
+PASS amide/IOD_Mg_r3_contact: checked
+PASS amide/IOD_Mg_r3_separated: checked
+PASS analysis matches raw data: 36 exact case identities; JSON/CSV metrics recomputed; four three-replica hydration groups checked
+PASS quantitative figures: Four PNG figures decoded; visual interpretation/layout still requires human review
+PASS English report: 6 pages, 1786 words; content excerpt: LOCAL MOLECULAR SIMULATION STUDY 2026-10-06 CM/IOD + TIP3P | Hydration and acetamide | Descriptive three-replica comparisons 1 / 6 Ion-model calibration and coordination An NMDAR-motivated Ca2+/Mg2+ benchmark in TIP3P water and acetamide Xi
+PASS presentation script: 672 words, approximately 4.8 minutes at 140 words/minute; pacing and scientific claims need review
+INFO Git worktree: ?? output/build_tutorial.py
+?? output/check_tutorial.cjs
+?? output/check_tutorial_scaling.cjs
+?? output/export_tutorial_data.py
+?? output/ion-model-benchmark-tutorial-desktop.html
+?? output/ion-model-benchmark-tutorial.html
+?? output/playwright/
+?? output/tutorial-data.json
+?? output/tutorial-exercises.py
+?? output/tutorial-practice.html
+?? output/tutorial-python.html
+?? output/tutorial-qa/
+?? output/tutorial-scientific-input-hashes.json
+?? output/tutorial-source/
+Audit: 0 incomplete/failed checks. This is an artifact-consistency audit, not a scientific certification.

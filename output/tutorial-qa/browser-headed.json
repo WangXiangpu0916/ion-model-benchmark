@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "browserVersion": "154.0.4258.62",
+  "htmlSHA256": "91f13dd8578f190d41d335d1aed87e72b4af2478a74e6429e11a56f4158e9ad2",
+  "mode": "headed Edge",
+  "device": {
+    "innerWidth": 1912,
+    "innerHeight": 948,
+    "screenWidth": 1920,
+    "screenHeight": 1080,
+    "devicePixelRatio": 1
+  },
+  "elapsedSeconds": 11.957,
+  "checks": [
+    "embedded numerical self-check",
+    "8 tabs and independent TOCs; lazy initialization",
+    "hash subsection, refresh, back/forward, previous/next",
+    "keyboard tab navigation",
+    "actual parameter curves, free exploration and reset",
+    "all RDF selectors, 12 cases × 7 snapshots, cutoff extremes and identity event",
+    "24 amide traces, time windows, 297→298 ps event",
+    "sampling selectors, window statistics, replica comparison and 3 block sizes",
+    "all array steps and 8 actual source snippets",
+    "6 concept feedback items, numeric misconception feedback, folded Python answers",
+    "repeated navigation; all anchors and local links exist",
+    "offline from first navigation and reload, zero console errors, zero remote requests"
+  ],
+  "layouts": [
+    {
+      "width": 1280,
+      "height": 1000,
+      "cssZoom": 1,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "cssZoom": 1,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1000,
+      "cssZoom": 1,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1000,
+      "cssZoom": 1.25,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "height": 1000,
+      "cssZoom": 1.5,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "failures": []
+}

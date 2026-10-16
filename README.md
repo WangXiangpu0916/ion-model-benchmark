@@ -27,7 +27,7 @@ This directory is an independent Git repository on branch `main`. Code, protocol
 parameter sources, run manifests, summary data, figures and report sources are
 versioned. Virtual environments, caches and large trajectories are excluded from
 Git and retained locally when needed. Each completed, checked stage receives a
-commit. No remote repository has been created or configured.
+commit. The private GitHub repository is configured as `origin`; local `main` tracks `origin/main`. Commit and push completed changes from this directory or GitHub Desktop.
 
 ## Status
 

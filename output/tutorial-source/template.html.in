@@ -1,0 +1,596 @@
+<!-- Assembly source only: not a standalone tutorial. -->
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Ion Model Benchmark · 从问题到独立复算</title><style>
+:root{--paper:#f5f3ed;--card:#fffefa;--ink:#192c39;--muted:#526572;--line:#d9e0dc;--cm:#187996;--iod:#b45623;--green:#237558;--tint:#e9f1ef}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;font-size:16px;line-height:1.85}a{color:var(--cm);text-underline-offset:4px}button,input,select{font:inherit}button,select{background:var(--card);color:var(--ink);border:1px solid #aebbb9;border-radius:7px;padding:8px 13px;cursor:pointer}button:hover{background:var(--tint)}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--cm);outline-offset:4px}input[type=range]{accent-color:var(--cm);width:100%;min-height:30px}.skip{position:fixed;left:15px;top:-80px;z-index:10;background:white;padding:10px}.skip:focus{top:10px}.layout{display:grid;grid-template-columns:238px minmax(0,1fr);max-width:1600px;margin:auto}.sidebar{height:100vh;position:sticky;top:0;padding:30px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:20px;overflow:auto}.brand{font-size:12px;letter-spacing:2px;font-weight:700;color:var(--muted)}.brand b{display:block;letter-spacing:0;font-size:22px;line-height:1.5;color:var(--ink);margin-top:8px}nav a{display:block;padding:7px 9px;text-decoration:none;color:var(--muted);font-size:14px;border-left:3px solid transparent}nav a.active{border-color:var(--cm);background:#e5edeb;color:var(--ink)}.sidebar small{font-size:12px;color:var(--muted);line-height:1.6}.progress{height:3px;background:#d7dfda}.progress span{display:block;height:100%;background:var(--cm);width:0}.main{min-width:0;padding:36px 4.8vw 70px;max-width:1300px}.hero{background:#182e3b;color:#fcfcf4;border-radius:14px;padding:48px;overflow:hidden}.hero p{color:#d0dfdf;max-width:760px}.eyebrow{font-size:12px;letter-spacing:2px;font-weight:700}.hero .eyebrow{color:#e1bd7d}h1{font-size:clamp(30px,3.1vw,48px);line-height:1.35;letter-spacing:-1px;font-weight:650;margin:18px 0 22px}h2{font-size:29px;line-height:1.5;letter-spacing:-.5px;margin:0 0 16px}h3{font-size:20px;line-height:1.55;margin:22px 0 10px}p{margin:10px 0 18px}.lead{font-size:18px;color:#334e5c}.hero-stats{display:flex;gap:38px;flex-wrap:wrap;border-top:1px solid #415660;margin-top:30px;padding-top:22px}.hero-stats strong{display:block;font-size:29px;line-height:1.4}.hero-stats small{font-size:13px;color:#b9cecf}.section{padding-top:55px;margin-top:8px}.section-kicker{color:var(--green);font-weight:650;letter-spacing:1px;font-size:12px;margin-bottom:7px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:25px;margin:20px 0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid2>.card{margin:0}.callout{border-left:4px solid var(--cm);padding:14px 20px;background:#eaf1f2;margin:22px 0;line-height:1.8}.callout.warn{border-color:var(--iod);background:#f6ede2}.small{font-size:13px;line-height:1.7;color:var(--muted)}.tag{display:inline-block;background:#e7efeb;color:#235a46;font-size:12px;padding:2px 9px;border-radius:20px;margin-bottom:10px}.tag.demo{background:#f5ebdb;color:#7a521c}.controls{display:flex;gap:18px;flex-wrap:wrap;align-items:end;margin:14px 0 22px}.controls label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600;min-width:140px}.controls select{font-weight:400;max-width:100%}.controls .range{flex:1;min-width:210px}.value{font-variant-numeric:tabular-nums;font-weight:650}.metric-row{display:flex;gap:18px;flex-wrap:wrap;margin:15px 0}.metric{flex:1;min-width:130px;background:#f0f4f1;padding:13px 16px;border-radius:7px}.metric b{display:block;font-size:24px;line-height:1.4;font-variant-numeric:tabular-nums}.metric span{font-size:12px;color:var(--muted)}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.flow div{padding:18px;background:var(--card);border:1px solid var(--line);border-radius:9px;font-size:14px}.flow b{display:block;font-size:17px}.flow .num{color:var(--cm);font-size:12px;font-weight:700}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.7}th{text-align:left;font-weight:600;background:#edf1ec}th,td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}td.num{font-variant-numeric:tabular-nums;white-space:nowrap}.plot{width:100%;height:330px;display:block}.plot text{font-family:inherit;fill:var(--muted);font-size:12px}.plot .axis-title{fill:var(--ink);font-size:13px}.plot .gridline{stroke:#dfe4df;stroke-width:1}.plot .line{fill:none;stroke-linejoin:round;stroke-linecap:round;stroke-width:2}.plot-note{font-size:13px;color:var(--muted);margin:6px 0 12px}.legend{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:10px 0}.legend span:before{content:"";display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:7px;background:var(--cm)}.legend span.iod:before{background:var(--iod)}.legend span.reference:before{background:repeating-linear-gradient(to right,#63747c 0 5px,transparent 5px 8px)}.equation{font-family:"Cambria Math",Georgia,serif;font-size:22px;line-height:1.6;padding:16px;text-align:center;background:#eff2ec;border-radius:8px;overflow:auto}.code-panel{background:#192d39;color:#deebe9;border-radius:10px;padding:18px 10px;overflow:auto;font-size:13px;line-height:1.8;margin:16px 0}.code-panel code{font-family:Consolas,monospace;display:block;white-space:pre}.code-line{display:block;padding-right:20px}.line-no{display:inline-block;color:#8eacb6;min-width:44px;text-align:right;padding-right:15px;user-select:none}.source-link{font-size:13px}.explain-list{padding-left:23px}.explain-list li{margin:8px 0}code{font-family:Consolas,monospace;font-size:.92em}details{border-top:1px solid var(--line);padding:13px 0}summary{cursor:pointer;font-weight:600;line-height:1.6}details>div,details>p{margin-top:12px}.file-tree{white-space:pre-wrap;font:13px/1.9 Consolas,monospace;color:#355364}.question{margin:20px 0;padding:22px;border:1px solid var(--line);border-radius:10px;background:var(--card)}.question p{font-weight:600}.answers{display:flex;flex-direction:column;gap:9px}.answers button{text-align:left;font-size:14px;line-height:1.6}.answers button[aria-pressed=true]{border-color:var(--cm);background:#e1edef}.feedback{font-size:14px;min-height:27px;margin-top:9px}.feedback.correct{color:#216647}.feedback.wrong{color:#985027}.footer{border-top:1px solid var(--line);margin-top:45px;padding-top:25px}.citation{font-size:13px;line-height:1.75;color:var(--muted)}.figure{display:block;width:100%;height:auto;background:white}.status{font-size:13px;color:var(--green)}.unit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.unit-grid div{background:#edf2ed;padding:15px;border-radius:7px}.unit-grid strong{display:block;font-size:22px}.periodic{height:120px}.barrow{display:grid;grid-template-columns:130px 1fr 62px;gap:10px;align-items:center;margin:7px 0;font-size:13px}.track{height:14px;background:#e5eae4;border-radius:3px}.bar{height:100%;background:var(--cm);border-radius:3px}.bar.iod{background:var(--iod)}noscript{display:block;background:#fae6d1;padding:20px}.plain-code{white-space:pre-wrap;overflow-wrap:anywhere;background:#e9eee8;padding:15px;border-radius:7px;font-size:13px;line-height:1.8}.caption{font-size:14px;color:var(--muted)}.top-link{float:right;font-size:13px}svg{max-width:100%}figure{margin:22px 0}
+@media(min-width:1600px){.main{padding-left:65px;padding-right:65px}}@media(max-width:1100px){.layout{grid-template-columns:195px minmax(0,1fr)}.sidebar{padding:25px 12px}.main{padding:28px}.hero{padding:32px}.grid2{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}}@media(max-width:700px){.layout{display:block}.sidebar{position:relative;height:auto;border:0;padding:15px 20px;gap:10px}.brand b{font-size:18px;margin:0;display:inline;margin-left:12px}.brand{font-size:10px}.sidebar nav{display:flex;overflow:auto;gap:6px}.sidebar nav a{white-space:nowrap;padding:5px 9px;font-size:12px;border-left:0;border-bottom:2px solid transparent}.sidebar nav a.active{border-bottom-color:var(--cm)}.sidebar small,.sidebar .progress{display:none}.main{padding:12px 18px 45px}.hero{padding:25px}.hero-stats{gap:20px}.hero-stats strong{font-size:25px}h2{font-size:25px}.card{padding:17px}.section{padding-top:38px}.controls{gap:12px}.controls label{min-width:120px;flex:1}.unit-grid{grid-template-columns:1fr}.flow{gap:8px}.flow div{padding:12px}.plot{height:300px}.metric{min-width:115px}.equation{font-size:18px}.barrow{grid-template-columns:115px 1fr 50px}.code-panel{font-size:12px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{.sidebar,.controls,button,.skip{display:none}.layout{display:block}.main{max-width:none;padding:0}.hero{background:white;color:#182e3b;border:1px solid #ccc}.hero p,.hero-stats small{color:#334e5c}.card,.question{break-inside:avoid}.section{padding-top:25px}body{background:white;font-size:12px}.plot{height:280px}}
+p,li,td{overflow-wrap:anywhere}.code-panel code{overflow-wrap:normal}.plain-code{font-size:14px}.plain-code code{font-size:inherit}#rdf-table td:first-child{white-space:nowrap}.skip:not(:focus){clip-path:inset(50%);width:1px;height:1px;padding:0;overflow:hidden}
+
+/* Desktop book layout. Scientific figures retain the existing SVG renderer. */
+:root{--paper:#faf9f6;--card:#fff;--ink:#253137;--muted:#59686a;--line:#d8dfdc;--cm:#176d80;--iod:#a95026}
+html{scroll-behavior:auto;scroll-padding-top:140px}body{min-width:900px;font-family:"Microsoft YaHei","Segoe UI",sans-serif;font-size:18px;line-height:1.85;background:var(--paper)}
+.book-header{position:sticky;top:0;z-index:5;background:#faf9f6f5;border-bottom:1px solid var(--line);padding:12px max(25px,calc((100vw - 1500px)/2)) 0;backdrop-filter:none}
+.book-title{display:flex;gap:25px;align-items:baseline;padding:0 10px 8px}.book-title h1{margin:0;letter-spacing:0;font:600 22px/1.5 Georgia,"Microsoft YaHei",serif}.book-title span{font-size:13px;color:var(--muted)}
+.chapter-tabs{display:flex;flex-wrap:wrap;gap:3px}.chapter-tabs a{display:block;border:0;border-bottom:3px solid transparent;padding:8px 14px;font-size:15px;font-weight:600;color:var(--muted)}.chapter-tabs a[aria-selected=true]{color:var(--ink);border-bottom-color:var(--cm);background:#eaf0eb}.chapter-tabs a:hover{background:#edf1ed}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);max-width:1450px;margin:auto;align-items:start}.sidebar{position:sticky;top:115px;height:calc(100vh - 125px);padding:24px 17px 30px;gap:12px;border-right:1px solid var(--line);overflow:auto}.brand{font-size:12px;letter-spacing:.5px}.brand b{font-size:16px;margin-top:5px;line-height:1.5}.sidebar nav a{padding:6px 9px;font-size:13px;line-height:1.7}.sidebar a[aria-current]{border-color:var(--cm);color:var(--ink);background:#edf1ed}
+.main{max-width:1060px;width:100%;padding:34px 48px 60px;min-width:0}.section{padding-top:0;margin:0}.section[hidden]{display:none!important}.section-kicker{font-size:12px;color:#53766c;letter-spacing:1px;margin:0 0 8px}h2{font-size:30px;font-weight:650;margin:0 0 25px;line-height:1.45}h3{font-size:23px;font-weight:650;line-height:1.5;margin:44px 0 16px;scroll-margin-top:145px}h4{font-size:18px;line-height:1.5;margin:20px 0 10px}p{margin:12px 0 20px}.lead{font-size:20px;line-height:1.85;color:#304a51}.grid2{display:block}.card,.question{background:transparent;border:0;border-radius:0;padding:0;margin:28px 0 38px}.grid2>.card{margin:28px 0}.interactive{border-block:1px solid #c5d5d1;background:#f0f4f0;padding:20px 23px;margin:28px 0}.interactive h3{margin-top:0}.callout,.callout.warn{background:transparent;border-left:3px solid #a9bdb6;padding:6px 0 6px 20px;margin:24px 0}.flow{display:block;margin:24px 0}.flow div{display:flex;gap:20px;align-items:baseline;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:12px 0;font-size:15px}.flow .num{min-width:78px}.flow b{min-width:130px}.unit-grid{display:block}.unit-grid div{display:inline-block;margin:0 22px 15px 0;background:transparent;padding:0}.unit-grid strong{font-size:21px}
+.controls{gap:14px;align-items:end;margin:18px 0}.controls label{min-width:130px;max-width:100%;font-size:14px}.controls select{max-width:100%;font-size:14px}select{padding:8px 10px}button{font-size:14px;padding:8px 12px;border-radius:3px}button:disabled{opacity:.45;cursor:default}input[type=range]{min-width:150px}input[type=number]{max-width:150px;padding:8px;border:1px solid #9aaea8;border-radius:3px}textarea{display:block;width:100%;font:16px/1.8 "Microsoft YaHei",sans-serif;padding:15px;border:1px solid #9aaea8;background:white;margin:12px 0}.writing-label{display:block}
+table{font-size:15px;line-height:1.8}th,td{padding:11px 13px}th{font-size:14px;background:#edf1eb}td{overflow-wrap:anywhere}.table-scroll{margin:16px 0}pre,.plain-code{background:#edf0eb;color:#263f44;border-radius:3px;font:14px/1.9 Consolas,"Microsoft YaHei",monospace;white-space:pre;overflow:auto;padding:18px;max-width:100%}.plain-code{white-space:pre-wrap;overflow-wrap:anywhere}.code-panel{background:#21373e;color:#e4eeed;line-height:1.8}.code-panel code{white-space:pre}.equation{font-family:"Cambria Math",Cambria,"Microsoft YaHei",serif;font-size:22px;line-height:1.8;background:#f0f2ec;border-radius:2px;padding:22px 16px;margin:25px 0}.plot{height:360px;width:100%}.plot text{font-size:13px}.plot .axis-title{font-size:14px}.periodic{height:130px}.plot-note,.legend-text,.small,.caption{font-size:14px;line-height:1.8}.legend-text{color:var(--muted)}.metric-row{gap:24px;border-block:1px solid var(--line);padding:15px 0}.metric{background:transparent;border-radius:0;min-width:150px;padding:0}.metric b{font:600 24px/1.5 "Segoe UI",sans-serif}.metric span{font-size:13px}.tag{background:transparent;padding:0;border-radius:0;font-size:12px;letter-spacing:.4px;color:#526c63}.tag.demo{background:transparent;color:#7b4c20}details{font-size:15px;padding:16px 0;margin:12px 0}details p{line-height:1.85}summary{font-weight:500;color:#3c6669}.answers button{background:white}.answers button[aria-pressed=true]{border-width:2px}.feedback{font-size:15px}.question{border-bottom:1px solid var(--line);padding-bottom:24px}.chapter-footer{border-top:1px solid var(--line);margin-top:50px;padding-top:25px;display:flex;justify-content:space-between;gap:25px;font-size:16px}.chapter-footer a[hidden]{display:none}a[href^="https:"]{overflow-wrap:anywhere}
+@media(max-width:1200px){.layout{grid-template-columns:205px minmax(0,1fr)}.main{padding:28px 30px 60px}.book-header{padding-left:15px;padding-right:15px}.chapter-tabs a{padding:8px 10px;font-size:14px}.sidebar{top:125px;height:calc(100vh - 135px)}}
+@media print{.book-header,.sidebar,.chapter-footer,.controls,button{display:none!important}.layout{display:block}.main{max-width:none}.section[hidden]{display:block!important}.section{break-before:page}.plot{height:300px}body{min-width:0;background:white;font-size:12px}.interactive{break-inside:avoid}.section:first-child{break-before:auto}}
+.book-header{background:#faf9f6}.sidebar{top:var(--header-height,115px);height:calc(100vh - var(--header-height,115px) - 12px)}
+.section h3{scroll-margin-top:var(--header-height,145px)}
+</style></head><body><a class="skip" href="#question">跳到正文</a><header class="book-header"><div class="book-title"><h1>Ion Model Benchmark</h1><span>从问题到独立复算 · 中文离线教材 · 2026-10-09</span></div><nav class="chapter-tabs" role="tablist" aria-label="全局章节"><a id="tab-question" href="#question" role="tab" aria-controls="question" aria-selected="false" tabindex="-1">01 研究问题</a><a id="tab-concepts" href="#concepts" role="tab" aria-controls="concepts" aria-selected="false" tabindex="-1">02 分子直觉</a><a id="tab-models" href="#models" role="tab" aria-controls="models" aria-selected="false" tabindex="-1">03 参数与势能</a><a id="tab-design" href="#design" role="tab" aria-controls="design" aria-selected="false" tabindex="-1">04 实验设计</a><a id="tab-metrics" href="#metrics" role="tab" aria-controls="metrics" aria-selected="false" tabindex="-1">05 指标推导</a><a id="tab-results" href="#results" role="tab" aria-controls="results" aria-selected="false" tabindex="-1">06 真实结果</a><a id="tab-python" href="#python" role="tab" aria-controls="python" aria-selected="false" tabindex="-1">07 Python 与代码</a><a id="tab-practice" href="#practice" role="tab" aria-controls="practice" aria-selected="false" tabindex="-1">08 复算与表达</a></nav></header><div class="layout"><aside class="sidebar"><div class="brand">本章目录<b id="chapter-name"></b></div><nav id="chapter-toc" aria-label="当前章节内部目录"></nav><p class="small">先预测 → 操作 → 解释<br>Tabs 支持方向键切换；滑块支持方向键和 Home/End。小节链接可复制到地址栏，刷新与前进后退保留定位。</p></aside><main class="main"><noscript>请启用 JavaScript 使用章节与交互。此文件无需联网。</noscript><section id="question" class="section" data-title="01 研究问题" role="tabpanel" aria-labelledby="tab-question" >
+<div class="section-kicker">01 / 问题 → 可测量的证据</div><h2>为什么先研究一盒水？</h2>
+<p class="lead">在讨论 NMDAR 中 Ca²⁺ 如何影响 Mg²⁺ 阻滞之前，先问一个可以逐项检查的问题：固定水模型和模拟条件，只改变离子参数，局部水合（hydration）结构会怎样变化？再放入一个乙酰胺（acetamide），短时间内的接触是否取决于起点？</p>
+<p>受体孔道里有蛋白、膜、水和多个带电粒子。若简单水溶液中的模型实现、配位几何或采样都没有弄清，到了孔道里，一条曲线的变化就很难归因。这份 benchmark（基准比较）把复杂问题拆成水合与中性酰胺两个可检查的部分。它为后续研究暴露模型差异与采样要求。</p>
+<h3 id="question-1">把一个生物学问题缩到可完成的实验</h3>
+<table><thead><tr><th>你想知道什么</th><th>本项目实际测什么</th><th>从证据可以走到哪里</th></tr></thead><tbody>
+<tr><td>离子周围的水离得多近？</td><td>离子–水氧径向分布函数（radial distribution function, RDF）第一峰；壳内条件平均距离。</td><td>在固定 TIP3P 条件下，参数选择影响局部水合几何。</td></tr>
+<tr><td>附近有多少个氧？是否一直是同一些水？</td><td>配位数（coordination number, CN）、分布与相邻保存帧的成员变化。</td><td>区分局部人数稳定与水分子身份稳定，识别定义敏感性。</td></tr>
+<tr><td>离子会不会接近酰胺氧？</td><td>2 ns 内的离子–羰基氧（carbonyl oxygen）距离、接触帧比例、contact/separated 初态对照。</td><td>描述这段时间的接触和起点依赖；判断采样是否仍保留初态影响。</td></tr></tbody></table>
+<p>这里的“模型”指经典力场（force field）的相互作用参数。轨迹由分子动力学（molecular dynamics, MD）产生，没有机器学习训练。本项目也没有蛋白、膜、电压或同时存在的 Ca/Mg。</p>
+<h3 id="question-2">沿着一条数字链学习</h3>
+<p>以 <code>CM_Ca_r3_contact</code> 为例：问题是“它在这段轨迹（trajectory）里有多少时间接近羰基氧？”→ 每 1 ps 保存一个距离 → 用 <code>d &lt; 0.35 nm</code> 标记 → 2000 帧中有 297 帧满足 → <strong>14.85%</strong>。再把 r1、r2 放回来，得到 99.90%、84.20%、14.85%。这时你才看见：只展示一个平均数，会藏起很大的重复差异。</p>
+<p>后面的顺序是<strong>分子直觉 → 势能与参数 → 实验设计 → 数学指标 → 真实数据 → Python → 独立复算与表达</strong>。遇到公式，先说它在数什么，再看变量；遇到代码，先写输入形状，再预测输出。</p>
+<h3 id="question-3">怎样使用这份教材</h3>
+<ol><li>第一遍读第 1–6 章，每个交互先做预测，再切换数据。约需 90–120 分钟，可分两次完成。</li><li>第二遍读第 7 章，在纸上完成小数组，再用现有 Python 环境核对。</li><li>第三遍做第 8 章。答案默认折叠；先从空白文件写，最后用断言检查。能解释为什么这样算，比记住命令更重要。</li></ol>
+<p>所有图表、说明与数据均在本文件内，可离线使用。灰底示例是教学计算，真实数据图明确给出案例编号。公式使用本机字体；不需要在线服务。源文件链接是查证入口，教材单独复制到别处仍可学习，但这些相对路径须在项目的 <code>output/</code> 中才可打开。</p>
+<h3 id="question-4">本次研究的完成状态</h3><p id="study-inventory"></p>
+<p>72 ns 是多条生产轨迹的时长总和。每一条只观察 2 ns，所以不能用“总共 72 ns”替某一条轨迹声称观察到更长的慢过程。</p>
+<details><summary>本章来源与学习目标</summary><p><code>README.md</code>、<code>PROTOCOL.md</code> 的研究问题；<code>results/*/*/metadata.json</code> 的 status/production_ps；报告第 1、5、6 页。学习结束时，应能用自己的话说明研究问题、控制条件、观测量和结论边界。</p></details>
+</section><section id="concepts" class="section" data-title="02 分子直觉" role="tabpanel" aria-labelledby="tab-concepts" hidden><div class="section-kicker">01 / 建立直觉</div><h2>你在模拟什么？</h2><p class="lead">想象一个初始边长 3 nm 的小水盒，里面只有一个 Mg²⁺ 或 Ca²⁺，再加两个 Cl⁻ 中和电荷。水分子围住离子，形成水合壳层。</p>
+<div class="grid2"><div class="card"><h3 id="concepts-1">力场：原子运动遵守的规则</h3><p>经典分子动力学把原子看作有位置、速度、质量和相互作用的粒子。力场给出势能（potential energy）U；由势能得到力，再推进位置与速度。<strong>模型参数是输入，轨迹是输出。</strong></p><p>TIP3P 是本项目的水模型。水带有固定的部分电荷并保持刚性几何。我们关心水氧到离子的距离，用它描述水合层的位置与人数。</p><p class="small">这是近似描述；没有逐一显式求解电子结构和环境诱导的极化。</p></div><div class="card"><h3 id="concepts-2">三个容易混淆的词</h3><p><strong>水合 hydration：</strong>水分子围绕溶质离子的排列。</p><p><strong>配位 coordination：</strong>这里按距离阈值判断某个氧是否在邻近壳层中。</p><p><strong>轨迹 trajectory：</strong>同一体系随时间演化的记录；<strong>replica</strong> 是更换随机种子的一次完整运行。</p><p class="small">帧像一部电影的画面，三条 replica 像同一条件下拍出的三部电影。</p></div></div>
+<h3 id="concepts-3">先把单位读顺</h3><div class="unit-grid"><div><strong>1 nm = 10 Å</strong>0.203 nm = 2.03 Å。都是长度。</div><div><strong>1 ns = 1,000 ps</strong>2 ns 轨迹，就是 2,000 ps。</div><div><strong>1 ps = 1,000 fs</strong>步长 2 fs = 0.002 ps，保存一次样本要走 500 步。</div></div>
+<div class="card"><span class="tag demo">教学示意 · 一维周期边界</span><h3 id="concepts-4">为什么相距 2.9 nm，也可能算作 0.1 nm？</h3><p>周期盒像可以无缝重复的瓷砖。粒子越过右边界，就在相邻盒子继续运动。测距离要选最近的周期复制体。</p><label for="pbc">离子固定在 0 nm，拖动水氧位置：<output id="pbc-value" class="value">2.90 nm</output></label><input id="pbc" type="range" min="0" max="3" step="0.01" value="2.9"><svg class="plot periodic" id="pbc-plot" role="img" aria-label="周期边界距离教学示意"></svg><p id="pbc-text" aria-live="polite"></p><button data-reset="pbc">重置这个交互</button><p class="small">对应 <code>simulate.py → distances()</code>：先算坐标差，再减去整盒长度，最后取向量长度。本示意只显示 x 方向，实际代码在三个方向处理。</p></div><h3 id="concepts-5">五类粒子，各自带来什么问题？</h3>
+<table><thead><tr><th>粒子</th><th>在体系中的角色</th><th>读数据时要注意</th></tr></thead><tbody>
+<tr><td>Mg²⁺、Ca²⁺</td><td>分别作为单个中心二价阳离子。Mg 一般比 Ca 更紧密地组织附近水氧，本次用真实距离与 CN 检查。</td><td>每个盒子只有其中一种离子，不能研究两种阳离子共同占据孔道。</td></tr>
+<tr><td>水 H₂O</td><td>氧的负部分电荷朝向正离子较有利，氢朝外的取向还受氢键网络影响。第一水合壳层是最邻近的一层水。</td><td>数的是水氧，因每个水只有一个氧，等价于数水分子；不是数全部水原子。</td></tr>
+<tr><td>两个 Cl⁻</td><td>使 +2+2×(−1)=0，避免把净电荷处理混入比较。它们仍有实际相互作用。</td><td>跟踪最近 Cl⁻ 距离及 &lt;0.40 nm 帧比例；不能把“中和离子”视为不存在。</td></tr>
+<tr><td>乙酰胺 CH₃CONH₂</td><td>中性分子，羰基氧带部分负电，可与离子接近；提供与酰胺侧链相关的简化化学基团。</td><td>它自由平移转动；缺少蛋白骨架、受限取向、多配位基团、膜和孔道几何。</td></tr></tbody></table>
+<p>水合壳层像一圈动态的邻居。氧的距离短，不代表该水一定永远留在壳内；CN 恒定也不代表邻居身份相同。加入羰基氧后，部分水配位可以被替代，但只有同时检查水 CN、酰胺距离和初态对照，才能描述所观察到的局部结构。</p>
+<h3 id="concepts-6">3 nm 水盒不是无限稀溶液</h3>
+<p>周期边界（periodic boundary conditions, PBC）使盒子在三维重复，避免小盒子的自由表面。NPT 压控下盒边会波动，所以“3 nm”是初始值。一个阳离子在 27 nm³ 中的浓度为 1/(N<sub>A</sub>×27×10⁻²⁴ L)≈0.0615 mol/L；N<sub>A</sub>=6.02214076×10²³ mol⁻¹。正式数值要逐帧用实际体积计算。</p>
+<p id="concentration-note"></p><p>中性乙酰胺没有改变需补两个 Cl⁻ 的电荷平衡；加入分子会排开一些水。水数应从每条 metadata 和距离矩阵的列数读取，不能硬编码成“每盒都一样”。</p>
+<details><summary>本章来源</summary><p><code>simulate.py:build_system/distances</code>；<code>protocol.json</code>；每条 <code>metadata.json</code> 的 n_water/n_chloride/min_box_length_nm；<code>samples.npz:volume_nm3</code>。乙酰胺是 FreeSolv mobley_8048190，生成残基 ACM、羰基氧 O1（分子内零起始索引 2）。上面的邻居比喻与周期滑块是教学示意。</p></details>
+</section><section id="models" class="section" data-title="03 参数与势能" role="tabpanel" aria-labelledby="tab-models" hidden><div class="section-kicker">03 / 参数 → 相互作用 → 结构</div><h2>CM 和 IOD 改了哪条物理规则？</h2>
+<p class="lead">两套参数都来自 Li–Merz 2013 的 12–6 Lennard–Jones（LJ）模型，离子电荷仍为 +2e，水仍为 TIP3P。改变的是离子的尺寸参数与能量参数，因而改变它与周围粒子的相互作用。</p>
+<h3 id="models-1">拟合目标决定了什么值得检查</h3><p><strong>CM（compromise，折中）</strong>在水合自由能与结构目标之间取折中；<strong>IOD（ion–oxygen distance，离子–氧距离）</strong>针对水合距离目标拟合。项目使用 Amber 发布文件中的这两组参数。不同物性不能用一个“准确率”概括：恢复用于拟合的距离，是实现与目标恢复检查；独立预测验证应面对拟合时没用过的观测量。</p>
+<p>TIP3P（three-site transferable intermolecular potential）把每个水表示为 O、H、H 三个位点，固定部分电荷与几何。水氧带负电、氢带正电。离子–氧吸引会影响水的朝向，而几何约束与其他水分子的相互作用共同决定水合结构。替换水模型会改变整套离子–水组合，所以不能直接把 TIP3P 拟合参数当成通用参数。</p>
+<h3 id="models-2">从势能到力，再到位置</h3><div class="equation">U<sub>LJ</sub>(r)=4ε[(σ/r)<sup>12</sup>−(σ/r)<sup>6</sup>]；　U<sub>C</sub>(r)=k<sub>e</sub>q<sub>i</sub>q<sub>j</sub>/r<br>F = −∇U；　a = F/m</div><p>r、σ 用 nm；ε 与 U 用 kJ/mol；q 以基本电荷 e 为单位。OpenMM 单位下 k<sub>e</sub>≈138.935458 kJ·nm/(mol·e²)。LJ 的 12 次方项在近距离产生强排斥，6 次方项产生吸引。纯 LJ 在 r=σ 时为 0，在 r=2<sup>1/6</sup>σ 时为 −ε。例如 σ=0.30 nm、ε=0.50 kJ/mol，则势阱位置约 0.336739 nm，深度 −0.50 kJ/mol。最低点处势能斜率为零，因此纯 LJ 的径向力也为零。力是势能随位置变化的负梯度；同样的力下，质量影响加速度。取 +2e 与 −0.834e、r=0.30 nm，单对库仑能约为 −772.48 kJ/mol；负号表示吸引。它只是离子与水氧的点电荷项，还没有加入两个水氢和周围环境。</p>
+<p>上式的库仑项解释成对作用的方向；实际周期体系使用粒子网格 Ewald（particle mesh Ewald, PME）处理长程静电。1 nm 是实空间计算截断，不表示全部静电在 1 nm 以外归零。本模型没有显式电子极化、缩放电荷或额外的 r⁻⁴ 项。</p>
+<div class="interactive" id="potential-lab"><h3 id="models-3">比较：同一离子，CM/IOD 怎样改变离子–水氧 LJ 曲线？</h3><p>先预测：若 σ 增大，排斥上升的位置会往哪边移？切换离子与参数；再调节倍率，把教学探索曲线与原始参数比较。图只显示 <strong>一个离子与一个 TIP3P 水氧之间的 LJ 项</strong>。</p>
+<div class="controls"><label>离子<select id="param-ion"><option value="Mg">Mg²⁺</option><option value="Ca">Ca²⁺</option></select></label><label>参数集<select id="param-model"><option>CM</option><option>IOD</option></select></label><label>曲线范围<select id="potential-view"><option value="well">势阱细节</option><option value="repulsion">含近程排斥</option></select></label><label>离子 σ 倍率 <output id="sigma-label"></output><input id="sigma-scale" type="range" min="0.85" max="1.15" step="0.01" value="1"></label><label>离子 ε 倍率 <output id="epsilon-label"></output><input id="epsilon-scale" type="range" min="0.5" max="1.5" step="0.05" value="1"></label><button data-reset="potential">重置</button></div>
+<div id="param-table" class="table-scroll"></div><p id="param-explain"></p><svg id="lj-plot" class="plot" role="img" aria-label="离子与 TIP3P 水氧的 LJ 势能，实线原始参数，虚线教学探索"></svg><p class="legend-text">实线：所选真实参数；虚线：倍率调整后的教学探索；水平虚线：零势能。可切换势阱细节与近程排斥；超出坐标范围的部分被裁切，没有修改势能值。</p><p id="potential-reading" aria-live="polite"></p>
+<p>完整水分子还有两个正电氢，并与环境相互作用；图中的纯 LJ 势阱位置不能当作实际水合距离。修改倍率没有生成新轨迹，下章的真实结果不会跟着改变。</p></div>
+<h3 id="models-4">Amber 的 Rmin/2 为什么不是 OpenMM 的 σ？</h3><div class="equation">σ<sub>i</sub>[nm] = 0.2 × (Rmin/2)<sub>i</sub>[Å] / 2<sup>1/6</sup><br>ε<sub>i</sub>[kJ/mol] = 4.184 × ε<sub>i</sub>[kcal/mol]</div><p>乘 2 从半径恢复同类粒子对的 Rmin；乘 0.1 把 Å 变为 nm；再除以 2<sup>1/6</sup>，从纯 LJ 最低点位置换到零点参数 σ。CM/Mg 的 1.360 Å、0.01020237 kcal/mol 变为 <strong>0.2423244513 nm、0.04268671608 kJ/mol</strong>。实际函数是 <code>simulate.lj_parameters()</code>。</p>
+<div class="equation">σ<sub>ij</sub>=(σ<sub>i</sub>+σ<sub>j</sub>)/2；　ε<sub>ij</sub>=√(ε<sub>i</sub>ε<sub>j</sub>)</div><p>这就是 Lorentz–Berthelot 混合规则：长度算术平均，能量几何平均。离子原子参数不等于离子–氧成对参数；上方表格同时显示两者。例如教学原子参数 σ=0.24、0.32 nm 和 ε=0.04、0.64 kJ/mol，得到成对 σ=0.28 nm、ε=0.16 kJ/mol。更换混合规则会改变所有跨类型粒子对，不能当成无关的格式选择。</p>
+<h3 id="models-5">乙酰胺的参数从哪里来，转换检查证明了什么？</h3><p>FreeSolv 的 <code>mobley_8048190</code> 是中性乙酰胺 CH₃CONH₂，9 个原子；GAFF（general Amber force field）给出小分子力场，AM1-BCC（bond charge correction）给出部分电荷。项目保留原始 prmtop、inpcrd、mol2 和补充 frcmod；不能只凭 frcmod 重建完整体系，也不能把 Amber 原始电荷字段直接读成 e。</p>
+<p><code>convert_acetamide.py</code> 使用 OpenMM 的 Amber 读取器建立原始体系，再写入 ForceField XML 和 PDB。它必须保留原子顺序、8 个键、12 个角、14 个非零扭转项（其中 2 个 improper），以及 30 个排除/1–4 对。隔三个键的 1–4 相互作用采用静电 1/1.2、LJ 0.5 的缩放，遗漏会改变分子内的能量面。</p>
+<p id="conversion-result"></p><p>只在能量最低处比较总能量可能掩盖项间抵消，也不敏感于势能斜率错误。原结构加四个未最小化扰动结构，逐力项检查能量和每个原子的力，能更好地暴露单位、原子顺序和扭转转换问题。例如本次能量容差是 10⁻⁶ kJ/mol，最大误差约 1.02×10⁻⁷，二者应比较后才称通过；力容差独立为 10⁻⁵ kJ/(mol·nm)。</p>
+<p>这个结果验证了“转换前后的实现一致”。FreeSolv 的分子水合参数来源，并没有独立校准 Mg/Ca 与乙酰胺的结合亲和力。水合自由能数据库值与本项目测得的接触比例也不是同一量。</p>
+<details><summary>来源、实现与历史方案的区别</summary><p><a href="../SOURCES.md">SOURCES.md</a>；<a href="../protocol.json">protocol.json</a>；<code>parameters/amber/frcmod.ions234lm_126_tip3p</code> 与 <code>frcmod.ions234lm_iod_tip3p</code>；<code>parameters/source_manifest.json</code>；<code>simulate.py:lj_parameters/build_system/check_ion_water_pairs</code>；<code>parameters/freesolv/convert_acetamide.py:convert/verify</code> 和 <code>conversion_verification.json</code>。曲线使用实际保存 system.xml 中的 TIP3P 水氧参数。</p><p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3728907/">Li et al. 2013 原始模型论文</a>；<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8173364/">Li et al. 2020 Table 1 参考距离</a>。设计审查讨论了 dummy、多种水模型与 12–6–4 备选路线；冻结协议和实际 system.xml 才定义本次采用的方案。</p></details></section><section id="design" class="section" data-title="04 实验设计" role="tabpanel" aria-labelledby="tab-design" hidden><div class="section-kicker">03 / 看懂这 36 次运行</div><h2>先测水合，再加一个乙酰胺。</h2><div class="grid2"><div class="card"><span class="tag">阶段 A · 12 条水合轨迹</span><h3 id="design-1">离子 + 水 + 两个 Cl⁻</h3><p>2 参数集 × 2 离子 × 3 随机种子（random seeds） = <strong>12 条</strong>。</p><p>检查参数转换、有限能量、水合结构、温度和密度。先确认设置与实现按预期工作。</p></div><div class="card"><span class="tag">阶段 B · 24 条酰胺轨迹</span><h3 id="design-2">再加入一个中性乙酰胺</h3><p>2 参数集 × 2 离子 × 2 起点 × 3 随机种子 = <strong>24 条</strong>。</p><p>乙酰胺 CH₃CONH₂ 提供羰基氧，代表简化化学基团。它采用 FreeSolv 的 GAFF / AM1-BCC 参数，不等于完整蛋白结合位点。</p></div></div>
+<div class="card"><h3 id="design-3">一条轨迹的时间线</h3><div class="flow"><div><span class="num">准备</span><b>构建 + 最小化</b>放入粒子，缓解不合理碰撞。</div><div><span class="num">100 ps</span><b>预平衡阶段</b>分配初速度，按设定温压运行。</div><div><span class="num">2,000 ps</span><b>正式生产</b>走 1,000,000 个 2 fs 积分步。</div><div><span class="num">每 1 ps</span><b>保存分析量</b>共 2,000 帧；DCD 坐标每 10 ps 保存。</div></div><p class="small">72 ns 是 36 条生产轨迹相加，未计预平衡，也不是一条连续的 72 ns 轨迹。分析时间从生产开始重新计：首帧 1 ps，末帧 2,000 ps。</p></div>
+<div class="table-scroll"><table><thead><tr><th>设置</th><th>数值</th><th>作用</th></tr></thead><tbody><tr><td>温度 / 压力</td><td>298.15 K / 1 bar</td><td>Langevin-middle 温控与 Monte Carlo 压控；体积会波动。</td></tr><tr><td>初始盒边长</td><td>3 nm</td><td>周期性小体系，实际水数和体积从轨迹读取。</td></tr><tr><td>非键相互作用</td><td>PME；1 nm 实空间 cutoff</td><td>PME 处理长程静电，1 nm 不是把更远静电全部忽略。</td></tr><tr><td>配位分析 cutoff</td><td>Mg 0.30 / Ca 0.35 nm</td><td>事后数邻居的阈值，与 1 nm 力计算 cutoff 用途不同。</td></tr><tr><td>重复</td><td>每条件 3 条 seeded replicas</td><td>改变随机种子，初始水打包采用共同模板。</td></tr></tbody></table></div><div class="callout"><strong>“预平衡”是流程名称，不是证明。</strong>运行 100 ps 准备阶段不能保证所有慢过程达到平衡。还要比较起点、重复轨迹与时间分段。</div><h3 id="design-4">这些设置各控制哪个时间尺度？</h3><table><thead><tr><th>设置</th><th>实际取值</th><th>它的含义</th></tr></thead><tbody>
+<tr><td>目标温度 / 压强</td><td>298.15 K / 1 bar</td><td>Langevin-middle 温控交换热量；各向同性 Monte Carlo 压控每 25 步尝试缩放体积。目标值不要求每帧无波动。</td></tr>
+<tr><td>摩擦系数</td><td>1 ps⁻¹</td><td>恒温器的耦合参数，不能读成水交换速率。</td></tr>
+<tr><td>时间步长</td><td>0.002 ps = 2 fs</td><td>每次积分推进的位置和速度；刚性水、含氢键约束限制快速键振动。</td></tr>
+<tr><td>分析采样 / 坐标轨迹</td><td>1 ps / 10 ps</td><td>NPZ 每 500 步记录距离和热力学量；DCD 与热力学 CSV 每 5000 步记录。CSV 时间还包含预平衡，NPZ 时间重置为生产时间。</td></tr>
+<tr><td>预平衡 / 生产</td><td>100 ps / 2000 ps</td><td>前者给体系调整机会，后者是预先指定的分析窗口；“进行了预平衡”不保证所有慢过程已平衡。</td></tr>
+<tr><td>三个不同的空间范围</td><td>力计算 1.0 nm；RDF 0.9 nm；CN 0.30/0.35 nm</td><td>它们分别服务于相互作用算法、结构统计范围与壳层分类，不能互相替换。</td></tr></tbody></table>
+<h3 id="design-5">随机种子、共同模板与重复单位</h3><p>基础种子为 870001、870002、870003。hydrated 与 separated 使用基础种子，contact 加 50000；随后 barostat 加 10000，速度分配加 20000，积分器使用 case seed。离子、模型与初态是实验条件，种子是各条件内的重复设置。</p><p>建水使用共同溶剂装填模板，再用种子控制速度、恒温器、压控及 Cl⁻ 放置。因此三条轨迹检查这种制备方式下的随机重复性，并没有穷尽独立的初始水壳构型。两个初态的同一 r 编号也不是严格配对实验。</p>
+<details><summary>从实际文件核对 36 个案例、种子与水数</summary><div id="run-inventory" class="table-scroll"></div><p>每行对应真实 metadata；production_ps 与样本时间轴共同检查时长。完整样本哈希在内嵌数据来源中。初态 contact/separated 是构建标签，最小化和预平衡后第一生产帧距离可以改变。</p></details>
+<h3 id="design-6">水合质量检查为什么安排在扩展之前？</h3><p>先确认单位和离子–水粒子对实现，再看有限能量、结构、温度和密度，能及早发现基础设置错误。乙酰胺转换也要通过能量和力检查。这些是继续扩展的理由；它们没有为酰胺结合的平衡采样提供保证。若结构受阈值或初态影响，就按原预算报告这些影响，而不是延长到得到希望的模型排名。</p>
+<details><summary>来源时间线与调查结论</summary><p><code>design-review.md</code> 是 2026-10-05 的建议，含未采用的模型与更广泛诊断；<code>protocol.json</code> 是冻结数值；<code>simulate.py</code> 与 system.xml 显示实际实现；<code>WORK_LOG.md</code> 的中间“仍有案例待运行”已被后续完成记录取代。</p><p>协议记录了短 pilot 的 392.6 ns/day 与水合约 1.5 小时估算。完成后 metadata 得到 112.8–508.4 ns/day，合并生产吞吐 262.4 ns/day。两者分别是早期预算与最终测量，不应静默换成同一件事。早期 final.pdb 的 CRYST1 盒长曾被修正；元数据保留原因与哈希，轨迹和样本未因此更改。</p><p>本次导出重新核对了全部样本与现有汇总；没有修改协议、补跑生产或重新拟合参数。<code>verify_project.py</code> 是文件与计算一致性审计，<code>build_report.py</code> 在审计后生成报告；<code>run_gpu.py</code> 仅为 Windows 子进程添加 CUDA DLL 查找路径。</p></details>
+</section><section id="metrics" class="section" data-title="05 指标推导" role="tabpanel" aria-labelledby="tab-metrics" hidden><div class="section-kicker">05 / 距离 → 数学定义 → 代码</div><h2>怎样把一部“原子电影”变成证据？</h2>
+<p class="lead">位置是原料，指标是有明确规则的提问。下面固定同一批距离，依次问“多近”“多少”“谁在里面”“有多少帧接触”。换问题会得到不同的数字。</p>
+<h3 id="metrics-1">1．先得到正确的周期距离</h3>
+<p>最小镜像（minimum image）是取最近的周期复制体。对本项目的正交盒，先把每个方向的位移折回半盒内，再取三维长度：</p>
+<div class="equation">Δx = x<sub>O</sub> − x<sub>M</sub>；　Δx′ = Δx − L<sub>x</sub> round(Δx/L<sub>x</sub>)<br>d = √[(Δx′)² + (Δy′)² + (Δz′)²]</div>
+<p>坐标 x、盒边 L 和距离 d 都用 nm；round 是最近整数。设离子在 (0,0,0)，水氧在 (2.9,0.2,0)，盒边均为 3 nm，则位移变为 (−0.1,0.2,0)，距离为 √0.05 = <strong>0.223607 nm</strong>。实际函数是 <code>simulate.distances()</code>。这个逐分量公式适用于本项目的正交盒，不能直接套在任意斜盒上。</p>
+<h3 id="metrics-2">2．RDF 为什么必须除以球壳体积？</h3>
+<p>离子外侧 0.4 nm 的薄壳比 0.2 nm 的同厚薄壳更大。即使水氧完全均匀，外层也容易数到更多水。RDF 把实际计数除以同密度均匀分布下的期望数，才回答“这个距离有多偏好”。</p>
+<div class="equation">ΔV<sub>b</sub> = (4π/3)(r<sub>b+1</sub>³ − r<sub>b</sub>³)<br>ρ<sub>t</sub> = N<sub>w</sub>/V<sub>t</sub>；　g<sub>b</sub> = (1/T) ∑<sub>t=1…T</sub> n<sub>tb</sub> / (ρ<sub>t</sub> ΔV<sub>b</sub>)</div>
+<p>b 是距离 bin（区间），t 是保存帧，T 是帧总数；n<sub>tb</sub> 是第 t 帧落在 [r<sub>b</sub>,r<sub>b+1</sub>) 中的水氧数。N<sub>w</sub> 是水氧总数；V<sub>t</sub> 是该帧盒体积（nm³）；ρ<sub>t</sub> 是水氧数密度（nm⁻³），所以分母是“水氧个数”，g 无量纲。g=1 表示相对该密度没有富集；它不是概率，完全可以大于 1。</p>
+<div class="interactive" id="rdf-lab"><h4>跟算：体积变化时，归一化的顺序重要吗？</h4><p>教学样例含 2 帧 × 2 个水氧。先看距离，再看分箱、每帧密度和平均；切换归一化方式，对照哪里发生了变化。</p><div class="controls"><label>推导步骤<select id="hist-step"><option value="0">1 · 距离数组</option><option value="1">2 · 分箱计数</option><option value="2">3 · 球壳与密度</option><option value="3">4 · 逐帧归一化</option><option value="4">5 · 平均 RDF 与累计 CN</option></select></label><label>对照算法<select id="hist-mode"><option value="frame">项目：每帧先除密度</option><option value="pooled">反例：总计数除平均密度</option></select></label><button data-reset="hist">重置</button></div><div id="hist-output" aria-live="polite"></div><p>样例盒体积为 1 和 2 nm³，水氧密度分别为 2 和 1 nm⁻³。它只用于手算，不代表真实液态水。两帧的最大半径 0.4 nm 小于各自半盒长。</p></div>
+<p>内壳 [0,0.2) nm 的体积为 0.0335103 nm³。第一帧内壳有 1 个氧，第二帧有 2 个；<code>(1/2 + 2/1)/2 = 1.25 nm³</code>，再除球壳体积得到 g≈37.3019。外壳的对应值为 0.25 nm³，g≈1.06577。若先混合帧并除平均密度，就把本应逐帧匹配的体积与计数拆开了。</p>
+<p>项目使用 450 个 bin，宽 0.002 nm，范围 [0,0.9) nm。最远的球壳必须完整放进最近镜像区域，所以 0.9 nm 要小于每帧最短盒边的一半。<code>radial_distribution()</code> 每 128 帧处理一块以限制临时内存，计算定义没有改变。</p>
+<h3 id="metrics-3">3．峰、条件均距、配位数各在问什么？</h3>
+<table><thead><tr><th>指标</th><th>数学与单位</th><th>一个可手算的例子</th></tr></thead><tbody>
+<tr><td>RDF 第一峰</td><td>预设搜索窗中 g 最大的 bin 中心（nm）；Mg 0.17–0.26 nm，Ca 0.20–0.32 nm。</td><td>若三个中心为 0.201、0.203、0.205，g 为 50、100、80，则峰为 0.203 nm；不是所有距离的均值。</td></tr>
+<tr><td>条件平均距离</td><td>∑ d<sub>ti</sub>I(d<sub>ti</sub>&lt;r<sub>c</sub>) / ∑ I(d<sub>ti</sub>&lt;r<sub>c</sub>)，单位 nm。</td><td>两帧距离 [[0.20,0.40],[0.22,0.26]]、r<sub>c</sub>=0.30，选中三个值，均距 0.226667。按帧先均值再平均得到 0.22，两者权重不同。</td></tr>
+<tr><td>每帧配位数</td><td>CN<sub>t</sub>(r<sub>c</sub>) = ∑<sub>i</sub> I(d<sub>ti</sub>&lt;r<sub>c</sub>)，无量纲计数。</td><td>上述两帧分别是 1、2；平均 CN=1.5。I 是条件成立取 1、不成立取 0 的指示函数。</td></tr>
+<tr><td>配位数分布 P(k)</td><td>具有 CN=k 的帧数 / T；所有 k 的比例和为 1。</td><td>两帧例子 P(1)=P(2)=0.5；∑kP(k)=1.5，恢复平均 CN。</td></tr></tbody></table>
+<p>r<sub>c</sub> 是操作性截断（operational cutoff），Mg 默认 0.30 nm，Ca 0.35 nm。等于阈值不计入。这个选择把连续距离变成分类，它不是天然刻在分子上的边界；±0.02 nm 的敏感性分析检查结论有多依赖定义。</p>
+<p>从 RDF 分箱的原始计数累积，可得到对应 bin 上界的平均 CN：<code>cumsum(counts)/T</code>。在 NPT（粒子数、压强、温度受控）条件下，项目 RDF 用每帧密度归一化；把平均 g 随意乘平均密度积分，未必严格恢复平均 CN。教程的半径滑块直接用完整距离重新计数，不靠显示曲线估算。</p>
+<h3 id="metrics-4">4．数量没变，水的身份可能已经换了</h3>
+<div class="equation">M<sub>ti</sub> = I(d<sub>ti</sub>&lt;r<sub>c</sub>)<br>F<sub>t</sub> = ∑<sub>i</sub> I(M<sub>t+1,i</sub> ≠ M<sub>ti</sub>)</div>
+<p>M 是“帧 × 水氧”的布尔矩阵，每一列始终对应同一个水。若两帧是 [1,1,0]、[1,0,1]，CN 都等于 2，但有 2 个成员翻转：一个离开，一个进入。<code>membership_changes()</code> 另数发生至少一次翻转的间隔、翻转总数和曾进入壳层的不同水数。2000 帧只有 1999 个相邻间隔。</p>
+<p>1 ps 保存间隔会漏掉中间发生又返回的短暂变化；阈值附近振动也会造成多次翻转。因此 F 不能直接转换成有承诺时间定义的交换事件或速率。第 7 章会逐步显示同一个布尔矩阵；第 6 章还可检查真实的 167→168 ps 例子。</p>
+<h3 id="metrics-5">5．接触比例：一串布尔值的平均</h3>
+<div class="equation">f<sub>contact</sub> = (1/T) ∑<sub>t</sub> I(d<sub>amide,t</sub>&lt;r<sub>c</sub>)</div>
+<p>这里 d<sub>amide,t</sub> 是离子到乙酰胺唯一羰基氧的距离（nm）。沿用水壳 cutoff 作为诊断，不能把它称作已校准的结合态边界。教学数组 [0.24,0.34,0.36,0.50]，Ca cutoff 0.35，得到 [1,1,0,0] → 2/4=50%。等间隔保存让帧占比近似这段有限时间的时间占比。平衡常数还需要平衡采样、状态定义、浓度及标准态处理，当前比例不具备这些条件。</p>
+<h3 id="metrics-6">6．先有每条轨迹的结果，再谈不确定性</h3>
+<div class="equation">x̄ = (x₁+x₂+x₃)/3；　s = √[∑(xᵣ−x̄)²/(n−1)]，n=3</div>
+<p>xᵣ 是一条轨迹的指标，s 是重复间样本标准差（sample standard deviation, SD），单位与指标相同。例如 [1,2,3] 的均值为 2，平方离差和为 2，除以 n−1=2，SD=1。标准误（standard error, SE）在独立且相同分布等假设下为 s/√n；它描述均值估计的不确定性，不能与 SD 混写。</p>
+<p>置信区间（confidence interval, CI）需要额外分布与独立性假设。n=3 时，近似正态重复均值的 95% t 区间用 x̄±4.303s/√3，往往很宽、很不稳定；本项目展示三条值和 SD，不声称计算了可靠的平衡总体 CI。Mg 文献 0.209±0.004 nm 是来源给出的范围，不是这些模拟的 SD、SE 或 CI。</p>
+<p>温度用动能和自由度估计，<code>T=2K/(νR)</code>：K 为 kJ/mol，R≈0.00831446 kJ/(mol·K)，ν 为扣除约束与质心平移后的自由度。以 ν=6、K=7.4369 kJ/mol 为教学例，T≈298.15 K。这个体系每帧温度会波动，目标温度不要求每帧等于 298.15。水数密度为 N<sub>w</sub>/V，区别于热力学日志的质量密度；877 个水氧、26.5 nm³ 得到 33.0943 nm⁻³。</p>
+<p>项目还把每条轨迹切成 8 个连续 250 ps 块，并比较前后各 1000 帧。块均值用于看随时间的变化；没有估计相关时间，也没有自动删掉“不好看”的前段。温度、密度和局部几何稳定，与慢交换过程得到充分采样，需要分开判断。</p>
+<details><summary>计算与结果字段对照</summary><table><thead><tr><th>路径 / 函数</th><th>输入 → 输出</th></tr></thead><tbody>
+<tr><td>simulate.py / distances、run_case</td><td>坐标与瞬时盒长 → samples.npz 的 distances_nm、amide_distance_nm、min_chloride_nm。</td></tr>
+<tr><td>analyze.py / radial_distribution</td><td>distances_nm、volume_nm3 → rdf_curves.csv 的 g_M_waterO、mean_CN_through_bin_upper。</td></tr>
+<tr><td>analyze.py / conditional_distance、membership_changes</td><td>阈值选择 / 身份 mask → mean_shell_distance_nm、total_membership_flips、shell_identity_changed_intervals。</td></tr>
+<tr><td>analyze.py / read_case、write_tables</td><td>每条样本 → replica_summaries.json/csv 的 mean_CN、CN_distribution、cutoff_sensitivity、block_means、halves、amide_fraction_within_diagnostic_water_cutoff。</td></tr>
+<tr><td>analyze.py / mean_sd</td><td>每条件三条指标 → group_summaries.csv（正式组表仅水合）；本教程乙酰胺组表从三条正式 replica 结果计算。</td></tr></tbody></table></details>
+</section><section id="results" class="section" data-title="06 真实结果" role="tabpanel" aria-labelledby="tab-results" hidden><div class="section-kicker">06 / 真实数据 → 判断</div><h2>用每条轨迹检验你的解释</h2><div id="hydration"><h3 id="results-1">水离离子多远，围了多少个？</h3><p>分别用 <strong>径向分布函数 RDF</strong> 和 <strong>配位数 CN</strong> 回答。两者相关，但不是同一个量。</p>
+<div class="card"><span class="tag">真实数据 · 12 条水合轨迹</span><h3 id="results-2">① RDF：在哪个距离，水氧特别容易出现？</h3><p>在离子周围画薄球壳，数水氧，再除以“若水均匀分布，这层壳应有多少氧”。所得 g(r) 无单位。<strong>g(r)=1</strong> 表示接近所用平均水数密度；大于 1 表示相对更常见。它不是概率，因此能大于 1。</p><div class="controls"><label>离子<select id="rdf-ion"><option value="Mg">Mg²⁺</option><option value="Ca">Ca²⁺</option></select></label><label>模型<select id="rdf-model"><option value="both">CM 与 IOD</option><option>CM</option><option>IOD</option></select></label><label>显示方式<select id="rdf-view"><option value="mean">3 条曲线的组平均</option><option value="replicas">显示所选模型全部重复</option><option value="1">Replica 1</option><option value="2">Replica 2</option><option value="3">Replica 3</option></select></label></div><div class="legend"><span>CM</span><span class="iod">IOD</span><span class="reference">灰色虚线：拟合参考</span></div><svg id="rdf-plot" class="plot" role="img" aria-label="真实离子水氧径向分布函数"></svg><p class="plot-note">显示 r ≤ 0.60 nm；原始分析到 0.90 nm，bin 宽 0.002 nm。重复视图用实线 / 长虚线 / 点线表示 r1 / r2 / r3。</p><h4>逐条轨迹：保留各自的证据</h4><div id="rdf-table" class="table-scroll"></div><h4>每条先算指标，再汇总为 n=3</h4><div id="rdf-group-table" class="table-scroll"></div><p id="rdf-reading" class="callout" aria-live="polite"></p><button data-reset="rdf">重置这个交互</button><p class="small">“组峰均值”先测每条轨迹的峰，再平均，不一定等于平均曲线的最大值位置。bin 宽限制了峰位置的分辨率。壳内平均距离则把 cutoff 内的全部距离取平均。</p><details><summary>参考线和误差怎样读？</summary><p>项目引用的拟合参考：Mg 0.209 ± 0.004 nm、Ca 0.246 nm。图中 Mg 阴影来自文献参考范围，不是本次模拟置信区间。表内 ± 是三条轨迹之间的样本标准差（SD）。IOD 拟合时用过水合距离目标，贴近参考线是目标恢复，不能当成独立预测成功。</p><p class="citation">参见 <a href="../SOURCES.md">SOURCES.md</a> 引用的 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8173364/" target="_blank" rel="noreferrer">Li et al., 2020, Table 1</a>。</p></details></div>
+<div class="card"><span class="tag">真实保存帧 + 原始数据重新计数</span><h3 id="results-3">② CN：画一个半径，数里面的水氧</h3><p>规则：<code>CN = 水氧距离 &lt; cutoff 的个数</code>。先预测半径变大时 CN 如何变化，再拖动。你改变的是分析定义，原子位置没有变。</p><div class="controls"><label>实际轨迹<select id="shell-case"></select></label><label>保存帧<select id="shell-frame"><option value="0">1 ps</option><option value="1">500 ps</option><option value="2">1,000 ps</option><option value="3">1,500 ps</option><option value="4">2,000 ps</option><option value="5">167 ps</option><option value="6">168 ps</option></select></label><label class="range">配位半径：<output id="shell-cutoff-label"></output><input id="shell-cutoff" type="range" min="0" max="8" step="1" value="4"></label></div><svg id="shell-plot" class="plot" role="img" aria-label="单个真实保存帧的水氧距离和配位阈值"></svg><p class="plot-note">每个点是真实水氧距离；纵向交错仅防重叠，不表示空间方向。只显示 0.60 nm 内的氧，覆盖所有可选配位半径。</p><div class="metric-row"><div class="metric"><b id="shell-instant"></b><span>这一帧的 CN · 整数</span></div><div class="metric"><b id="shell-mean"></b><span>同半径下 2,000 帧平均 CN</span></div><div class="metric"><b id="shell-default"></b><span>项目默认诊断半径 / nm</span></div></div><p id="shell-reading" aria-live="polite"></p><button data-reset="shell">重置这个交互</button><p id="shell-definition-note"></p><div id="cn-distribution" class="table-scroll"></div><details><summary>真实水分子身份对照：167→168 ps</summary><p id="identity-example"></p></details><details><summary>为什么均值可以是 8.042？</summary><p>每帧是整数，但帧间可在 7、8、9 等数值间变化。对全部帧求平均就出现小数，不意味着某一刻有“0.042 个原子”。真实 CM/Ca/r1 的 CN7/8/9 分别有 11/1875/114 帧，故均值为 (7×11+8×1875+9×114)/2000 = 8.0515。</p></details></div>
+<div class="callout"><strong>当前结论：</strong>相同 TIP3P 条件下，参数选择移动了水合特征距离。Mg 平均水配位数为 6，Ca 约为 8。这些指标还不能决定哪个模型适合所有 NMDAR 问题。</div></div><div id="amide"><h3 id="results-4">“一直接触”说明什么？</h3><p>乙酰胺羰基氧可以接近离子。项目用两种起点：<strong>contact</strong> 构建时先放很近；<strong>separated</strong> 构建时放到 0.65 nm。随后最小化、预平衡、生产。<strong>生产中没有固定这段距离。</strong></p><div class="table-scroll"><table><thead><tr><th>构建时状态</th><th>Mg–酰胺氧</th><th>Ca–酰胺氧</th></tr></thead><tbody><tr><td>contact · 近接触</td><td>0.210 nm</td><td>0.245 nm</td></tr><tr><td>separated · 分离</td><td>0.650 nm</td><td>0.650 nm</td></tr></tbody></table></div><p class="small">构建距离不是生产第一帧的强制值。计数沿用 Mg 0.30 / Ca 0.35 nm 的水合诊断阈值，不是由结合自由能定义的边界。</p>
+<div class="card"><span class="tag">真实数据 · 全部 24 条轨迹可选</span><h3 id="results-5">对照相同条件的两种起点</h3><div class="controls"><label>离子<select id="amide-ion"><option value="Mg">Mg²⁺</option><option value="Ca" selected>Ca²⁺</option></select></label><label>参数集<select id="amide-model"><option>CM</option><option>IOD</option></select></label><label>重复轨迹<select id="amide-rep"><option value="1">Replica 1</option><option value="2">Replica 2</option><option value="3">Replica 3</option></select></label></div><div class="legend"><span>contact 起点</span><span class="iod">separated 起点</span></div><div class="controls"><label>先预测：两种起点应一致吗？<select id="amide-predict"><option value="unsure">先写下自己的理由</option><option>2 ns 内可能仍不同</option><option>温度稳定就必然一致</option></select></label><label>显示与统计窗口<select id="amide-window"><option value="all">完整 1–2000 ps</option><option value="first">前半 1–1000 ps</option><option value="second">后半 1001–2000 ps</option></select></label></div><p id="prediction-feedback" aria-live="polite">选择 Ca / CM / r3，观察 297→298 ps，再比较前后半段。请用曲线检查你的预测。</p><svg id="amide-plot" class="plot" role="img" aria-label="真实离子酰胺氧距离时间曲线"></svg><p class="plot-note">颜色在此区分起点；曲线来自两次运行，相同 replica 编号不代表配对实验。完整窗口包含全部 2,000 个 1 ps 样本；半段窗口显示对应的 1,000 个样本。灰虚线是诊断接触半径。</p><label for="amide-time">时间游标：<output id="amide-time-label" class="value"></output></label><input id="amide-time" type="range" min="0" max="1999" step="1" value="296"><div id="amide-instant" class="table-scroll"></div><h3 id="results-6">三条重复各有多少帧在接触？</h3><div id="contact-bars"></div><p id="amide-reading" class="callout" aria-live="polite"></p><button data-reset="amide">重置这个交互</button><p class="small">比例 = 严格满足距离判据的保存帧数 / 2,000。先每条轨迹算比例，再算三条轨迹的均值 ± 样本 SD。这不是平衡结合概率。</p><details><summary>动手找一个真实变化点</summary><p>选择 Ca / CM / Replica 3，把游标放在 297 ps，再移动到 298 ps。该 contact 轨迹的前 297 帧在 0.35 nm 内，随后保存帧均在外，因此接触比例为 297 / 2000 = 14.85%。这一跨阈值现象本身不是经过承诺时间判据定义的解离事件，也不足以估计驻留寿命。</p></details></div>
+<div class="grid2"><div class="card"><h3 id="results-7">实际观察到的模式</h3><p><strong>12 条 separated 起点：</strong>保存帧中均未达到诊断接触。</p><p><strong>Mg 的 6 条 contact 起点：</strong>每个保存帧都保持接触。</p><p><strong>Ca contact 起点：</strong>重复间差异大。CM 为 66.3 ± 45.3%，IOD 为 20.6 ± 19.4%（均值 ± SD）。</p></div><div class="card"><h3 id="results-8">这如何回答研究问题</h3><p>同一模型从近处和远处开始，2 ns 后仍有不同故事。<strong>起始状态的影响尚未被采样充分消除。</strong></p><p>不能据此把 CM 的高比例解释为更高平衡亲和力，也不能把零接触解释为永不结合。1 ps 保存间隔之间的短暂接触可能未被记录。</p></div></div></div><div id="sampling"><h3 id="results-9">数字稳定，和采样充分，是两回事。</h3><p>温度、密度、CN 没有明显漂移，能增强对运行状态的信心；慢水交换或配体交换却可能尚未发生。需要同时看数量、身份和起点依赖。</p><div class="card"><span class="tag">真实水合轨迹 · 分块诊断</span><div class="controls"><label>实际轨迹<select id="diag-case"></select></label><label>指标<select id="diag-metric"><option value="CN">水配位数 CN</option><option value="temperature_K">温度 / K</option><option value="water_number_density_nm3">水数密度 / nm⁻³</option></select></label></div><div class="controls"><label>时间窗口<select id="diag-window"><option value="all">完整 1–2000 ps</option><option value="first">前半 1–1000 ps</option><option value="second">后半 1001–2000 ps</option></select></label><label>连续分块长度<select id="diag-block"><option value="125">125 ps</option><option value="250" selected>250 ps</option><option value="500">500 ps</option></select></label></div><p>先用 250 ps 块查看局部变化，再换 500 ps。曲线更平滑，是平均更多帧的效果，不是突然增加了独立证据。</p><svg id="diag-plot" class="plot" role="img" aria-label="水合轨迹八段分块均值"></svg><p class="plot-note">默认把 2 ns 分成 8 个 250 ps 块；可改用 125 或 500 ps 块，点位是块内采样时间均值。分块帮助观察变化；8 个块不是 8 条独立 replica。</p><div id="diag-table" class="table-scroll"></div><p id="diag-reading"></p><button data-reset="diag">重置这个交互</button><h4>相同窗口的三个 replica</h4><div id="diag-replicas" class="table-scroll"></div><details><summary>当前分块的准确数值</summary><div id="diag-block-table" class="table-scroll"></div></details></div><div class="grid2"><div class="card"><h3 id="results-10">“六个水”不等于“同六个水”</h3><p>六个座位，一个人离开、另一个人坐下，人数不变但身份变了。代码也记录每个水氧是否在壳层内，比较相邻保存帧。</p><p>真实 CM/Ca/r1 在 167→168 ps，两帧 CN 都是 8，但水列 ID321 离开、426 加入。Mg 的水合轨迹则没有观察到身份变化。</p><p>这是保存帧差异，不能直接称为水交换速率或停留寿命。</p></div><div class="card"><h3 id="results-11">为什么不是 n=2,000？</h3><p>相邻帧来自连续运动，往往相似，存在时间相关性。本项目以每条件 <strong>3 条 seeded trajectories</strong> 为重复单位。</p><p>SD 描述三条轨迹的离散程度。即使 SD 很小，也可能是三条轨迹都留在相似的有限时状态。Mg 三条峰落在同一个 bin，不意味着结构没有不确定性。</p></div></div>
+<div class="table-scroll"><table><thead><tr><th>证据</th><th>支持什么</th><th>不能单独支持什么</th></tr></thead><tbody><tr><td>哈希匹配、数据可复算</td><td>来源可追踪、产物一致</td><td>力场在真实体系中普遍准确</td></tr><tr><td>RDF 接近拟合参考</td><td>实现与目标恢复</td><td>独立预测验证</td></tr><tr><td>温度 / CN 平稳</td><td>这些量在窗口内较稳定</td><td>所有慢过程充分平衡</td></tr><tr><td>不同起点给出不同结果</td><td>有限时间采样依赖起点</td><td>平衡亲和力排序</td></tr></tbody></table></div></div><h3 id="results-12">把观察、解释与待验证假设分开写</h3><table><thead><tr><th>层次</th><th>本项目可以怎样表述</th><th>下一步还缺什么</th></tr></thead><tbody>
+<tr><td>观察</td><td>Mg 的 CM/IOD 水合峰均值为 0.2030/0.2070 nm；Ca 为 0.2483/0.2443 nm。12 条 separated 轨迹的保存帧均无诊断接触。</td><td>先给出 cutoff、观察时长、重复数及来源，读者可以复算。</td></tr>
+<tr><td>解释</td><td>固定其他条件时，离子参数选择改变局部几何；两种初态在 2 ns 内仍有不同结果，显示有限时间采样依赖。</td><td>不能从局部稳定性跨越到平衡状态权重或动力学。</td></tr>
+<tr><td>待验证假设</td><td>水壳重排或接近配体的自由能障碍可能参与造成持续初态依赖。</td><td>需要可逆采样、路径/自由能分析与外部离子–酰胺数据，当前距离曲线不能识别具体机制。</td></tr></tbody></table>
+<p>这些盒子不包含 NMDAR 的孔道几何或 Ca/Mg 共占据，因而没有直接证据支持 NMDAR 选择性、渗透、knock-on 或生理解除阻滞速率。它们提供了之后设计更复杂实验时必须面对的模型差异和采样问题。</p>
+<details><summary>本章数据与统计说明</summary><p><code>results/analysis/replica_summaries.json</code>、<code>group_summaries.csv</code>、<code>rdf_curves.csv</code>；<code>results/hydration/*/samples.npz</code> 和 <code>results/amide/*/samples.npz</code>。每条生产段全部 2000 帧用于统计；图上连接保存点仅帮助阅读，不把连线间插值当成额外观测。RDF 不平滑。时间窗口只改变教程中显示和统计的范围，正式全程汇总保持可见。</p><p>教程九档 cutoff 均以全部水氧×2000 帧精确重算；单帧示意仅保留 0.60 nm 内的氧，足以覆盖全部可选 cutoff。水列 ID 在不同 case 间不代表同一物理水。全部指标及 hash 清单已内嵌，不依赖在线读取。</p></details>
+</section><section id="python" class="section" data-title="07 Python 与代码" role="tabpanel" aria-labelledby="tab-python" hidden><div id="python-foundations">
+  <p class="section-kicker">07 / 先补齐读代码所需的语言</p>
+  <h2>自己读懂 Python：从一个小数组走到真实轨迹</h2>
+  <p>这一节先用能手算的教学数据练习，再打开项目源码。目标是看到一行代码就能说出：输入是什么、形状是什么、做了什么、输出代表什么。下列小数组是教学示例，不是模拟结果。</p>
+
+  <article class="card">
+    <h3 id="python-1">1．先分清：终端、Python、环境、路径</h3>
+    <p>PowerShell 负责启动程序；Python 执行 <code>.py</code> 文件；项目的 <code>.venv</code> 提供 NumPy、OpenMM 等库。同一台电脑的另一个 Python 可能没有这些库。先在 PowerShell 输入：</p>
+    <pre class="plain-code"><code>Set-Location -LiteralPath 'D:\Documents\Codex\Ion Model Benchmark'
+.\.venv\Scripts\python.exe -c "import sys, numpy; print(sys.executable); print(numpy.__version__)"
+.\.venv\Scripts\python.exe</code></pre>
+    <p>最后一行进入 Python，出现 <code>&gt;&gt;&gt;</code> 后，再逐段输入下面的 Python 示例；不要输入示例中的提示符。用 <code>exit()</code> 回到 PowerShell。<code>import numpy as np</code> 是导入库并给它取短名，不是调用模拟。</p>
+    <p class="small">相对路径由当前工作目录决定；<code>Path(__file__).resolve().parent</code> 则定位脚本自身所在目录。项目在 <code>simulate.py:18</code> 用后者定义 ROOT，使默认数据路径随项目移动。</p>
+  </article>
+
+  <article class="card">
+    <h3 id="python-2">2．字典负责“按名字找东西”，数组负责“存一批数”</h3>
+    <pre class="plain-code"><code>import numpy as np
+
+metadata = {"ion": "Mg", "model": "CM", "replica": 1}
+time = np.array([1., 2., 3.])
+d = np.array([[0.20, 0.25, 0.50],
+              [0.21, 0.40, 0.26],
+              [0.22, 0.28, 0.60]])
+arrays = {"time_ps": time, "distances_nm": d}
+
+print(metadata["ion"])          # Mg
+print(arrays["distances_nm"].shape)  # (3, 3)</code></pre>
+    <p><code>{键: 值}</code> 是字典；<code>arrays["distances_nm"]</code> 按名字取出数组。这里每行是一帧，每列是同一个水氧在不同时刻的距离，单位 nm。真实数据同样组织，只是有 2000 行、更多水氧列。</p>
+    <div class="table-scroll"><table><thead><tr><th>表达式</th><th>结果</th><th>怎么读</th></tr></thead><tbody>
+      <tr><td><code>time.shape</code></td><td><code>(3,)</code></td><td>一维、3 个元素；逗号不是缺一个维度</td></tr>
+      <tr><td><code>d[0]</code></td><td><code>[0.20, 0.25, 0.50]</code></td><td>第 1 帧；Python 从 0 开始编号</td></tr>
+      <tr><td><code>d[1, 2]</code></td><td><code>0.26</code></td><td>第 2 帧、第 3 个水氧</td></tr>
+      <tr><td><code>d[:, 1]</code></td><td><code>[0.25, 0.40, 0.28]</code></td><td>所有行，第 2 列</td></tr>
+      <tr><td><code>d[:2]</code></td><td>前两行</td><td>切片包含起点，不包含终点 2</td></tr>
+    </tbody></table></div>
+    <details><summary>自己预测：d[-1, 0] 和 d.shape[0] 是什么？</summary><p>分别为 0.22 和 3。<code>-1</code> 取最后一行；<code>shape[0]</code> 取第一个维度，即帧数。</p></details>
+  </article>
+
+  <article class="card">
+    <h3 id="python-3">3．布尔 mask 与 axis：三行代码算出配位数</h3>
+    <pre class="plain-code"><code>mask = d &lt; 0.30
+# [[ True,  True, False],
+#  [ True, False,  True],
+#  [ True,  True, False]]
+cn = mask.sum(axis=1)      # [2, 2, 2]
+print(cn.mean())          # 2.0
+print(mask.sum(axis=0))   # [3, 2, 1]
+print(d[mask])            # [0.20, 0.25, 0.21, 0.26, 0.22, 0.28]</code></pre>
+    <p>比较会逐格产生 True/False，这张选择表就是 mask。求和时 True 按 1 算，False 按 0 算。<code>axis=1</code> 消去列方向：每帧数一次水氧，输出 3 个配位数。<code>axis=0</code> 消去行方向：逐个水氧数它出现在壳层内的帧数。两者科学含义不同。</p>
+    <p><code>d[mask]</code> 把所有选中的距离汇成一维数组；其均值约 0.2367 nm，是这个例子的条件平均壳层距离。它与 RDF 峰的位置不是同一个量。项目对应 <code>analyze.py:73–75、144–152</code>。</p>
+    <details><summary>所有帧 CN 都是 2，能否说明壳层水从未变化？</summary><p>不能。第 2 个水氧第二帧离开，而第 3 个水氧进入；数量仍是 2，身份已经改变。比较 <code>mask[1:] != mask[:-1]</code> 才能看相邻保存帧间的成员变化。</p></details>
+  </article>
+
+  <article class="card">
+    <h3 id="python-4">4．broadcast：让每一帧使用自己的体积</h3>
+    <pre class="plain-code"><code>volumes = np.array([24., 27., 30.])
+inverse_density = volumes[:, None] / d.shape[1]
+print(inverse_density.shape)    # (3, 1)
+print(np.broadcast_to(inverse_density, d.shape))
+# [[ 8.,  8.,  8.],
+#  [ 9.,  9.,  9.],
+#  [10., 10., 10.]]</code></pre>
+    <p><code>[:, None]</code> 把形状 (3,) 变成 (3, 1)。广播把单列按需扩展到各水氧列，于是第一帧每个水氧都得到该帧的体积/水数权重。项目在 <code>radial_distribution()</code> 中用此权重归一化 RDF（<code>analyze.py:45–59</code>）。这是体积处理示例，这 3 个水氧并不构成真实水密度。</p>
+    <details><summary>直接用形状 (3,) 除或乘一个 (3, 3) 数组，会怎样？</summary><p>NumPy 从最后一个维度对齐，会把三个数按列应用，恰好能运行却可能算错物理含义。明确帧轴是行，再用 <code>[:, None]</code>。先写下 shape，比只看代码是否报错可靠。</p></details>
+  </article>
+
+  <article class="card">
+    <h3 id="python-5">5．函数、return 和循环：计算何时才发生？</h3>
+    <pre class="plain-code"><code>def count_shell(distances, cutoff):
+    membership = distances &lt; cutoff
+    return membership.sum(axis=1), membership
+
+for cutoff in (0.23, 0.30):
+    counts, selected = count_shell(d, cutoff)
+    print(cutoff, counts, counts.mean())
+# 0.23 [1 1 1] 1.0
+# 0.30 [2 2 2] 2.0
+
+assert d.shape == (3, 3)
+assert np.array_equal(count_shell(d, 0.30)[0], [2, 2, 2])
+assert np.isclose(d[d &lt; 0.30].mean(), 1.42 / 6)</code></pre>
+    <p><code>def</code> 定义工作步骤，调用 <code>count_shell(...)</code> 才执行缩进块。<code>return</code> 把两个结果交还调用处，由 <code>counts, selected</code> 接收；函数里的名字不要求与外面一致。<code>for</code> 依次把两个阈值交给 cutoff，再执行缩进块。末尾 assert 是可运行的小检查；全部通过时不会输出文字。</p>
+    <p>字典推导式 <code>{key: archive[key] for key in names}</code> 也只是循环的紧凑写法：逐个取名字、读取数组、组成字典。阅读项目遇到密集表达式时，先在纸上展开成普通循环。</p>
+  </article>
+
+  <article class="card">
+    <h3 id="python-6">6．读自己的真实样本，并亲手重算一个数字</h3>
+    <p>仍在项目目录启动的 Python 中执行。它只读现有数据；读取完整数组，无需重跑模拟：</p>
+    <pre class="plain-code"><code>from pathlib import Path
+import json
+import numpy as np
+
+case_dir = Path("results/hydration/CM_Mg_r1_hydrated")
+meta = json.loads((case_dir / "metadata.json").read_text(encoding="utf-8"))
+with np.load(case_dir / "samples.npz", allow_pickle=False) as archive:
+    print(archive.files)
+    real_d = archive["distances_nm"].astype(float)
+    real_t = archive["time_ps"].copy()
+print(meta["ion"], meta["model"], real_d.shape)
+print(real_t[0], real_t[-1])   # 1.0 2000.0
+my_cn = (real_d &lt; 0.30).sum(axis=1).mean()
+print("我重算的平均 CN:", my_cn)
+
+from analyze import read_case
+checked = read_case(case_dir / "metadata.json")
+assert np.isclose(my_cn, checked["summary"]["mean_CN"])
+print("与项目分析一致")</code></pre>
+    <p><code>Path / "文件名"</code> 拼接路径；<code>json.loads</code> 把文本变成 Python 字典。NPZ 像装有多个命名数组的压缩文件；<code>with</code> 保证离开缩进块时关闭文件，这里已把需要的数组读进内存。<code>allow_pickle=False</code> 避免读取 Python 对象形式的数据。</p>
+    <p><code>from analyze import read_case</code> 导入函数；文件末尾的 <code>if __name__ == "__main__"</code> 保证只有直接执行 <code>analyze.py</code> 才运行其命令行 main。上述调用仍会进行该 case 的哈希、形状和内容校验，再返回含 summary 的字典。</p>
+    <details><summary>若出现 FileNotFoundError 或 ModuleNotFoundError，先查什么？</summary><p>先在 Python 打印 <code>Path.cwd()</code> 和 <code>sys.executable</code>（先 <code>import sys</code>）。前者应是项目目录，后者应是项目的 .venv Python。若文件确实缺失，要找到原始 samples.npz；只有 summary CSV 无法重建完整距离数组。</p></details>
+  </article>
+
+  <article class="card">
+    <h3 id="python-7">7．源码阅读路线：沿实际调用链，而不是从第一行硬读</h3>
+    <p>以下行号核对于本项目当前源码。打开文件，先找函数定义，再找谁调用它；一轮只追踪一个 case。<code>arrays</code> 是字典变量，真正的分析函数名是 <code>analyze_arrays</code>。</p>
+    <pre class="plain-code"><code>直接执行 simulate.py
+  main() → selfcheck() → freeze_inputs() → 生成 cases
+    → run_case() → build_system() → 返回体系/原子索引
+      → 创建 Simulation → minimizeEnergy() → step(平衡步数)
+      → 每帧 step(500步) → distances() → 填 arrays
+      → save_partial()/write_samples() → 更新 metadata
+
+之后另行执行 analyze.py（模拟不会自动调用分析）
+  main() → load_cases() → read_case() → analyze_arrays()
+    → radial_distribution()/conditional_distance()/membership_changes()
+  → write_tables() + make_figures()</code></pre>
+    <div class="table-scroll"><table><thead><tr><th>顺序</th><th>实际文件与行号</th><th>带着这个问题读</th></tr></thead><tbody>
+      <tr><td>协议与入口</td><td><code>protocol.json:4–26</code>；<code>simulate.py:388–423</code></td><td>一条轨迹有多少步？怎样生成 12/24 条 cases？已有目录何时被复用、何时拒绝？</td></tr>
+      <tr><td>冻结输入</td><td><code>simulate.py:37–49</code></td><td>JSON 怎样变成字典？为何同时记录 code/protocol 哈希与 Git commit？</td></tr>
+      <tr><td>体系与输入检查</td><td><code>simulate.py:97–152、170–196</code></td><td>水、Cl⁻、乙酰胺在哪里加入？+2 电荷、总电荷、CM 基线在哪里验证？</td></tr>
+      <tr><td>数据与元数据</td><td><code>simulate.py:155–164、197–251</code></td><td>meta 记录运行身份；arrays 记录逐帧测量。哪一行填入哪一列？</td></tr>
+      <tr><td>中断与部分保存</td><td><code>simulate.py:21–34、52–82、253–272</code></td><td>为何只切出 completed_frames？为何先写临时文件再替换？出错为何保存后仍 raise？</td></tr>
+      <tr><td>分析入口与检查</td><td><code>analyze.py:433–461、207–221、78–141</code></td><td>怎样发现样本？complete、哈希、shape、时间间隔、NaN 各检查什么？</td></tr>
+      <tr><td>数组变摘要</td><td><code>analyze.py:144–204</code></td><td>逐帧 CN 如何成为 mean_CN？前后半段、cutoff 敏感性如何计算？</td></tr>
+      <tr><td>摘要与图表</td><td><code>analyze.py:231–274、277–410</code></td><td>怎样把 3 条轨迹分别汇总成均值/SD，再写 CSV、JSON 和图？</td></tr>
+    </tbody></table></div>
+    <p class="callout"><strong>读源码要追到最终使用处：</strong><code>protocol.json:26</code> 声明诊断 cutoff，但分析实际使用 <code>analyze.py:23</code> 的 SHELL；当前二者一致。仅修改 JSON 这一项，不会自动改变分析阈值。理解数据从哪里来，比凭变量名字猜行为可靠。</p>
+    <details><summary>独立阅读检查：为什么 np.empty 创建的数组不能直接保存？</summary><p><code>simulate.py:203–205</code> 用 np.empty 预留空间，未填部分不含有效结果。循环每完成一帧才递增 completed_frames；<code>write_samples:56</code> 只保存该范围。异常处理也用这个计数，避免把未完成部分当真实数据。</p></details>
+    <details><summary>怎样确认自己读懂，而不是只觉得熟悉？</summary><p>合上本页，在源码中找到“一个 Mg、CM、replica 1 的 case 从生成到 mean_CN 输出”的每一步；给每个数组写 shape；手算上面的 mask；再独立执行真实数据示例并通过 assert。能解释结果的来源、单位、形状和检查失败的原因，才算完成这一轮。</p></details>
+  </article>
+</div><div class="interactive" id="array-lab"><h3 id="python-8">亲自推进：坐标 → 距离 → mask → CN → 身份</h3><p>下方 JavaScript 按与 Python 相同的数组规则显示教学样例；它没有在浏览器执行 Python，也没有推进分子动力学。先猜输出形状，再按“下一步”。</p><div class="controls"><button id="array-prev">上一步</button><button id="array-next">下一步</button><label>直接选择<select id="array-step"><option value="0">1 · 输入坐标</option><option value="1">2 · 最近镜像位移</option><option value="2">3 · 距离矩阵</option><option value="3">4 · 布尔 mask</option><option value="4">5 · 两种 axis 求和</option><option value="5">6 · 条件均距与身份变化</option></select></label><button data-reset="array">重置</button></div><div id="array-output" aria-live="polite"></div><p>接着在下方真实源码导航中选“周期边界”和“数水氧”，将每个中间结果对应到变量。练习 1、2 会让你在本机 Python 复算相同的计算定义。</p></div>
+<div id="code"><h3 id="python-9">不用一口气读完，先追这八步。</h3><p>每步问：读入什么、计算什么、对应哪一块结果？下方是当前源码原文节选，行号对应源文件。选择步骤后，先自己读代码，再看解释。</p><div class="card"><div class="controls"><label style="flex:1">步骤<select id="code-step"><option value="0">1 · 参数换单位 → σ 和 ε</option><option value="1">2 · 周期边界 → 最近距离</option><option value="2">3 · 构建水盒 → 替换离子参数</option><option value="3">4 · 准备与采样 → 步数和帧数</option><option value="4">5 · 保存观测量 → samples.npz</option><option value="5">6 · 数水氧 → 配位数 CN</option><option value="6">7 · 球壳归一化 → RDF</option><option value="7">8 · 判断酰胺接触 → 帧比例</option></select></label></div><h3 id="code-title"></h3><a id="code-source" class="source-link"></a><pre class="code-panel"><code id="code-content"></code></pre><div id="code-explain"></div><div class="callout" id="code-result"></div><button data-reset="code">重置这个交互</button></div></div></section><section id="practice" class="section" data-title="08 复算与表达" role="tabpanel" aria-labelledby="tab-practice" hidden><div class="section-kicker">08 / 亲手复算 → 独立解释</div><h2>让你的判断能被别人检查</h2><p>本章有六道概念判断、一个数字输入练习与六个本机 Python 练习。先自己尝试，再展开答案。六份答案还提供 <a href="tutorial-exercises.py">可运行的 Python 文件</a>；在项目根目录运行 <code>.venv/Scripts/python.exe output/tutorial-exercises.py 1</code>，把 1 换成 2–6 可执行对应答案，all 执行全部。</p><h3 id="practice-1">先算一个数，再检查理解</h3><div class="interactive" id="calculation-lab"><p>CM Ca r3 contact 的 2000 帧中有 297 帧满足 d&lt;0.35 nm。接触百分比是多少？输入百分数，不输入比例。</p><label>你的答案 / % <input id="numeric-answer" type="number" step="0.01" placeholder="例如 12.50"></label> <button id="numeric-check">检查并解释</button> <button data-reset="numeric">重置</button><p id="numeric-feedback" aria-live="polite"></p></div>
+<div id="quiz"><h3 id="practice-2">六个问题，检验主线。</h3><p>选择答案立即看反馈。完成后继续下一节，从空白文件实际写出来。</p><button data-reset="quiz">重置六道判断题</button><div id="quiz-list"></div><p id="quiz-score" class="status" aria-live="polite"></p><div class="card"><h3 id="practice-3">用自己的话介绍项目</h3><p>“固定 TIP3P，比较 CM / IOD 的 Mg²⁺ / Ca²⁺ 参数。12 条水合轨迹检查 RDF 和配位数，24 条乙酰胺轨迹比较两种起点。参数改变水合几何，但短时酰胺结果依赖初态，因此这些结果说明结构与采样敏感性，尚不能给出平衡亲和力或 NMDAR 功能结论。”</p><p class="small">能复述不等于会做。下一节把这些句子变成你自己的可运行程序与证据。</p></div></div><div id="exercises">
+  <p class="section-kicker">11 / 从看懂，到自己做出来</p>
+  <h3 id="practice-4">动手训练：关掉答案，再复现一个结果</h3>
+  <p>真正掌握的标志，是拿到一个 <code>samples.npz</code>，能说明每个数组代表什么、自己算出一个指标、核对结果，并写出没有越界的结论。这一章只读取已经完成的数据；不需要重跑 36 条模拟。</p>
+  <div class="callout"><strong>代码在哪里运行？</strong>本章所有 Python 代码都在你电脑的 Python 环境运行，<strong>不会在 HTML 页面里执行</strong>。页面负责展示问题和折叠答案。先在编辑器新建 <code>output/practice_01.py</code>，输入你的解法，再在项目目录的 PowerShell 执行下面的命令。其他练习依次改成 <code>practice_02.py</code> 等。各题参考答案可以单独运行。</div>
+  <pre class="plain-code"><code>Set-Location 'D:\Documents\Codex\Ion Model Benchmark'
+&amp; '.venv/Scripts/python.exe' 'output/practice_01.py'</code></pre>
+  <p class="small">代码中的 <code>Path("results/...")</code> 相对于当前终端工作目录，因此先执行 <code>Set-Location</code>。<code>.venv</code> 是项目已有的 Python 环境，里面已经安装 NumPy。所有预期数值均由本项目现有原始数组核对；修改输入后，数值当然可能改变。</p>
+  <div class="table-scroll"><table><thead><tr><th>阶段</th><th>你的任务</th><th>完成标准</th></tr></thead><tbody>
+    <tr><td>Ⅰ 预测：练习 1</td><td>先写出 shape 和轴的含义，再运行。</td><td>不靠试错，能解释每个输出的维度。</td></tr>
+    <tr><td>Ⅱ 补代码：练习 2、3</td><td>把文字定义翻译成比较、求和和求均值。</td><td>代码结果与手算一致，并说清分母是什么。</td></tr>
+    <tr><td>Ⅲ 从零写：练习 4、5、6</td><td>只读题目和验收条件，自己写一个完整小脚本。</td><td>通过已知答案检查，解释差异，留下可重复的分析和结论。</td></tr>
+  </tbody></table></div>
+
+  <article class="card">
+    <h3 id="practice-5">练习 1 · 一张二维表，究竟哪一维是时间？</h3>
+    <p><strong>先预测：</strong>读取 <code>results/hydration/CM_Ca_r1_hydrated/samples.npz</code>。令 <code>d = archive["distances_nm"]</code>。预测 <code>d.shape</code>、<code>d[0].shape</code>、<code>d[:, 0].shape</code>、<code>(d &lt; 0.35).sum(axis=1).shape</code> 和 <code>(d &lt; 0.35).sum(axis=0).shape</code>。哪一行才是“每帧有几个水氧在壳内”？</p>
+    <p><strong>读法：</strong><code>d[t, w]</code> 是第 <code>t</code> 个保存时刻，离子到第 <code>w</code> 个水氧的最小镜像距离，单位 nm。行是帧，列是固定身份的水氧；列不是“第几近的水”。<code>axis=1</code> 沿每行的水氧方向求和，留下每帧一个值；<code>axis=0</code> 沿时间求和，留下每个水氧一个值。</p>
+    <details><summary>展开参考代码与真实输出</summary>
+      <pre class="plain-code"><code data-practice-python="1">from pathlib import Path
+import numpy as np
+
+path = Path("results/hydration/CM_Ca_r1_hydrated/samples.npz")
+with np.load(path, allow_pickle=False) as archive:
+    d = archive["distances_nm"]
+    time = archive["time_ps"]
+
+mask = d &lt; 0.35
+print("全部距离:", d.shape)
+print("第一帧:", d[0].shape)
+print("第一个水氧的时间序列:", d[:, 0].shape)
+print("每帧 CN:", mask.sum(axis=1).shape)
+print("每个水氧入壳帧数:", mask.sum(axis=0).shape)
+print("时间端点:", time[0], time[-1])
+print("第一帧 CN:", int(mask[0].sum()))
+assert d.shape == (2000, 877)
+assert mask.sum(axis=1).shape == (2000,)
+assert mask.sum(axis=0).shape == (877,)</code></pre>
+      <pre class="plain-code"><code>全部距离: (2000, 877)
+第一帧: (877,)
+第一个水氧的时间序列: (2000,)
+每帧 CN: (2000,)
+每个水氧入壳帧数: (877,)
+时间端点: 1.0 2000.0
+第一帧 CN: 8</code></pre>
+      <p><code>:</code> 表示这一维全部取出。Python 从 0 开始索引，所以 <code>d[0]</code> 是第一帧，它对应生产时间 1 ps，而不是 0 ps。<code>(2000,)</code> 是一维数组；末尾的逗号是 Python 元组写法。NPZ 是多个有名字的数组的压缩包，不是只能装一张表的格式。</p>
+    </details>
+    <p><strong>脱离答案验收：</strong>说出 <code>mask.mean()</code> 为什么不是 CN。它把所有“帧 × 水氧”格子一起平均，得到随机抽一个格子为真的比例；CN 需要先对一帧中的水氧计数。</p>
+  </article>
+
+  <article class="card">
+    <h3 id="practice-6">练习 2 · 用 3 行 NumPy，重建一个配位数结果</h3>
+    <p><strong>先手算：</strong>CM Ca r1 的 2000 帧里，11 帧有 7 个壳内水氧，1875 帧有 8 个，114 帧有 9 个。算出 <code>(7×11 + 8×1875 + 9×114) / 2000</code>。它为什么可以不是整数？</p>
+    <p><strong>再补空：</strong>在 Python 本地载入 <code>d</code> 后，补全 <code>inside = d &lt; ____</code>、<code>cn = inside.sum(axis=____)</code>、<code>mean_cn = cn.____()</code>，再用 <code>np.unique(cn, return_counts=True)</code> 对照手算。</p>
+    <details><summary>展开参考代码、输出与逐行解释</summary>
+      <pre class="plain-code"><code data-practice-python="2">import numpy as np
+
+with np.load("results/hydration/CM_Ca_r1_hydrated/samples.npz",
+             allow_pickle=False) as archive:
+    d = archive["distances_nm"]
+
+inside = d &lt; 0.35                 # 每个距离变成 True 或 False
+cn = inside.sum(axis=1)            # True 当作 1：每帧数水氧
+mean_cn = cn.mean()                # 对 2000 个逐帧计数取平均
+values, counts = np.unique(cn, return_counts=True)
+print(values.tolist(), counts.tolist())
+print(f"mean CN = {mean_cn:.4f}")
+manual = (7 * 11 + 8 * 1875 + 9 * 114) / 2000
+assert counts.sum() == len(d) == 2000
+assert np.isclose(mean_cn, manual)
+assert np.isclose(mean_cn, 8.0515)</code></pre>
+      <pre class="plain-code"><code>[7, 8, 9] [11, 1875, 114]
+mean CN = 8.0515</code></pre>
+      <p>单帧计数是整数，时间平均可以是小数。<code>&lt;</code> 是本项目的壳层定义，恰好等于 cutoff 的距离不计入。这个数表示在 0.35 nm 诊断壳层内平均有 8.0515 个水氧，不表示每一帧都存在“0.0515 个水”。</p>
+    </details>
+    <p><strong>脱离答案验收：</strong>把 cutoff 改为 0.33 nm 和 0.37 nm，预测 CN 不会随 cutoff 增大而减小，再验证预测。下一道题则只计一个乙酰胺氧，不要把两种计数混在一起。</p>
+  </article>
+
+  <article class="card">
+    <h3 id="practice-7">练习 3 · 297 / 2000，如何变成 14.85%？</h3>
+    <p><strong>任务：</strong>读取 <code>results/amide/CM_Ca_r3_contact/samples.npz</code> 的 <code>amide_distance_nm</code>。补全 <code>contact = distance &lt; ____</code>，打印接触帧数、总帧数、百分比。代码在本地运行后，用一句话说明这个比例的含义。</p>
+    <details><summary>展开参考代码与结果解读</summary>
+      <pre class="plain-code"><code data-practice-python="3">import numpy as np
+
+with np.load("results/amide/CM_Ca_r3_contact/samples.npz",
+             allow_pickle=False) as archive:
+    distance = archive["amide_distance_nm"]
+
+assert distance.ndim == 1 and np.all(np.isfinite(distance))
+contact = distance &lt; 0.35
+hits = int(contact.sum())
+fraction = float(contact.mean())
+print(f"{hits}/{len(distance)} = {100 * fraction:.2f}%")
+assert hits == 297 and len(distance) == 2000
+assert np.isclose(fraction, 0.1485)</code></pre>
+      <pre class="plain-code"><code>297/2000 = 14.85%</code></pre>
+      <p><strong>合格表述：</strong>在 CM Ca 第 3 条 contact-start 轨迹的 2 ns 生产段中，14.85% 的保存帧满足离子到乙酰胺羰基氧距离小于 0.35 nm。这里 <code>True.mean()</code> 等价于“真的个数 / 总个数”。由于等间隔保存，它近似这段轨迹的时间占比，但不是平衡结合常数。</p>
+      <p><strong>继续追问：</strong>“297 帧”不代表 297 次结合事件；连续 297 帧可能属于同一段接触。每 1 ps 记录一次，也不能确定两次记录之间发生了多少进出。生产阶段没有固定离子–乙酰胺距离，目录名中的 <code>contact</code> 指初态。</p>
+    </details>
+    <p><strong>脱离答案验收：</strong>把文件换为同组 r1、r2，应该分别得到 99.90% 和 84.20%。先保留这三个独立结果，暂时不要把所有帧拼起来声称有 6000 个重复。</p>
+  </article>
+
+  <article class="card">
+    <h3 id="practice-8">练习 4 · 从零写一个易读而正确的 RDF</h3>
+    <p><strong>只看需求先写：</strong>输入二维距离 <code>d</code>、逐帧体积 <code>volume</code> 和 bin 边界 <code>edges</code>。逐帧用 <code>np.histogram</code> 数落在每个球壳内的水氧；除以该帧水氧数密度 <code>Nwater / volume[t]</code> 和球壳体积；最后对帧取平均。同步保留未按密度加权的计数，用于累计 CN。</p>
+    <p>球壳体积是 <code>4π/3 × (r_outer³ − r_inner³)</code>。RDF 的分母是“同样密度的均匀分布在这个球壳里应有多少个水氧”，所以 g(r) 无量纲。NPT 的体积会变，不能先把所有帧摊平，再除以一个平均密度。</p>
+    <details><summary>展开完整参考函数、最小自检与真实数据核对</summary>
+      <pre class="plain-code"><code data-practice-python="4">from pathlib import Path
+import csv
+import json
+import numpy as np
+
+def simple_rdf(d, volume, edges):
+    # 教学版逐帧循环；原 analyze.py 按块计数，以节省临时内存。
+    d = np.asarray(d, dtype=float)
+    volume = np.asarray(volume, dtype=float)
+    edges = np.asarray(edges, dtype=float)
+    if d.ndim != 2 or min(d.shape) == 0:
+        raise ValueError("d 必须是非空的 帧×水氧 二维数组")
+    if volume.shape != (len(d),):
+        raise ValueError("每帧必须有一个体积")
+    if not np.all(np.isfinite(d)) or np.any(d &lt; 0):
+        raise ValueError("距离必须有限且非负")
+    if not np.all(np.isfinite(volume)) or np.any(volume &lt;= 0):
+        raise ValueError("体积必须有限且为正")
+    if (edges.ndim != 1 or len(edges) &lt; 2
+            or not np.all(np.isfinite(edges))
+            or edges[0] &lt; 0 or np.any(np.diff(edges) &lt;= 0)):
+        raise ValueError("bin 边界必须有限、非负、严格递增")
+    shell_volume = 4 * np.pi / 3 * np.diff(edges ** 3)
+    g_sum = np.zeros(len(edges) - 1)
+    count_sum = np.zeros(len(edges) - 1)
+    for row, box_volume in zip(d, volume):
+        # np.histogram 最后一格含右端点；显式排除它以匹配项目定义。
+        selected = row[(row &gt;= edges[0]) &amp; (row &lt; edges[-1])]
+        counts, _ = np.histogram(selected, bins=edges)
+        density = d.shape[1] / box_volume
+        g_sum += counts / (density * shell_volume)
+        count_sum += counts
+    return g_sum / len(d), np.cumsum(count_sum) / len(d)
+
+# 手算例子：2 帧、每帧 2 个水氧，但体积不同。
+toy = np.array([[0.10, 0.30], [0.10, 0.15]])
+toy_edges = np.array([0.0, 0.2, 0.4])
+g, cn = simple_rdf(toy, np.array([1.0, 2.0]), toy_edges)
+shells = 4 * np.pi / 3 * np.diff(toy_edges ** 3)
+assert np.allclose(g * shells, [1.25, 0.25])
+assert np.allclose(cn, [1.5, 2.0])
+print("两帧手算自检通过")
+
+case = Path("results/hydration/CM_Ca_r1_hydrated")
+meta = json.loads((case / "metadata.json").read_text(encoding="utf-8"))
+edges = np.arange(451, dtype=float) * 0.002  # 0 至 0.9 nm
+assert meta["min_box_length_nm"] &gt; 2 * edges[-1]
+with np.load(case / "samples.npz", allow_pickle=False) as archive:
+    g, cumulative_cn = simple_rdf(archive["distances_nm"],
+                                  archive["volume_nm3"], edges)
+r = (edges[:-1] + edges[1:]) / 2
+indices = np.flatnonzero((r &gt;= 0.20) &amp; (r &lt;= 0.32))
+peak = r[indices[np.argmax(g[indices])]]
+print(f"Ca 第一峰 = {peak:.3f} nm")
+
+with open("results/analysis/rdf_curves.csv", encoding="utf-8", newline="") as f:
+    saved = [row for row in csv.DictReader(f)
+             if row["campaign"] == "hydration" and row["case"] == case.name]
+assert len(saved) == len(g) == 450
+assert np.allclose(g, [float(row["g_M_waterO"]) for row in saved])
+assert np.allclose(cumulative_cn,
+                   [float(row["mean_CN_through_bin_upper"]) for row in saved])
+print("450 个 RDF bin 与项目结果一致")</code></pre>
+      <pre class="plain-code"><code>两帧手算自检通过
+Ca 第一峰 = 0.247 nm
+450 个 RDF bin 与项目结果一致</code></pre>
+      <p><strong>为什么先做玩具例子？</strong>第 1 帧两个球壳各有 1 个水氧，密度为 2；第 2 帧两个水氧都在内壳，密度为 1。内壳的密度归一化计数均值为 <code>(1/2 + 2/1)/2 = 1.25</code>。这能检查归一化顺序；仅仅画出一条“看起来像 RDF”的曲线无法发现这个错误。</p>
+      <p><strong>几何前提：</strong>这里复用的距离已经按周期盒的最小镜像计算；函数不会替任意坐标修复周期边界。最大分析半径必须小于每帧最短盒边的一半，本例读取已有元数据检查 0.9 nm 的范围。累计 CN 来自原始计数平均，不能随意把密度有波动的平均 RDF 乘一个平均密度冒充它。</p>
+    </details>
+    <p><strong>脱离答案验收：</strong>不看代码，口头解释 <code>density</code>、<code>shell_volume</code>、<code>g_sum</code> 三者的单位。能解释 0.247 nm 是 bin 中心的峰位置，而不是从连续曲线中无限精确测出的距离。</p>
+  </article>
+
+  <article class="card">
+    <h3 id="practice-9">练习 5 · 对 3 条轨迹求 SD，而不是对 6000 帧求 SD</h3>
+    <p><strong>从零写：</strong>循环读取 CM Ca contact 的 r1、r2、r3，每条轨迹先得到一个接触比例，再把这 3 个数放进数组。计算均值和 <code>np.std(..., ddof=1)</code>。不要把帧拼在一起代替重复间统计。</p>
+    <details><summary>展开参考代码、真实输出与 SD 的含义</summary>
+      <pre class="plain-code"><code data-practice-python="5">from pathlib import Path
+import numpy as np
+
+fractions = []
+for replica in (1, 2, 3):
+    path = Path(f"results/amide/CM_Ca_r{replica}_contact/samples.npz")
+    with np.load(path, allow_pickle=False) as archive:
+        distance = archive["amide_distance_nm"]
+    assert distance.shape == (2000,) and np.all(np.isfinite(distance))
+    fractions.append(float(np.mean(distance &lt; 0.35)))
+
+percent = np.array(fractions) * 100
+print("replica 接触百分比:", [f"{x:.2f}" for x in percent])
+print(f"mean = {percent.mean():.6f}%")
+print(f"sample SD = {percent.std(ddof=1):.6f} 个百分点")
+assert np.allclose(fractions, [0.999, 0.842, 0.1485])
+assert np.isclose(percent.std(ddof=1), 45.257439535763986)</code></pre>
+      <pre class="plain-code"><code>replica 接触百分比: ['99.90', '84.20', '14.85']
+mean = 66.316667%
+sample SD = 45.257440 个百分点</code></pre>
+      <p><code>ddof=1</code> 让样本方差的分母为 <code>n−1=2</code>。先求每个 replica 的统计量，再描述它们之间的离散程度。这个 SD 不是均值的标准误，也不是置信区间；大 SD 提醒你三条轨迹的行为差别很大。</p>
+      <p>本例每条轨迹长度恰好一样，把帧拼起来得到的总接触比例会与三个比例的均值相等。<strong>均值数值相同不意味着统计重复单位可以互换。</strong>如果对 6000 个布尔值求 SD，你回答的是帧标签的波动，而不是三条模拟结果的差异。</p>
+    </details>
+    <p><strong>脱离答案验收：</strong>写出“CM Ca contact 为 66.3% ± 45.3 个百分点，均值 ± replica 间样本 SD，n=3”，并说明为什么单凭这句话不能判定平衡亲和力高低。</p>
+  </article>
+
+  <article class="card">
+    <h3 id="practice-10">练习 6 · 独立小项目：我的结论依赖壳层阈值吗？</h3>
+    <p><strong>关掉全部参考答案，自己完成：</strong>只使用 CM Ca 的 3 条 hydration 原始数组，对 0.33、0.35、0.37 nm 三个 cutoff 分别计算每个 replica 的平均 CN，输出一张 3×3 表，给每列算跨 replica 的均值和样本 SD。然后写一段 80–150 字的结果说明，区分“模型没有变”和“分析定义变了”。在本地新建 <code>output/practice_06.py</code> 完成。</p>
+    <p><strong>动笔前先冻结 4 件事：</strong>只分析哪个 campaign/model/ion；固定哪 3 个 cutoff；使用全部 2000 帧；以 replica 为重复单位。先写下来，不能看完结果再挑一个最接近 8 的 cutoff 当作唯一结果。</p>
+    <details><summary>展开最低可交付解法与验收输出</summary>
+      <pre class="plain-code"><code data-practice-python="6">from pathlib import Path
+import numpy as np
+
+cutoffs = np.array([0.33, 0.35, 0.37])
+rows = []
+for replica in (1, 2, 3):
+    path = Path(f"results/hydration/CM_Ca_r{replica}_hydrated/samples.npz")
+    with np.load(path, allow_pickle=False) as archive:
+        d = archive["distances_nm"]
+    assert d.ndim == 2 and d.shape[0] == 2000
+    assert np.all(np.isfinite(d)) and np.all(d &gt;= 0)
+    rows.append([(d &lt; cutoff).sum(axis=1).mean() for cutoff in cutoffs])
+table = np.array(rows)
+assert table.shape == (3, 3)
+assert np.all(np.diff(table, axis=1) &gt;= 0)
+for replica, row in enumerate(table, start=1):
+    print(f"r{replica}:", " ".join(f"{x:.4f}" for x in row))
+print("mean:", " ".join(f"{x:.6f}" for x in table.mean(axis=0)))
+print("SD:", " ".join(f"{x:.6f}" for x in table.std(axis=0, ddof=1)))
+assert np.allclose(table, [[8.036, 8.0515, 8.073],
+                           [8.0235, 8.0335, 8.0635],
+                           [8.028, 8.041, 8.071]])</code></pre>
+      <p class="small">各列依次对应 cutoff 0.33、0.35、0.37 nm；实际输出：</p>
+      <pre class="plain-code"><code>r1: 8.0360 8.0515 8.0730
+r2: 8.0235 8.0335 8.0635
+r3: 8.0280 8.0410 8.0710
+mean: 8.029167 8.042000 8.069167
+SD: 0.006331 0.009042 0.005008</code></pre>
+      <p><strong>参考结果表述：</strong>保持 CM Ca 模拟轨迹不变，仅把诊断壳层从 0.33 nm 扩大到 0.37 nm，三个 replica 的平均 CN 均小幅增加。0.35 nm 下的组均值为 8.0420，样本 SD 为 0.00904。这里改变的是哪些水氧被计入壳层，不是改变离子力场或重新运行模拟。该范围内计数接近 8，并不能单独验证结合自由能或水交换速率。</p>
+      <p><strong>验收不只看数字：</strong>脚本应能从项目目录一次执行成功；结果应逐条保留 3 个 replica；输出应写单位、cutoff 和 n；结论须说明实际比较了什么。换为 IOD Ca 后，可以复用分析逻辑，但不能把两套模型的六条轨迹混成一个组。</p>
+    </details>
+  </article>
+
+  <details><summary>准备好后，自己完成一次短 pilot：真实启动、记录与验收</summary>
+    <p>这是产生新轨迹的可选训练，耗时取决于平台。先做完现有数据分析，再在项目根目录执行。指定一个全新的输出目录；它不覆盖原正式结果。无需修改 protocol.json，pilot 分支会在内存中把预平衡设为 10 ps、生产设为 50 ps，运行一个 CM/Mg/r1 case。</p>
+    <pre class="plain-code"><code>.venv/Scripts/python.exe simulate.py --campaign pilot --output output/my-first-pilot --platform OpenCL</code></pre>
+    <p>逐项验收：日志完成；metadata.json 的 status 为 complete；production_ps 为 50；samples.npz 的 time_ps 从 1 到 50；distances_nm 有 50 行；距离与能量有限、体积为正。阅读 ns_per_day 与 production_wall_seconds，然后自己估算 2 ns 的生产成本。这个估算不能直接保证长时间持续速度。</p>
+    <p>若提示平台不可用，先检查可用平台，不要同时启动多个尝试：</p>
+    <pre class="plain-code"><code>.venv/Scripts/python.exe -c "import openmm as mm; print([mm.Platform.getPlatform(i).getName() for i in range(mm.Platform.getNumPlatforms())])"</code></pre>
+    <p>可用 CPU 时可明确选 --platform CPU，但会较慢。异常、校验失败或耗时上限触发后，先读该 case 的 metadata 和部分保存记录。不要删除证据后假装这次成功。pilot 只有一个条件和一个短观察窗，不能拿它给模型排名。</p>
+    <p class="small">新科学问题应在独立的项目副本中设计和版本化协议。新目录须有可记录 commit 的 Git 仓库，因为 freeze_inputs() 会读取 Git 身份；若需要新环境，按 README 使用 Python 3.12 与 requirements.txt。改变温度、水模型或力场不是只改标签：要追踪它实际进入哪个 OpenMM 对象，以及参数是否适配所选水模型。</p>
+  </details>
+  <h3 id="practice-11">下次没有 AI：用这张清单启动一个真正的新项目</h3>
+  <p>练习 6 已完成一次独立的“分析小项目”。下一次要产生新轨迹时，按下表完成全流程。本次学习只需写计划和检查既有数据，无需运行生产任务。每一步都留下能被别人检查的文件或数字，遇到失败先定位，再决定是否补跑。</p>
+  <div class="table-scroll"><table><thead><tr><th>阶段</th><th>你需要自己回答的问题</th><th>验收材料／何时可以前进</th></tr></thead><tbody>
+    <tr><td>1. 问题</td><td>只改变什么？固定什么？用什么观察量回答？该观察量不能回答什么？</td><td>一段问题陈述。例如“固定 TIP3P 与计算设置，CM/IOD 对 Ca 水合几何有何影响？”明确不把它写成蛋白亲和力问题。</td></tr>
+    <tr><td>2. 冻结协议</td><td>温度、压力、水模型、离子参数来源、单位转换、盒大小、步长、采样间隔、长度、种子、重复数、阈值是什么？</td><td>参数表＋文件校验值＋分析定义；预先确定终点。先保留独立目录，修改方案时保存新版本与理由。</td></tr>
+    <tr><td>3. 小 pilot</td><td>体系能建立吗？能量与距离有限吗？温度密度合理吗？真实速度够用吗？</td><td>先通过转换和代码自检，再用短运行估计成本，记录硬件和 wall time。pilot 用于找配置问题，不能证明慢过程已平衡。</td></tr>
+    <tr><td>4. 生产</td><td>是否运行了设计矩阵的所有条件与种子？是否意外并行启动重复 campaign？</td><td>逐条列出状态、实际帧数、完成时间和 SHA-256。生产与 pilot 分开，不静默覆盖失败目录。</td></tr>
+    <tr><td>5. 数据检查</td><td>时间递增且步距正确吗？数组 shape 匹配吗？体积为正吗？最短盒边支持 RDF 半径吗？</td><td>先检查原始数据和协议一致性，再看各 replica 的温度、密度、前后半段与分块变化。漂移或初态依赖要记录，不能看到均值漂亮就跳过。</td></tr>
+    <tr><td>6. 分析</td><td>先逐轨迹算了指标吗？RDF 用逐帧密度了吗？cutoff 敏感性和起点敏感性保留了吗？</td><td>一个可从原始输入重算的脚本＋一个手算自检＋逐 replica 数据表。所有图能追溯到表和输入。</td></tr>
+    <tr><td>7. 报告</td><td>每个结论由哪张图/哪列数支持？文献目标、模拟结果和建议是否区分？</td><td>图轴有单位，误差条有定义，n 是轨迹数；明确观察窗口。保留命令、版本和数据校验值，另外备份 Git 忽略的原始大文件。</td></tr>
+  </tbody></table></div>
+  <details><summary>本项目现有的检查命令：先理解，再执行</summary>
+    <p>下面两个 self-check 检查已有实现，不重跑正式生产。注意拼写确实不同：模拟脚本是 <code>--selfcheck</code>，分析脚本是 <code>--self-check</code>。</p>
+    <pre class="plain-code"><code>&amp; '.venv/Scripts/python.exe' 'simulate.py' --selfcheck
+&amp; '.venv/Scripts/python.exe' 'analyze.py' --self-check</code></pre>
+    <p>想练习完整重分析时，用一个<strong>新输出目录</strong>。它读取现有轨迹摘要数组，并将新生成的图表写到练习目录：</p>
+    <pre class="plain-code"><code>&amp; '.venv/Scripts/python.exe' 'analyze.py' --input results/hydration --amide results/amide --output output/practice-analysis</code></pre>
+    <p>当前完整数据的预期摘要是分析 12 条 hydration 和 24 条 amide。项目 <code>simulate.py</code> 的实际选项为 <code>--campaign</code>、<code>--output</code>、<code>--platform</code>、<code>--selfcheck</code>；没有 <code>--duration</code>、<code>--replicas</code> 等快捷参数。正式数值来自 <code>protocol.json</code>，不要为练习随意改写被冻结的原协议。</p>
+  </details>
+
+  <h3 id="practice-12">排错：先判断错在输入、计算，还是解释</h3>
+  <div class="table-scroll"><table><thead><tr><th>现象</th><th>先检查什么</th><th>具体动作</th></tr></thead><tbody>
+    <tr><td><code>FileNotFoundError</code></td><td>终端工作目录与文件名</td><td>在 PowerShell 执行 <code>Get-Location</code>；确认位于项目根目录，并检查 campaign、ion、replica、initial_state 是否都选对。</td></tr>
+    <tr><td><code>No module named numpy</code></td><td>是否用了项目 Python</td><td>用 <code>.venv/Scripts/python.exe</code> 运行练习脚本；不要因报错就往多个 Python 环境里重复安装。</td></tr>
+    <tr><td>算出 877 个“逐帧 CN”</td><td>求和轴写反了</td><td>先打印 <code>d.shape</code>；2000 行是时间，877 列是水氧。逐帧 CN 用 <code>axis=1</code>。</td></tr>
+    <tr><td>CN 接近 0.009，而非 8</td><td>把整个布尔矩阵直接平均了</td><td>先 <code>sum(axis=1)</code>，再 <code>mean()</code>；先把“每帧几个水”这个定义写出来。</td></tr>
+    <tr><td>RDF 高度不对，峰位置却大致对</td><td>球壳体积、密度单位、归一化顺序</td><td>先通过练习 4 的两帧体积变化自检。半径用 nm，体积用 nm³；不除以球壳体积的距离直方图不是 RDF。</td></tr>
+    <tr><td>CN 极大或为 0</td><td>nm/Å、阈值与所选字段</td><td>Ca 的 0.35 nm 是 3.5 Å。先打印距离最小/最大值和数组 shape；确认数的是水氧，不是所有原子。</td></tr>
+    <tr><td>hydration 的乙酰胺距离全是 NaN</td><td>是否用了没有乙酰胺的体系</td><td>这是 hydration 数据的预期占位。只有 amide campaign 才应含有限的乙酰胺距离，不能把 NaN 过滤后当成“0% 接触”的证据。</td></tr>
+    <tr><td>一条轨迹接触很多，另一条很少</td><td>初态与 replica 是否不同</td><td>保留各条曲线与单独比例；这本身可能是采样敏感性的结果。先排除输入错误，再讨论有限时间，不删除“不好看”的 replica。</td></tr>
+    <tr><td>校验值不匹配或状态不是 complete</td><td>文件是否被改动、截断或混用</td><td>比对原始 manifest 和备份，查明来源。不要改 metadata 的 hash 来让检查通过，也不要覆盖原目录掩盖问题。</td></tr>
+    <tr><td>SD 与报告不一致</td><td>分组、统计层级、百分比和 ddof</td><td>先打印参与统计的 3 个 replica 值；确认同一 campaign/model/ion/start，使用 <code>ddof=1</code>，不要把比例 0.1485 与百分数 14.85 混用。</td></tr>
+  </tbody></table></div>
+  <div class="callout"><strong>独立能力终检：</strong>不给你参考代码，只给数据路径，你能在一小时内完成“打印 shape → 选对字段 → 算一个逐轨迹指标 → 三条重复汇总 → 与现有结果核对 → 写三句有边界的结论”。如果还有一步需要猜，就回到对应练习，先用手算小例子解释它，再写代码。下一步不是记住更多命令，而是让每一行计算都能对应一个明确的问题。</div>
+</div><div id="files"><h3 id="practice-13">每个文件，什么时候打开？</h3><div class="card"><div class="file-tree">Ion Model Benchmark/
+├─ protocol.json / PROTOCOL.md       设置数值 / 设计与解释边界
+├─ SOURCES.md / parameters/          来源、原始文件与转换验证
+├─ simulate.py                      建体系 → 运行 → 保存
+├─ run_gpu.py                       Windows CUDA 启动包装
+├─ results/hydration/                12 条水合轨迹
+├─ results/amide/                    24 条酰胺轨迹
+├─ analyze.py                       原始距离 → 指标 → 图
+├─ results/analysis/                 CSV / JSON / 四张正式图
+├─ build_report.py                  英文报告和讲稿
+└─ verify_project.py                数据与报告内部一致性审计</div><p><code>CM_Ca_r1_contact</code>：CM 参数 / Ca 离子 / 第 1 条重复 / contact 起点。<code>IOD_Mg_r3_hydrated</code>：IOD 参数 / Mg 离子 / 第 3 条水合重复。</p></div>
+<div class="table-scroll"><table><thead><tr><th>每条轨迹内的文件</th><th>内容</th></tr></thead><tbody><tr><td><code>metadata.json</code></td><td>模型、离子、种子、平台、水数、耗时、协议、校验哈希。</td></tr><tr><td><code>samples.npz</code></td><td>正式分析所用的压缩数值数组，用 NumPy 读取。</td></tr><tr><td><code>initial.pdb / final.pdb</code></td><td>结构快照。initial 在最小化后、预平衡前保存，不是生产首帧。</td></tr><tr><td><code>trajectory.dcd</code></td><td>每 10 ps 保存的三维坐标，适合分子查看器。</td></tr><tr><td><code>system.xml</code></td><td>OpenMM 实际使用的体系和相互作用参数。</td></tr><tr><td><code>thermodynamics.csv</code></td><td>每 10 ps 的温度、能量、密度、体积和速度日志。</td></tr><tr><td><code>samples.partial.npz / checkpoint.chk</code></td><td>部分数据和检查点；正式分析读完成后的 samples.npz。</td></tr></tbody></table></div>
+<div class="card"><h3 id="practice-14">先读与复算，再考虑重跑</h3><p>在项目目录内打开 PowerShell，使用现有环境：</p><pre class="plain-code">.venv/Scripts/python.exe simulate.py --selfcheck
+.venv/Scripts/python.exe analyze.py --self-check</pre><p>把复算输出放到新目录：</p><pre class="plain-code">.venv/Scripts/python.exe analyze.py --input results/hydration --amide results/amide --output output/tutorial-reanalysis</pre><p>读取一条轨迹：将代码保存为 output/ 下的 Python 练习文件，并从项目根目录执行，用现有环境运行。</p><pre class="plain-code">from pathlib import Path
+import numpy as np
+
+case = Path("results/amide/CM_Ca_r1_contact")
+with np.load(case / "samples.npz", allow_pickle=False) as data:
+    d = data["amide_distance_nm"]
+    print("保存帧数：", len(d))
+    print("Ca 接触帧比例：", np.mean(d &lt; 0.35))
+    print("第一帧距离 / nm：", d[0])</pre><p>比例应与本页 Ca / CM / Replica 1 的 contact 结果一致。<strong>浏览器读内嵌数据；这些命令需在本地 Python 执行。</strong></p><details><summary>以后如何重新运行模拟</summary><pre class="plain-code">.venv/Scripts/python.exe simulate.py --campaign hydration
+# 检查水合诊断后再做扩展：
+.venv/Scripts/python.exe simulate.py --campaign amide</pre><p>已有完整 case 仅在协议和样本哈希匹配时复用；未完成目录须先检查，不会静默覆盖。不要同时启动重复 campaign。独立新项目先看本章的独立练习。</p></details><p id="timing-note" class="small"></p></div>
+<details><summary>项目原有四张正式结果图</summary><div id="original-figures"></div><p class="small">已有分析图的内嵌副本。上方互动图使用同一批真实样本和分析结果。</p></details>
+<details><summary>数据来源与本页处理方式</summary><p>本页读取正式汇总 JSON/CSV，并从 36 个正式 case 的 samples.npz 导出数据。导出时验证样本 SHA-256，重算并核对既有汇总。pilot 不计入。</p><p>酰胺保留全部 2,000 帧；RDF 仅裁剪显示范围，不平滑。CN 滑条用完整原始距离按 9 个半径（默认 ±0.02 nm、步长 0.005 nm）重算。水氧散点每条轨迹取 7 个真实帧（五个常规时点与 167/168 ps）且仅显示 0.60 nm 内的氧。分块可选 125/250/500 帧，使用完整序列；250 帧分块与正式 8 块结果核对。</p><p>原文件链接要求本页留在 output 文件夹；单独复制 HTML，全部教学交互仍可运行。</p><div id="provenance-info" class="small"></div><button id="self-check">检查内嵌数据与计算</button> <output id="self-check-status" class="status" aria-live="polite"></output></details></div><h3 id="practice-15">最后用自己的话答辩</h3><p>用 3 分钟讲清：为什么从水盒开始；只换了什么；36 条轨迹怎样组成；一个水合数值和一个初态对照分别支持什么；什么仍没有证据。再用 2 分钟展示你自己运行的练习 4 或 6，并解释输入、shape、中间计算和断言。</p><label class="writing-label">写下你的五句证据链（只保留在当前打开的页面内）<textarea id="explain-draft" rows="7" placeholder="研究问题 → 设计 → 水合证据 → 初态证据 → 结论边界"></textarea></label><button data-reset="draft">清空草稿</button>
+<details><summary>分步参考与自评标准</summary><ol><li>问题：固定 TIP3P 等条件，CM/IOD 的离子参数会怎样改变局部水合与有限时间酰胺接触？</li><li>设计：2 离子×2 模型×3 种子得到 12 条水合；再加 2 初态得到 24 条扩展；每条 2 ns。</li><li>证据：引用 Mg 的 0.2030/0.2070 nm 峰，说明是三条峰的均值，不是壳内均距。</li><li>采样：引用 Ca CM contact 三条 99.90/84.20/14.85% 与 separated 全零，说明 0.35 nm 判据和 2 ns 时窗。</li><li>判断：结构差异与初态依赖受到数据支持；平衡亲和力和受体功能需要另外的观测与充分采样。</li></ol><p>给自己逐项检查：有单位；有案例/重复数；说明统计层级；能定位字段；不把解释写成已证实机制。任何一项说不清，就回到相应交互复算。</p></details>
+<details><summary>教学参考：实际检查了什么，采用了什么</summary><p>已阅读 <a href="https://r4ds.had.co.nz/transform.html">R4DS 第一版 Data transformation</a> 与 <a href="https://r4ds.hadley.nz/data-transform.html">第二版 Data transformation</a>：用具体数据问题引入操作，展示中间输出，在聚合时保留样本量，局部练习紧跟概念。本教程把这种顺序用于布尔选择与逐轨迹汇总。</p><p>已阅读 <a href="https://github.com/enjalot/moonshine">Moonshine README</a>、Still 说明及 critique 规则：Still 是 Vite/React/Velite 的交互文章与编辑循环；本教程只借鉴先确定读者核心收获、正文驱动图表、证据式内容与视觉审查，不安装其编辑系统。</p><p>已阅读 <a href="https://github.com/MisterBrookT/vividoc/blob/main/docs/interaction_spec_formalization.md">ViviDoc SRTC 定义</a>。以 CN 为例：State 是案例、帧、cutoff；Render 是水氧散点、瞬时和全程 CN；Transition 是选择与重置；Constraint 是固定数据时扩大 cutoff 不应减少 CN。该不变量进入数值自检。本页无框架、CDN、在线字体或动画循环。</p></details>
+</section><footer class="chapter-footer"><a id="prev-chapter"></a><a id="next-chapter"></a></footer></main></div>__TUTORIAL_PAYLOAD__</body></html>
