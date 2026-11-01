@@ -1,0 +1,3 @@
+PASS: 11 frames (0, 200, ..., 2000 ps); all three CN cutoffs and shell IDs agree.
+PASS: independent minimum-image cation-Cl distances; max difference_nm: 0.0004946340506510882
+Sources: GROMACS-exported GRO frames and original select/pairdist text results.

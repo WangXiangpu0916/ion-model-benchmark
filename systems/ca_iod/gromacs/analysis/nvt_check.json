@@ -1,0 +1,25 @@
+{
+  "run": "/home/gromacs/ion-model-benchmark-from-scratch/systems/ca_iod/gromacs",
+  "stage": "nvt",
+  "label": "nvt",
+  "end_ps": 20.0,
+  "records": 201,
+  "means": {
+    "Potential": -35197.19972401492,
+    "Temperature": 296.21737193034835,
+    "Pressure": -532.9153800497513
+  },
+  "last_half_means": {
+    "Potential": -35269.12445850495,
+    "Temperature": 297.9732233861386,
+    "Pressure": -551.8010244653466
+  },
+  "fifths": [],
+  "box_nm": [
+    3.39977,
+    3.41,
+    3.3876
+  ],
+  "numerical_warning_patterns": 0,
+  "wall_seconds": 6.467
+}

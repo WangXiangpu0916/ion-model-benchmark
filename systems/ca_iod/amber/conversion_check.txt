@@ -1,0 +1,8 @@
+PASS: 1 CA + 2 Cl- + 859 WAT; 2580 atoms; charge 0.
+PASS: atom order, charge, mass, water/Cl LJ, box match CM.
+Ca IOD Rmin/2_A=1.608 epsilon_kcal/mol=0.08337961
+Ca IOD sigma_nm= 0.2865130275429714 epsilon_kJ/mol= 0.3488602898248027
+Maximum absolute coordinate rounding error_A= 0.0
+PASS: all 16 LJ type pairs; max relative coefficient error= 1.034097152032721e-07
+PASS: GROMACS comb-rule=2; SETTLE and exclusions present.
+Cross-engine periodic energy/force comparison: NOT performed.

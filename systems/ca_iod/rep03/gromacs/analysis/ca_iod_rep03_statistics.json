@@ -1,0 +1,72 @@
+{
+  "condition": "ca_iod",
+  "replicate": 3,
+  "run": "/home/gromacs/ion-model-benchmark-from-scratch/systems/ca_iod/rep03/gromacs",
+  "cutoffs_nm": [
+    0.3,
+    0.32,
+    0.34
+  ],
+  "trajectory_sha256": "b5e36bd8e54f519d2198de371db9618b7506eb82267fc2ef031ed0c2d38adabc",
+  "seeds": {
+    "nvt": 20261421,
+    "npt": 20261422,
+    "md": 20261423
+  },
+  "rdf_peak_nm": 0.244,
+  "temperature_K": 298.03434362711863,
+  "density_g_ml": 0.9934985199476027,
+  "first500_density_g_ml": 0.9936589150845999,
+  "last500_density_g_ml": 0.9943507380557888,
+  "coordination": [
+    {
+      "cutoff_nm": 0.3,
+      "mean": 7.973513243378311,
+      "rdf_cumulative": 7.974,
+      "distribution": {
+        "7": 59,
+        "8": 1936,
+        "9": 6
+      }
+    },
+    {
+      "cutoff_nm": 0.32,
+      "mean": 7.984007996001999,
+      "rdf_cumulative": 7.984,
+      "distribution": {
+        "7": 44,
+        "8": 1945,
+        "9": 12
+      }
+    },
+    {
+      "cutoff_nm": 0.34,
+      "mean": 7.991504247876062,
+      "rdf_cumulative": 7.992,
+      "distribution": {
+        "7": 36,
+        "8": 1946,
+        "9": 19
+      }
+    }
+  ],
+  "unique_shell_waters": 43,
+  "distinct_shell_sets": 68,
+  "persistent_water_ids": [],
+  "adjacent_set_changes": 77,
+  "same_cn_set_changes": 12,
+  "half_peaks_nm": [
+    0.244,
+    0.244
+  ],
+  "chloride_minima": [
+    {
+      "distance_nm": 0.461,
+      "time_ps": 3.0
+    },
+    {
+      "distance_nm": 0.394,
+      "time_ps": 1452.0
+    }
+  ]
+}

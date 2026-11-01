@@ -1,0 +1,44 @@
+; Initial NPT equilibration: 200 ps
+integrator          = md
+dt                  = 0.001
+nsteps              = 200000
+continuation        = yes
+
+; Nonbonded interactions
+cutoff-scheme       = Verlet
+nstlist             = 20
+coulombtype         = PME
+rcoulomb            = 1.0
+vdwtype             = Cut-off
+vdw-modifier        = Potential-shift
+rvdw                = 1.0
+DispCorr            = EnerPres
+pbc                 = xyz
+
+; Temperature control
+tcoupl              = V-rescale
+tc-grps             = System
+tau-t               = 0.1
+ref-t               = 298
+nsttcouple          = 10
+ld-seed             = 20261312
+
+; Pressure control
+pcoupl              = C-rescale
+pcoupltype          = isotropic
+tau-p               = 5.0
+ref-p               = 1.0
+compressibility     = 4.5e-5
+nstpcouple          = 10
+
+; Keep existing velocities
+gen-vel             = no
+
+; Rigid water is defined by SETTLE in the topology
+constraints         = none
+
+; Output
+nstcalcenergy       = 10
+nstenergy           = 100
+nstlog              = 100
+nstxout-compressed  = 1000

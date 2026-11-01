@@ -1,0 +1,54 @@
+                      :-) GROMACS - gmx grompp, 2025.4 (-:
+
+Executable:   /opt/gromacs-2025.4-cuda/bin/gmx
+Data prefix:  /opt/gromacs-2025.4-cuda
+Working dir:  /home/gromacs/ion-model-benchmark-from-scratch/systems/mg_iod/rep03/gromacs
+Command line:
+  gmx grompp -f npt.mdp -c nvt.gro -t nvt.cpt -p system.top -o npt.tpr -pp npt.processed.top -po npt.processed.mdp
+
+Generating 1-4 interactions: fudge = 1
+Number of degrees of freedom in T-Coupling group System is 5160.00
+Last frame         -1 time   20.000   
+
+GROMACS reminds you: "I do not believe continuum electrostatics" (Arieh Warshel, Nobel lecture 2013)
+
+Generated 10 of the 10 non-bonded parameter combinations
+
+Generated 10 of the 10 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'MG'
+
+Excluding 3 bonded neighbours molecule type 'Cl-'
+
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+Taking velocities from 'nvt.gro'
+Analysing residue names:
+There are:     1        Ion residues
+There are:     2      Other residues
+There are:   859      Water residues
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+The largest distance between excluded atoms is 0.152 nm between atom 2153 and 2154
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 298 K
+
+Calculated rlist for 1x1 atom pair-list as 1.036 nm, buffer size 0.036 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.000 nm, buffer size 0.000 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+
+Reading Coordinates, Velocities and Box size from old trajectory
+
+Will read whole trajectory
+
+Using frame at t = 20 ps
+
+Starting time for run is 0 ps
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 32x32x32, spacing 0.106 0.107 0.106
+
+Estimate for the relative computational load of the PME mesh part: 0.37
+
+This run will generate roughly 11 Mb of data

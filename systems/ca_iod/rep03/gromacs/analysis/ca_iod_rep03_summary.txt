@@ -1,0 +1,63 @@
+Ca IOD hydration replicate 03: summary
+Record date: 2026-11-02
+Project root: /home/gromacs/ion-model-benchmark-from-scratch
+Run directory: systems/ca_iod/rep03/gromacs
+Status: completed 2 ns IOD trajectory with checked basic hydration analyses.
+
+SYSTEM AND METHODS
+- Composition: 1 Ca2+, 2 Cl-, 859 waters; 2580 atoms; total charge 0.
+- Models: Li-Merz IOD 12-6 cation, standard Amber TIP3P, Joung-Cheatham Cl-.
+- Sources: Li et al. (2013), DOI 10.1021/ct400146w, Table 7; AmberTools 26 source parameter files data/raw/frcmod.ions234lm_iod_tip3p and frcmod.ionsjc_tip3p.
+- IOD raw-file SHA-256: 081a17684c4a1589d93af3c45b196ff6ca182912e443887ae799bbe3b633e16e.
+- Build: systems/ca_iod/amber/build_matched.leap and system_matched.prmtop/inpcrd, using the corresponding valid unminimized CM PDB as the coordinate template; only cation LJ parameters change.
+- tleap build, ParmEd conversion, composition, atom order, charges, water/Cl parameters, box, all 16 LJ pairs, effective TPR coefficients, SETTLE and exclusions were checked.
+- Each IOD condition has its own minimization. Repeats within a condition share that minimized configuration and use new velocities/seeds; they are not independent initial configurations.
+- Engine: GROMACS 2025.4, /opt/gromacs-2025.4-cuda/bin/gmx; 1 MPI rank, 4 OpenMP threads, GPU nonbonded/PME for dynamics.
+- Preparation: 20 ps NVT -> 200 ps NPT -> checkpoint continuation to a total 1000 ps NPT.
+- Production: 2 ns NPT, 1 fs timestep, 298 K, 1 bar; production time resets to 0 ps.
+- V-rescale thermostat (tau-t 0.1 ps), isotropic C-rescale barostat (tau-p 5.0 ps).
+- PME electrostatics, 1.0 nm real-space cutoff; LJ 1.0 nm cutoff, Potential-shift, DispCorr=EnerPres; xyz periodic boundaries.
+- Rigid water uses SETTLE even though the MDP constraints setting is none.
+- NVT gen-seed/ld-seed: 20261421; NPT ld-seed: 20261422; MD ld-seed: 20261423. NPT and MD inherit velocities.
+- Production: 2001 frames, 0-2000 ps, every 1 ps; 20001 energy records, every 0.1 ps. Finished normally; no detected dynamics numerical warnings.
+- Trajectory SHA-256: b5e36bd8e54f519d2198de371db9618b7506eb82267fc2ef031ed0c2d38adabc.
+- Analyses use GROMACS and text-only Python checks, RDF bin width 0.002 nm, periodic boundaries. No MDAnalysis trajectory cache was generated.
+
+OBSERVED RESULTS
+1. Thermodynamics (arithmetic means of exported XVG records)
+   Temperature: 298.034 K; density: 0.993499 g/mL.
+   Density in 0-<500 ps and 1500-2000 ps: 0.993659 and 0.994351 g/mL.
+   GROMACS accumulated energy averages may differ slightly from these exported-record means.
+2. Ca-water oxygen RDF
+   First peak: 0.244 nm. Provisional shell boundary: 0.32 nm.
+   RDF and cumulative-coordination distance grids are offset; each uses its own distance column.
+3. Per-frame coordination and boundary sensitivity
+   0.30 nm: mean 7.973513; CN counts {'7': 59, '8': 1936, '9': 6}.
+   0.32 nm: mean 7.984008; CN counts {'7': 44, '8': 1945, '9': 12}.
+   0.34 nm: mean 7.991504; CN counts {'7': 36, '8': 1946, '9': 19}.
+4. Shell identities at 0.32 nm
+   Counts match per-frame coordination in all 2001 frames, and all IDs identify WAT/O atoms.
+   Distinct waters seen: 43; distinct ID sets: 68.
+   Adjacent saved-frame set changes: 77; changes with unchanged CN: 12.
+   IDs present in every saved frame: [].
+5. Time-segment RDF
+   0-999 ps (1000 frames) peak: 0.244 nm.
+   1000-2000 ps (1001 frames) peak: 0.244 nm.
+6. Ca-Cl distances
+   Cl1: minimum 0.461 nm at 3 ps.
+   Cl2: minimum 0.394 nm at 1452 ps.
+7. Data and figures
+   analysis/md_thermo.xvg/png; ca_ow_rdf.xvg; ca_ow_cn.xvg; ca_ow_rdf_cn.png;
+   ca_cn_selections.txt; ca_cn_time.xvg; ca_shell_ids.dat;
+   ca_ow_rdf_half1.xvg; ca_ow_rdf_half2.xvg; ca_ow_rdf_halves.png;
+   ca_cl_distances.xvg/png; ca_iod_rep03_statistics.json. Commands and checked figures are recorded in the process document.
+
+LIMITATIONS AND REMAINING WORK
+- This summary describes one seed. Report each planned replicate separately; shared initial configurations do not exclude initial-state dependence.
+- Similar RDFs, stable temperature, or completed repeats do not prove full convergence of slow processes. Time halves are not independent replicates and adjacent frames are correlated.
+- Water-ID set changes are not independent exchange-event counts or exchange rates. No observed change at 1 ps spacing cannot exclude brief departures and returns between frames.
+- No dedicated ion-pair criterion has been applied; the water-shell cutoff is not a cation-Cl contact criterion.
+- CM/IOD comparisons assess model dependence. Recovery of the fitted IOD target is not independent predictive validation or proof that one model is universally better.
+- No reliable exchange rate or robust between-replicate uncertainty is inferred here.
+- Full cross-engine periodic-system single-point energy/force comparison remains unfinished.
+- Water-box results do not establish NMDAR binding, permeation, or blockade mechanisms; published structures require separate source-based evaluation.

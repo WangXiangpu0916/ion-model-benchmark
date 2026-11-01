@@ -1,0 +1,41 @@
+; Short NVT stability check: 20 ps
+integrator          = md
+dt                  = 0.001
+nsteps              = 20000
+continuation        = no
+
+; Nonbonded interactions
+cutoff-scheme       = Verlet
+nstlist             = 20
+coulombtype         = PME
+rcoulomb            = 1.0
+vdwtype             = Cut-off
+vdw-modifier        = Potential-shift
+rvdw                = 1.0
+DispCorr            = EnerPres
+pbc                 = xyz
+
+; Temperature control
+tcoupl              = V-rescale
+tc-grps             = System
+tau-t               = 0.1
+ref-t               = 298
+nsttcouple          = 10
+ld-seed             = 20261211
+
+; Fixed volume
+pcoupl              = no
+
+; Generate initial velocities
+gen-vel             = yes
+gen-temp            = 298
+gen-seed            = 20261211
+
+; Rigid water is defined by SETTLE in the topology
+constraints         = none
+
+; Output
+nstcalcenergy       = 10
+nstenergy           = 100
+nstlog              = 100
+nstxout-compressed  = 100

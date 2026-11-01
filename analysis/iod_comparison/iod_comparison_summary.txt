@@ -1,0 +1,62 @@
+IOD hydration benchmark: per-replicate comparison
+Record date: 2026-11-02
+Project root: /home/gromacs/ion-model-benchmark-from-scratch
+Analysis directory: /home/gromacs/ion-model-benchmark-from-scratch/analysis/iod_comparison
+Status: all 6 IOD 2 ns trajectories and per-run analyses complete.
+
+SYSTEM AND METHODS
+1 divalent cation, 2 Cl-, 859 standard Amber TIP3P waters; Li-Merz 2013 IOD 12-6 cations and Joung-Cheatham Cl-.
+Each condition uses one minimized configuration and three distinct velocity/stochastic seeds; 20 ps NVT, 1000 ps NPT, then 2 ns NPT at 298 K and 1 bar.
+All replicas have 2001 trajectory frames and 20001 exported energy records. RDF bin width: 0.002 nm.
+Source: Li et al. 2013, DOI 10.1021/ct400146w, Tables 7-8. Parameter/conversion and sampled-frame crosschecks are stored separately.
+
+OBSERVED RESULTS
+Condition Rep Peak_nm Cutoff_nm Mean_CN Temperature_K Density_g_ml Distinct_shell_waters Adjacent_set_changes
+mg_iod 01 0.206 0.28 6.000000 297.940 0.992123 6 0
+mg_iod 02 0.206 0.28 6.000000 297.926 0.991704 6 0
+mg_iod 03 0.208 0.28 6.000000 298.036 0.991211 6 0
+ca_iod 01 0.242 0.32 7.986507 297.980 0.993472 32 60
+ca_iod 02 0.244 0.32 7.983508 297.974 0.993727 30 58
+ca_iod 03 0.244 0.32 7.984008 298.034 0.993499 43 77
+
+Per-condition statistics across three seeds (sample SD, not frame-based standard errors):
+mg_iod: peak 0.206-0.208 nm; central-cutoff mean CN 6.000000-6.000000; CN mean +/- SD 6.000000 +/- 0.000000; peak mean +/- SD 0.206667 +/- 0.001155 nm.
+ca_iod: peak 0.242-0.244 nm; central-cutoff mean CN 7.983508-7.986507; CN mean +/- SD 7.984674 +/- 0.001606; peak mean +/- SD 0.243333 +/- 0.001155 nm.
+
+Coordination distributions and boundary sensitivity (counts out of 2001):
+mg_iod 01: cutoff 0.26 nm; mean 6.000000; counts {'6': 2001}.
+mg_iod 01: cutoff 0.28 nm; mean 6.000000; counts {'6': 2001}.
+mg_iod 01: cutoff 0.30 nm; mean 6.000000; counts {'6': 2001}.
+  Central-cutoff CN in consecutive 500 ps blocks: [6.0, 6.0, 6.0, 6.0].
+mg_iod 02: cutoff 0.26 nm; mean 6.000000; counts {'6': 2001}.
+mg_iod 02: cutoff 0.28 nm; mean 6.000000; counts {'6': 2001}.
+mg_iod 02: cutoff 0.30 nm; mean 6.000000; counts {'6': 2001}.
+  Central-cutoff CN in consecutive 500 ps blocks: [6.0, 6.0, 6.0, 6.0].
+mg_iod 03: cutoff 0.26 nm; mean 6.000000; counts {'6': 2001}.
+mg_iod 03: cutoff 0.28 nm; mean 6.000000; counts {'6': 2001}.
+mg_iod 03: cutoff 0.30 nm; mean 6.000000; counts {'6': 2001}.
+  Central-cutoff CN in consecutive 500 ps blocks: [6.0, 6.0, 6.0, 6.0].
+ca_iod 01: cutoff 0.30 nm; mean 7.976512; counts {'7': 53, '8': 1942, '9': 6}.
+ca_iod 01: cutoff 0.32 nm; mean 7.986507; counts {'7': 35, '8': 1958, '9': 8}.
+ca_iod 01: cutoff 0.34 nm; mean 7.996002; counts {'7': 28, '8': 1953, '9': 20}.
+  Central-cutoff CN in consecutive 500 ps blocks: [8.004, 7.984, 7.964, 7.994011976047904].
+ca_iod 02: cutoff 0.30 nm; mean 7.973513; counts {'7': 57, '8': 1940, '9': 4}.
+ca_iod 02: cutoff 0.32 nm; mean 7.983508; counts {'7': 38, '8': 1958, '9': 5}.
+ca_iod 02: cutoff 0.34 nm; mean 7.992004; counts {'7': 30, '8': 1957, '9': 14}.
+  Central-cutoff CN in consecutive 500 ps blocks: [7.986, 7.988, 7.978, 7.982035928143713].
+ca_iod 03: cutoff 0.30 nm; mean 7.973513; counts {'7': 59, '8': 1936, '9': 6}.
+ca_iod 03: cutoff 0.32 nm; mean 7.984008; counts {'7': 44, '8': 1945, '9': 12}.
+ca_iod 03: cutoff 0.34 nm; mean 7.991504; counts {'7': 36, '8': 1946, '9': 19}.
+  Central-cutoff CN in consecutive 500 ps blocks: [7.986, 7.98, 7.996, 7.974051896207585].
+
+The reported seed SD and range describe the three tested runs. RDF maxima are discretized at 0.002 nm; zero SD at this resolution is not zero uncertainty.
+The 500 ps block means describe time variation within each trajectory; the final block includes the 2000 ps endpoint. They are not additional independent replicas.
+
+LIMITATIONS AND REMAINING WORK
+Seeds within each condition share the minimized configuration. Local structural agreement does not exclude initial-state dependence or demonstrate convergence of slow processes.
+Adjacent saved frames are correlated; time halves are not independent replicas. Three seeds do not provide precise uncertainty for rare events.
+Water-ID set changes are not independent exchange events or exchange rates. A 1 ps saving interval can miss brief departures and returns.
+CM/IOD differences describe model dependence; recovering a fitted IOD is not independent predictive validation.
+No dedicated ion-pair classification was applied. Water-shell cutoffs are not ion-Cl contact criteria.
+A full cross-engine periodic single-point energy/force comparison remains unfinished.
+Water-box results alone do not establish NMDAR binding, permeation or block; structure evidence is evaluated separately.

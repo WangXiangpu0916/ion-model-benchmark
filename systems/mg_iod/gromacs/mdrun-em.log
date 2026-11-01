@@ -1,0 +1,23 @@
+                      :-) GROMACS - gmx mdrun, 2025.4 (-:
+
+Executable:   /opt/gromacs-2025.4-cuda/bin/gmx
+Data prefix:  /opt/gromacs-2025.4-cuda
+Working dir:  /home/gromacs/ion-model-benchmark-from-scratch/systems/mg_iod/gromacs
+Command line:
+  gmx mdrun -deffnm em -ntmpi 1 -ntomp 4 -nb gpu -pme gpu -bonded cpu -update cpu -pin on
+
+Reading file em.tpr, VERSION 2025.4 (single precision)
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2025.4
+Source file: src/gromacs/taskassignment/decidegpuusage.cpp (line 437)
+Function:    bool gmx::decideWhetherToUseGpusForPme(bool, TaskTarget, TaskTarget, const std::vector<int>&, const t_inputrec&, int, int, bool)
+
+Inconsistency in user input:
+Cannot compute PME interactions on a GPU, because:
+  PME GPU does not support:
+    Non-dynamical integrator (use md, sd, etc).
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at https://manual.gromacs.org/current/user-guide/run-time-errors.html
+-------------------------------------------------------

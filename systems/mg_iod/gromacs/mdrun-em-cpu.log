@@ -1,0 +1,45 @@
+                      :-) GROMACS - gmx mdrun, 2025.4 (-:
+
+Executable:   /opt/gromacs-2025.4-cuda/bin/gmx
+Data prefix:  /opt/gromacs-2025.4-cuda
+Working dir:  /home/gromacs/ion-model-benchmark-from-scratch/systems/mg_iod/gromacs
+Command line:
+  gmx mdrun -deffnm em -ntmpi 1 -ntomp 4 -nb cpu -pme cpu
+
+
+Back Off! I just backed up em.log to ./#em.log.1#
+Reading file em.tpr, VERSION 2025.4 (single precision)
+Using 1 MPI thread
+Using 4 OpenMP threads 
+
+
+NOTE: The number of threads is not equal to the number of (logical) cpus
+      and the -pin option is set to auto: will not pin threads to cpus.
+      This can lead to significant performance degradation.
+      Consider using -pin on (and -pinoffset in case you run multiple jobs).
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+02
+   Number of steps    =        50000
+
+step 17: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+step 19: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+step 46: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+writing lowest energy coordinates.
+
+Steepest Descents converged to Fmax < 100 in 1198 steps
+Potential Energy  = -4.2195852e+04
+Maximum force     =  9.6371574e+01 on atom 1
+Norm of force     =  7.5021612e+00
+
+GROMACS reminds you: "Aristotle maintained that women have fewer teeth than men; although he was twice married, it never occurred to him to verify this statement by examining his wives' mouths." (Bertrand Russell)
+

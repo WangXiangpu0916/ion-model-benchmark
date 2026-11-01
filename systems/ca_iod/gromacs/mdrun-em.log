@@ -1,0 +1,47 @@
+                      :-) GROMACS - gmx mdrun, 2025.4 (-:
+
+Executable:   /opt/gromacs-2025.4-cuda/bin/gmx
+Data prefix:  /opt/gromacs-2025.4-cuda
+Working dir:  /home/gromacs/ion-model-benchmark-from-scratch/systems/ca_iod/gromacs
+Command line:
+  gmx mdrun -deffnm em -ntmpi 1 -ntomp 4 -nb cpu -pme cpu
+
+Reading file em.tpr, VERSION 2025.4 (single precision)
+Using 1 MPI thread
+Using 4 OpenMP threads 
+
+
+NOTE: The number of threads is not equal to the number of (logical) cpus
+      and the -pin option is set to auto: will not pin threads to cpus.
+      This can lead to significant performance degradation.
+      Consider using -pin on (and -pinoffset in case you run multiple jobs).
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+02
+   Number of steps    =        50000
+
+step 19: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+step 20: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+step 26: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+step 28: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+writing lowest energy coordinates.
+
+Steepest Descents converged to Fmax < 100 in 891 steps
+Potential Energy  = -4.1851957e+04
+Maximum force     =  9.2602234e+01 on atom 1
+Norm of force     =  6.8932733e+00
+
+GROMACS reminds you: "Measuring programming progress by lines of code is like measuring aircraft building progress by weight." (Bill Gates)
+

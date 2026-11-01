@@ -1,0 +1,79 @@
+-I: Adding /home/gromacs/miniforge3/envs/ion-build/dat/leap/prep to search path.
+-I: Adding /home/gromacs/miniforge3/envs/ion-build/dat/leap/lib to search path.
+-I: Adding /home/gromacs/miniforge3/envs/ion-build/dat/leap/parm to search path.
+-I: Adding /home/gromacs/miniforge3/envs/ion-build/dat/leap/cmd to search path.
+-f: Source build.leap.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./build.leap
+----- Source: /home/gromacs/miniforge3/envs/ion-build/dat/leap/cmd/leaprc.water.tip3p
+----- Source of /home/gromacs/miniforge3/envs/ion-build/dat/leap/cmd/leaprc.water.tip3p done
+Loading library: /home/gromacs/miniforge3/envs/ion-build/dat/leap/lib/atomic_ions.lib
+Loading library: /home/gromacs/miniforge3/envs/ion-build/dat/leap/lib/solvents.lib
+Loading parameters: /home/gromacs/miniforge3/envs/ion-build/dat/leap/parm/frcmod.tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+This is the additional/replacement parameter set for TIP3P water
+Loading parameters: /home/gromacs/miniforge3/envs/ion-build/dat/leap/parm/frcmod.ions1lm_126_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of monovalent ions for TIP3P water model (12-6 normal usage set)
+Loading parameters: /home/gromacs/miniforge3/envs/ion-build/dat/leap/parm/frcmod.ionsjc_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Monovalent ion parameters for Ewald and TIP3P water from Joung & Cheatham JPCB (2008)
+Loading parameters: /home/gromacs/miniforge3/envs/ion-build/dat/leap/parm/frcmod.ions234lm_126_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for TIP3P water model (12-6 normal usage set)
+Loading parameters: ../../../data/raw/frcmod.ions234lm_126_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for TIP3P water model (12-6 normal usage set)
+Loading parameters: ../../../data/raw/frcmod.ionsjc_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Monovalent ion parameters for Ewald and TIP3P water from Joung & Cheatham JPCB (2008)
+  Solute vdw bounding box:              3.298 3.298 3.298
+  Total bounding box for atom centers:  31.298 31.298 31.298
+      (box expansion for 'iso' is   0.0%)
+  Solvent unit box:                     18.774 18.774 18.774
+  Volume: 40396.341 A^3 
+  Total mass 16236.464 amu,  Density 0.667 g/cc
+  Added 899 residues.
+Adding 2 counter ions to "model". 897 solvent molecules will remain.
+0: Placed Cl- in model at (9.27, 7.34, -5.38).
+0: Placed Cl- in model at (7.18, -3.20, 12.84).
+Checking 'model'....
+Checking parameters for unit 'model'.
+Checking for bond parameters.
+Checking for angle parameters.
+Unit is OK.
+Total unperturbed charge:   0.000000
+Total perturbed charge:     0.000000
+Checking Unit.
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 0 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	WAT	897
+  )
+ (no restraints)
+Writing pdb file: system.pdb
+   printing CRYST1 record to PDB file with box info
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 0; Notes = 0.

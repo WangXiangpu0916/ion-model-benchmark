@@ -1,0 +1,4 @@
+PASS: all 16 effective TPR LJ pairs match Amber A/B coefficients after unit conversion.
+Maximum relative error: 8.201838133103934e-07
+PASS: effective SETTLE term present.
+Not an energy/force comparison between engines.

@@ -1,0 +1,8 @@
+PASS: 1 MG + 2 Cl- + 859 WAT; 2580 atoms; charge 0.
+PASS: atom order, charge, mass, water/Cl LJ, box match CM.
+Mg IOD Rmin/2_A=1.395 epsilon_kcal/mol=0.014917
+Mg IOD sigma_nm= 0.24856074251677493 epsilon_kJ/mol= 0.06241272757939162
+Maximum absolute coordinate rounding error_A= 0.0004999999999988347
+PASS: all 16 LJ type pairs; max relative coefficient error= 1.147655543215883e-07
+PASS: GROMACS comb-rule=2; SETTLE and exclusions present.
+Cross-engine periodic energy/force comparison: NOT performed.

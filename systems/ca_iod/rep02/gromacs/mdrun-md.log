@@ -1,0 +1,32 @@
+                      :-) GROMACS - gmx mdrun, 2025.4 (-:
+
+Executable:   /opt/gromacs-2025.4-cuda/bin/gmx
+Data prefix:  /opt/gromacs-2025.4-cuda
+Working dir:  /home/gromacs/ion-model-benchmark-from-scratch/systems/ca_iod/rep02/gromacs
+Command line:
+  gmx mdrun -deffnm md -ntmpi 1 -ntomp 4 -nb gpu -pme gpu -bonded cpu -update cpu -pin on
+
+Reading file md.tpr, VERSION 2025.4 (single precision)
+Changing nstlist from 20 to 100, rlist from 1 to 1.114
+
+1 GPU selected for this run.
+Mapping of GPU IDs to the 2 GPU tasks in the 1 rank on this node:
+  PP:0,PME:0
+PP tasks will do (non-perturbed) short-ranged interactions on the GPU
+PP task will update and constrain coordinates on the CPU
+PME tasks will do all aspects on the GPU
+Using 1 MPI thread
+Using 4 OpenMP threads 
+
+starting mdrun 'Generic title'
+2000000 steps,   2000.0 ps.
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:     2292.305      573.077      400.0
+                 (ns/day)    (hour/ns)
+Performance:      301.530        0.080
+
+GROMACS reminds you: "Everything's formed from particles" (Van der Graaf Generator)
+
