@@ -1,0 +1,3 @@
+"CN_030" resname WAT and name O and within 0.30 of (resname CA and name CA);
+"CN_032" resname WAT and name O and within 0.32 of (resname CA and name CA);
+"CN_034" resname WAT and name O and within 0.34 of (resname CA and name CA);

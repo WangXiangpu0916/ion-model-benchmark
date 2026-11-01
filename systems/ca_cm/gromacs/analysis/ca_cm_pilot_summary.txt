@@ -1,0 +1,68 @@
+Ca CM hydration pilot: summary
+Record date: 2026-11-02
+Status: one completed 2 ns pilot trajectory with basic analyses.
+
+SYSTEM AND METHODS
+- Composition: 1 Ca2+, 2 Cl-, 859 waters; 2580 atoms; total charge 0.
+- Models: Li-Merz CM Ca2+, standard Amber TIP3P, Joung-Cheatham Cl-.
+- Parameter files: frcmod.ions234lm_126_tip3p and frcmod.ionsjc_tip3p.
+- Matched build: systems/ca_cm/amber/build_matched.leap.
+- Amber inputs for conversion: system_matched.prmtop and system_matched.inpcrd.
+- The initial 897-water Ca build was not used for this matched comparison.
+- Active simulation inputs: systems/ca_cm/gromacs/system.top and system.gro.
+- Engine: GROMACS 2025.4; topology conversion with ParmEd.
+- Minimization: 886 steps; final maximum force below 100 kJ/mol/nm.
+- Early minimization SETTLE warnings occurred; subsequent dynamics completed without detected numerical warnings.
+- Preparation: 20 ps NVT followed by 1000 ps NPT.
+- Production: 2 ns NPT, 1 fs timestep, 298 K, 1 bar.
+- Coupling: V-rescale thermostat and isotropic C-rescale barostat.
+- Production ld-seed: 20261113; velocities inherited from equilibration.
+- Trajectory: 2001 frames spanning 0-2000 ps, saved every 1 ps.
+
+OBSERVED RESULTS
+1. Thermodynamics
+   Means from 20001 exported records in analysis/md_thermo.xvg:
+   Temperature: 297.926 K.
+   Density: 0.992532 g/mL.
+   Mean densities in the first and last 500 ps: 0.9958 and 0.9902 g/mL.
+   Slow fluctuations and segment differences remain visible.
+
+2. Ca-water oxygen RDF
+   First peak: 0.250 nm; bin width: 0.002 nm.
+   Provisional first-shell cutoff: 0.32 nm.
+   Cumulative coordination at this cutoff: approximately 8.03.
+   RDF and cumulative-coordination grids are offset; use each file's own distance column.
+
+3. Per-frame coordination and cutoff sensitivity
+   Cutoff 0.30 nm: mean 8.010; CN7: 28 frames, CN8: 1924, CN9: 49.
+   Cutoff 0.32 nm: mean 8.028; CN7: 7 frames, CN8: 1930, CN9: 64.
+   Cutoff 0.34 nm: mean 8.040; CN7: 1 frame, CN8: 1918, CN9: 82.
+   Eightfold coordination predominates at all three tested cutoffs.
+
+4. Shell-water identities at 0.32 nm
+   ID counts agree with the coordination counts in all 2001 frames.
+   A total of 66 distinct water molecules appear inside the shell in at least one saved frame.
+   Shell-water identities change, including between frames with unchanged coordination number.
+   No water molecule is present inside the shell at every saved frame.
+   The number of distinct waters is not an exchange-event count or exchange rate.
+
+5. Time-segment RDF comparison
+   First segment: 0-999 ps, 1000 frames; peak at 0.250 nm.
+   Second segment: 1000-2000 ps, 1001 frames; peak at 0.250 nm.
+   Overall shapes are similar, with local differences in peak height.
+
+6. Ca-Cl distances
+   Cl1 minimum: 0.425 nm at 1145 ps.
+   Cl2 minimum: 0.421 nm at 356 ps.
+   Both chloride ions show approach and departure.
+   No dedicated ion-pair classification has been applied.
+   The Ca-water oxygen cutoff is not a Ca-Cl contact criterion.
+
+LIMITATIONS AND REMAINING WORK
+- These results describe one Ca CM pilot trajectory.
+- Independent repeats and IOD parameter comparisons remain pending.
+- Similar trajectory halves do not establish convergence or constitute independent repeats.
+- Sampling every 1 ps cannot resolve all brief departures and returns.
+- No reliable water-exchange rate has been estimated.
+- A complete cross-engine periodic-system energy/force comparison remains unfinished.
+- These water-box results do not establish NMDAR binding, permeation, or blockade mechanisms.

@@ -1,0 +1,97 @@
+Ca CM hydration replicate 03: summary
+Record date: 2026-11-02
+Project root: /home/gromacs/ion-model-benchmark-from-scratch
+Run directory: systems/ca_cm/rep03/gromacs
+Status: third completed 2 ns Ca CM trajectory, with basic analyses and comparison to replicates 01 and 02.
+
+SYSTEM AND METHODS
+- Composition: 1 Ca2+, 2 Cl-, 859 waters; 2580 atoms; total charge 0.
+- Models: Li-Merz CM Ca2+, standard Amber TIP3P, Joung-Cheatham Cl-.
+- Parameter files: data/raw/frcmod.ions234lm_126_tip3p and data/raw/frcmod.ionsjc_tip3p.
+- Original matched build: systems/ca_cm/amber/build_matched.leap; ParmEd conversion used system_matched.prmtop and system_matched.inpcrd.
+- The initial 897-water Ca build was not used for this matched comparison.
+- Active repeat inputs: systems/ca_cm/rep03/gromacs/system.top and start.gro.
+- system.top is byte-identical to the original Ca topology; start.gro is byte-identical to systems/ca_cm/gromacs/em.gro.
+- The original Ca minimization converged in 886 steps with maximum force below 100 kJ/mol/nm. Early SETTLE warnings belong to that preparation history; minimization was not repeated for replicate 03.
+- Replicates 01, 02, and 03 share the same minimized starting configuration. New initial velocities and stochastic seeds were used for replicate 03.
+- Engine: GROMACS 2025.4, /opt/gromacs-2025.4-cuda/bin/gmx.
+- Preparation: 20 ps NVT, then 200 ps NPT continued from its checkpoint to a total of 1000 ps.
+- Production: 2 ns NPT, 1 fs timestep, 298 K, 1 bar; production time resets to 0 ps after equilibration.
+- Coupling: V-rescale thermostat, tau-t 0.1 ps; isotropic C-rescale barostat, tau-p 5.0 ps.
+- Electrostatics: PME with 1.0 nm real-space cutoff. Lennard-Jones: 1.0 nm cutoff, Potential-shift, DispCorr = EnerPres.
+- Water rigidity is specified by SETTLE in the topology.
+- NVT gen-seed and ld-seed: 20261221; NPT ld-seed: 20261222; production ld-seed: 20261223.
+- NVT generates initial velocities at 298 K; NPT and production inherit the preceding state without generating new velocities.
+- Production trajectory: 2001 frames spanning 0-2000 ps, saved every 1 ps.
+- Energy records: 20001 points spanning 0-2000 ps, saved every 0.1 ps.
+- NVT, NPT, and production completed normally without detected numerical warnings. Production reached step 2000000 at 2000 ps.
+
+OBSERVED RESULTS
+1. Thermodynamics
+   Means from 20001 exported records in analysis/md_thermo.xvg:
+   Temperature: 298.054 K.
+   Density: 0.991914 g/mL.
+   Mean densities in the first and last 500 ps: 0.992311 and 0.993529 g/mL.
+   The curves show slow fluctuations, without an obvious sustained drift over this run.
+   These are arithmetic means of exported XVG records; GROMACS energy-log averages use more frequent accumulated statistics and may differ slightly.
+
+2. Ca-water oxygen RDF
+   First peak: 0.248 nm; bin width: 0.002 nm.
+   Provisional first-shell cutoff: 0.32 nm.
+   Cumulative coordination at this cutoff: 8.022.
+   RDF and cumulative-coordination grids are offset; use each file's own distance column.
+   Data: analysis/ca_ow_rdf.xvg and ca_ow_cn.xvg.
+
+3. Per-frame coordination and cutoff sensitivity
+   Cutoff 0.30 nm: mean 8.010495; CN7: 23 frames, CN8: 1934, CN9: 44.
+   Cutoff 0.32 nm: mean 8.021989; CN7: 11 frames, CN8: 1935, CN9: 55.
+   Cutoff 0.34 nm: mean 8.029985; CN7: 8 frames, CN8: 1925, CN9: 68.
+   Eightfold coordination predominates at all three tested cutoffs.
+   At 0.32 nm, CN8 accounts for 96.70% of saved frames.
+   Data: analysis/ca_cn_selections.txt and ca_cn_time.xvg.
+
+4. Shell-water identities at 0.32 nm
+   ID counts agree with the coordination counts in all 2001 frames.
+   A total of 53 distinct water molecules appear inside the shell in at least one saved frame.
+   There are 85 distinct shell-water ID sets.
+   Adjacent saved frames show 106 changes of shell-water ID set; 13 occur with unchanged coordination number.
+   No water molecule is present inside the shell at every saved frame.
+   Neither distinct-water counts nor ID-set changes are independent exchange-event counts or exchange rates.
+   Data: analysis/ca_shell_ids.dat and ca_shell_ids.log.
+
+5. Time-segment RDF comparison
+   First segment: 0-999 ps, 1000 frames; peak at 0.246 nm; peak height 14.179.
+   Second segment: 1000-2000 ps, 1001 frames; peak at 0.248 nm; peak height 14.450.
+   Overall shapes are similar; the peak top is relatively flat, and the maximum bins differ by one 0.002 nm bin.
+   Data: analysis/ca_ow_rdf_half1.xvg and ca_ow_rdf_half2.xvg.
+
+6. Ca-Cl distances
+   Cl1 minimum: 0.437 nm at 1802 ps.
+   Cl2 minimum: 0.410 nm at 119 ps.
+   Both chloride ions show approach and departure.
+   No dedicated ion-pair classification has been applied.
+   The Ca-water oxygen cutoff is not a Ca-Cl contact criterion.
+   Data: analysis/ca_cl_distances.xvg.
+
+7. Comparison with Ca CM replicates 01 and 02
+   First RDF peaks: 0.250, 0.250, and 0.248 nm for replicates 01, 02, and 03.
+   All three full 2 ns RDFs have similar overall shapes, with local differences near the peak top.
+   Mean per-frame coordination at 0.32 nm: 8.028486, 8.021989, and 8.021989, respectively.
+   Replicates 02 and 03 happen to have the same mean coordination, but their CN7/CN8/CN9 frame counts and water-identity time series differ.
+   Mean exported temperatures: 297.926, 297.976, and 298.054 K.
+   Mean exported densities: 0.992532, 0.992302, and 0.991914 g/mL.
+   Distinct shell-water counts: 66, 50, and 53; adjacent ID-set changes: 128, 90, and 106.
+   The three trajectory files have distinct SHA-256 hashes.
+   The comparison uses three complete trajectories, not three segments of one trajectory.
+   Figure: analysis/ca_ow_rdf_replicates.png.
+   These observations support consistency of local hydration structure for the three tested seeds under the same starting-configuration protocol.
+
+LIMITATIONS AND REMAINING WORK
+- These results describe the third Ca CM trajectory, using the same starting configuration as replicates 01 and 02.
+- Different seeds do not establish independence from the shared starting configuration or complete sampling of slow processes.
+- Similar RDFs across repeats or trajectory halves do not establish full convergence.
+- Sampling every 1 ps cannot resolve all brief departures and returns.
+- No reliable water-exchange rate or robust between-replicate uncertainty has been estimated.
+- The three planned CM seeds for each ion are complete; IOD parameter comparisons remain pending.
+- A complete cross-engine periodic-system energy/force comparison remains unfinished.
+- These water-box results do not establish NMDAR binding, permeation, or blockade mechanisms.

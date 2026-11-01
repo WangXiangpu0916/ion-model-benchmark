@@ -1,0 +1,14 @@
+source leaprc.water.tip3p
+
+loadAmberParams ../../../data/raw/frcmod.ions234lm_iod_tip3p
+loadAmberParams ../../../data/raw/frcmod.ionsjc_tip3p
+
+model = loadPdb mg_start.pdb
+set model box { 33.9977220 34.1000450 33.8759710 }
+
+check model
+charge model
+
+saveAmberParm model system_matched.prmtop system_matched.inpcrd
+savePdb model system_matched.pdb
+quit

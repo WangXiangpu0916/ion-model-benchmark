@@ -1,0 +1,60 @@
+{
+  "run": "/home/gromacs/ion-model-benchmark-from-scratch/systems/mg_iod/rep02/gromacs",
+  "stage": "md",
+  "label": "md",
+  "end_ps": 2000.0,
+  "records": 20001,
+  "means": {
+    "Potential": -37053.85006765432,
+    "Temperature": 297.9263398983541,
+    "Pressure": 6.9569511889905895,
+    "Volume": 26.074802498425086,
+    "Density": 991.7035474887142
+  },
+  "last_half_means": {
+    "Potential": -37047.88000535938,
+    "Temperature": 297.9113378345161,
+    "Pressure": -3.6185205151484747,
+    "Volume": 26.091533127587365,
+    "Density": 991.057481169284
+  },
+  "fifths": [
+    {
+      "start_ps": 0.0,
+      "end_ps": 400.0,
+      "temperature_K": 297.98045977025004,
+      "density_g_ml": 0.9922892385384999
+    },
+    {
+      "start_ps": 400.0,
+      "end_ps": 800.0,
+      "temperature_K": 297.98158930725,
+      "density_g_ml": 0.9933767856855001
+    },
+    {
+      "start_ps": 800.0,
+      "end_ps": 1200.0,
+      "temperature_K": 297.80867712350005,
+      "density_g_ml": 0.990288374404
+    },
+    {
+      "start_ps": 1200.0,
+      "end_ps": 1600.0,
+      "temperature_K": 297.84732436599995,
+      "density_g_ml": 0.99311268971525
+    },
+    {
+      "start_ps": 1600.0,
+      "end_ps": 2000.0,
+      "temperature_K": 298.01411461775,
+      "density_g_ml": 0.98945403446
+    }
+  ],
+  "box_nm": [
+    2.97944,
+    2.98841,
+    2.96878
+  ],
+  "numerical_warning_patterns": 0,
+  "wall_seconds": 546.247
+}

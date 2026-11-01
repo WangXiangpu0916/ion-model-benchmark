@@ -1,0 +1,15 @@
+source leaprc.water.tip3p
+
+loadAmberParams ../../../data/raw/frcmod.ions234lm_126_tip3p
+loadAmberParams ../../../data/raw/frcmod.ionsjc_tip3p
+
+model = copy MG
+solvateBox model TIP3PBOX 14.0 iso
+addIonsRand model Cl- 2
+
+check model
+charge model
+
+saveAmberParm model system.prmtop system.inpcrd
+savePdb model system.pdb
+quit

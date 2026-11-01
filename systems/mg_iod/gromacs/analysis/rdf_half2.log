@@ -1,0 +1,15 @@
+                       :-) GROMACS - gmx rdf, 2025.4 (-:
+
+Executable:   /opt/gromacs-2025.4-cuda/bin/gmx
+Data prefix:  /opt/gromacs-2025.4-cuda
+Working dir:  /home/gromacs/ion-model-benchmark-from-scratch/systems/mg_iod/gromacs
+Command line:
+  gmx rdf -s md.tpr -f md.xtc -ref 'resname MG and name MG' -sel 'resname WAT and name O' -b 1000 -e 2000 -bin 0.002 -rmax 1.2 -pbc -o analysis/mg_ow_rdf_half2.xvg
+
+Reading file md.tpr, VERSION 2025.4 (single precision)
+Reading file md.tpr, VERSION 2025.4 (single precision)
+Reading frame       0 time    0.000   Reading frame       0 time 1000.000   Reading frame       1 time 1001.000   Reading frame       2 time 1002.000   Reading frame       3 time 1003.000   Reading frame       4 time 1004.000   Reading frame       5 time 1005.000   Reading frame       6 time 1006.000   Reading frame       7 time 1007.000   Reading frame       8 time 1008.000   Reading frame       9 time 1009.000   Reading frame      10 time 1010.000   Reading frame      11 time 1011.000   Reading frame      12 time 1012.000   Reading frame      13 time 1013.000   Reading frame      14 time 1014.000   Reading frame      15 time 1015.000   Reading frame      16 time 1016.000   Reading frame      17 time 1017.000   Reading frame      18 time 1018.000   Reading frame      19 time 1019.000   Reading frame      20 time 1020.000   Reading frame      30 time 1030.000   Reading frame      40 time 1040.000   Reading frame      50 time 1050.000   Reading frame      60 time 1060.000   Reading frame      70 time 1070.000   Reading frame      80 time 1080.000   Reading frame      90 time 1090.000   Reading frame     100 time 1100.000   Reading frame     110 time 1110.000   Reading frame     120 time 1120.000   Reading frame     130 time 1130.000   Reading frame     140 time 1140.000   Reading frame     150 time 1150.000   Reading frame     160 time 1160.000   Reading frame     170 time 1170.000   Reading frame     180 time 1180.000   Reading frame     190 time 1190.000   Reading frame     200 time 1200.000   Reading frame     300 time 1300.000   Reading frame     400 time 1400.000   Reading frame     500 time 1500.000   Reading frame     600 time 1600.000   Reading frame     700 time 1700.000   Reading frame     800 time 1800.000   Reading frame     900 time 1900.000   Reading frame    1000 time 2000.000   Last frame       1000 time 2000.000   
+Analyzed 1001 frames, last time 2000.000
+
+GROMACS reminds you: "Any one who considers arithmetical methods of producing random digits is, of course, in a state of sin." (John von Neumann)
+

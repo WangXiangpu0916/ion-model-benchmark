@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/gromacs/ion-model-benchmark-from-scratch/systems/mg_iod/amber/convert_and_check.py", line 28, in <module>
+    assert relative_error < 0.00051
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

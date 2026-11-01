@@ -1,0 +1,30 @@
+                   :-) GROMACS - gmx convert-tpr, 2025.4 (-:
+
+Executable:   /opt/gromacs-2025.4-cuda/bin/gmx
+Data prefix:  /opt/gromacs-2025.4-cuda
+Working dir:  /home/gromacs/ion-model-benchmark-from-scratch/systems/mg_cm/rep03/gromacs
+Command line:
+  gmx convert-tpr -s npt.tpr -until 1000 -o npt_1ns.tpr
+
+Reading file npt.tpr, VERSION 2025.4 (single precision)
+
+GROMACS reminds you: "I think it's very important to get more women into computing. My slogan is: Computing is too important to be left to men." (Karen Jones)
+
+Input file:
+  Run start step                                     0     
+  Run start time                                     0 ps  
+  Step to be made during run                    200000     
+  Runtime for the run                              200 ps  
+  Run end step                                  200000     
+  Run end time                                     200 ps  
+
+Extending remaining runtime to 1000 ps
+
+Output file:
+  Run start step                                     0     
+  Run start time                                     0 ps  
+  Step to be made during run                   1000000     
+  Runtime for the run                             1000 ps  
+  Run end step                                 1000000     
+  Run end time                                    1000 ps  
+

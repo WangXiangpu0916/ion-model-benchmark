@@ -1,0 +1,71 @@
+Mg CM hydration pilot: summary
+Record date: 2026-11-01
+Project root: /home/gromacs/ion-model-benchmark-from-scratch
+Run directory: systems/mg_cm/gromacs
+Status: one completed Mg CM pilot trajectory; comparisons and independent replicates remain pending.
+
+SYSTEM AND METHODS
+- Composition: 1 Mg2+, 2 Cl-, and 859 water molecules; 2580 atoms; total charge 0.
+- Parameter assignments, as labeled in the local parameter files: Li-Merz CM Mg2+, standard Amber TIP3P water, and Joung-Cheatham Cl-.
+- Local parameter files used: data/raw/frcmod.ions234lm_126_tip3p and data/raw/frcmod.ionsjc_tip3p.
+- Construction: AmberTools tleap, followed by ParmEd conversion to GROMACS.
+- Build input: systems/mg_cm/amber/build.leap.
+- Active GROMACS topology and starting coordinates: systems/mg_cm/gromacs/system.top and system.gro.
+- Simulation engine recorded in the logs: GROMACS 2025.4, /opt/gromacs-2025.4-cuda/bin/gmx.
+- Energy minimization reached Fmax < 100 kJ mol^-1 nm^-1 after 1097 steps.
+- Preparation: 20 ps NVT, followed by NPT extended from 200 ps to a total of 1000 ps.
+- Production: 2 ns NPT; timestep 0.001 ps; target temperature 298 K; target pressure 1 bar.
+- Temperature coupling: V-rescale, tau-t 0.1 ps. Pressure coupling: isotropic C-rescale, tau-p 5.0 ps.
+- Electrostatics: PME, real-space cutoff 1.0 nm. Lennard-Jones: cutoff 1.0 nm, Potential-shift, DispCorr = EnerPres.
+- Water rigidity is specified by SETTLE in the topology; constraints = none does not imply flexible water.
+- Production inherits the preceding state without generating new velocities; ld-seed = 20261103.
+- Production trajectory: one saved frame every 1 ps, covering 0-2000 ps, for 2001 frames.
+- The production log reaches step 2000000 at 2000 ps and records normal completion. No numerical warnings were found in the inspected production logs.
+- Early minimization SETTLE warnings were reported during preparation; these should remain part of the project history.
+- The 'Fixed volume' comment in md.mdp is outdated: the effective settings enable C-rescale pressure coupling, so production is NPT.
+
+OBSERVED RESULTS
+1. Thermodynamic records (analysis/md_thermo.xvg):
+   Mean temperature: 298.037 K.
+   Mean density: 0.992233 g/mL.
+   These means were checked from 20001 exported records spanning 0-2000 ps.
+
+2. Mg-water oxygen RDF and cumulative coordination (analysis/mg_ow_rdf.xvg and mg_ow_cn.xvg):
+   First RDF peak: 0.202 nm.
+   Provisional first-shell boundary: 0.28 nm; cumulative coordination number: 6.
+   RDF and cumulative-coordination distance grids are offset; use each file's own distance column rather than assuming row-by-row correspondence.
+
+3. Shell-boundary sensitivity (analysis/mg_cn_selections.txt and mg_cn_time.xvg):
+   At cutoffs of 0.26, 0.28, and 0.30 nm, the coordination number is 6 in every one of the 2001 saved frames.
+
+4. Time-segment RDF comparison (analysis/mg_ow_rdf_half1.xvg and mg_ow_rdf_half2.xvg):
+   First segment: 0-999 ps, 1000 frames, first peak at 0.204 nm.
+   Second segment: 1000-2000 ps, 1001 frames, first peak at 0.202 nm.
+   Bin width: 0.002 nm; the peak-position difference is one bin.
+   Earlier visual inspection recorded similar overall RDF shapes; the present text-file check confirms the peak positions.
+
+5. Mg-Cl distances (analysis/mg_cl_distances.xvg):
+   Cl1 minimum distance: 0.385 nm at 421 ps.
+   Cl2 minimum distance: 0.405 nm at 381 ps.
+   Earlier inspection recorded approach and departure for both chloride ions.
+   No dedicated ion-pair classification has been applied; the 0.28 nm Mg-water oxygen cutoff is not a Mg-Cl contact criterion.
+
+6. First-shell water identities (analysis/mg_shell_ids.dat and mg_shell_ids.log):
+   With a 0.28 nm cutoff, all 2001 saved frames contain the same six water oxygen atom IDs:
+   625, 1066, 1171, 1198, 1264, 1270.
+   No change in first-shell water identity was observed at the saved-frame times.
+
+INTERPRETATION AND REMAINING WORK
+- These observations describe one 2 ns Mg CM pilot trajectory, not an independently replicated comparison.
+- Similar RDFs in two segments of the same trajectory do not establish full convergence or provide independent replicates.
+- Unchanged water identities at 1 ps sampling intervals do not exclude brief departures and returns between frames and do not support a reliable water-exchange rate estimate.
+- Stable-looking thermodynamic or structural curves do not establish convergence of all slow processes.
+- A complete cross-engine periodic-system single-point energy and force comparison remains unfinished.
+- Ca CM, independent replicates, and IOD parameter comparisons remain pending.
+- This water-box pilot does not establish ion binding, permeation, or blockade mechanisms inside NMDAR.
+- Planned next step: review the Mg build input, recorded conversion procedure, and effective simulation settings before preparing a Ca CM control with the same water model and comparable conditions.
+
+VERIFICATION SCOPE
+- This summary uses the existing project records and read-only checks of inputs, logs, topology/coordinate text, and exported analysis data.
+- The handover check did not rerun simulations or trajectory analyses and did not reread XTC files.
+- Existing XTC offsets cache and lock files were left untouched.

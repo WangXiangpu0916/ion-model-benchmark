@@ -1,0 +1,90 @@
+Mg CM hydration replicate 03: summary
+Record date: 2026-11-02
+Project root: /home/gromacs/ion-model-benchmark-from-scratch
+Run directory: systems/mg_cm/rep03/gromacs
+Status: third completed 2 ns Mg CM trajectory, with basic analyses and comparison to replicates 01 and 02.
+
+SYSTEM AND METHODS
+- Composition: 1 Mg2+, 2 Cl-, 859 waters; 2580 atoms; total charge 0.
+- Models: Li-Merz CM Mg2+, standard Amber TIP3P, Joung-Cheatham Cl-.
+- Parameter files: data/raw/frcmod.ions234lm_126_tip3p and data/raw/frcmod.ionsjc_tip3p.
+- Original build: systems/mg_cm/amber/build.leap; AmberTools tleap and ParmEd conversion.
+- Active repeat inputs: systems/mg_cm/rep03/gromacs/system.top and start.gro.
+- system.top is byte-identical to the original Mg topology; start.gro is byte-identical to systems/mg_cm/gromacs/em.gro.
+- The original Mg minimization converged in 1097 steps with maximum force below 100 kJ/mol/nm. Early SETTLE warnings belong to that preparation history; minimization was not repeated for replicate 03.
+- Replicates 01, 02, and 03 share the same minimized starting configuration. New initial velocities and stochastic seeds were used for replicate 03.
+- Engine: GROMACS 2025.4, /opt/gromacs-2025.4-cuda/bin/gmx.
+- Preparation: 20 ps NVT, then 200 ps NPT continued from its checkpoint to a total of 1000 ps.
+- Production: 2 ns NPT, 1 fs timestep, 298 K, 1 bar; production time resets to 0 ps after equilibration.
+- Coupling: V-rescale thermostat, tau-t 0.1 ps; isotropic C-rescale barostat, tau-p 5.0 ps.
+- Electrostatics: PME with 1.0 nm real-space cutoff. Lennard-Jones: 1.0 nm cutoff, Potential-shift, DispCorr = EnerPres.
+- Water rigidity is specified by SETTLE in the topology.
+- NVT gen-seed and ld-seed: 20261211; NPT ld-seed: 20261212; production ld-seed: 20261213.
+- NVT generates initial velocities at 298 K; NPT and production inherit the preceding state without generating new velocities.
+- Production trajectory: 2001 frames spanning 0-2000 ps, saved every 1 ps.
+- Energy records: 20001 points spanning 0-2000 ps, saved every 0.1 ps.
+- NVT, NPT, and production completed normally without detected numerical warnings. Production reached step 2000000 at 2000 ps.
+
+OBSERVED RESULTS
+1. Thermodynamics
+   Means from 20001 exported records in analysis/md_thermo.xvg:
+   Temperature: 297.976 K.
+   Density: 0.990783 g/mL.
+   Mean densities in the first and last 500 ps: 0.991886 and 0.990632 g/mL.
+   The curves show slow fluctuations, without an obvious sustained drift over this run.
+   These are arithmetic means of exported XVG records; GROMACS energy-log averages use more frequent accumulated statistics and may differ slightly.
+
+2. Mg-water oxygen RDF
+   First peak: 0.202 nm; bin width: 0.002 nm.
+   Provisional first-shell cutoff: 0.28 nm.
+   Cumulative coordination at this cutoff: 6.000.
+   RDF and cumulative-coordination grids are offset; use each file's own distance column.
+   Data: analysis/mg_ow_rdf.xvg and mg_ow_cn.xvg.
+
+3. Per-frame coordination and cutoff sensitivity
+   Cutoffs 0.26, 0.28, and 0.30 nm: coordination number 6 in all 2001 saved frames.
+   Data: analysis/mg_cn_selections.txt and mg_cn_time.xvg.
+
+4. Shell-water identities at 0.28 nm
+   ID counts agree with the coordination counts in all 2001 frames.
+   All saved frames contain the same six water oxygen IDs: 625, 1066, 1171, 1198, 1264, 1270.
+   There is one distinct shell-water ID set and no changes between adjacent saved frames.
+   This is also the set observed throughout replicates 01 and 02.
+   No water-identity change is observed at the 1 ps saving interval; brief departures and returns between frames cannot be excluded.
+   Data: analysis/mg_shell_ids.dat and mg_shell_ids.log.
+
+5. Time-segment RDF comparison
+   First segment: 0-999 ps, 1000 frames; peak at 0.202 nm; peak height 24.831.
+   Second segment: 1000-2000 ps, 1001 frames; peak at 0.202 nm; peak height 26.007.
+   Overall shapes are similar, with a visible difference in peak height.
+   Data: analysis/mg_ow_rdf_half1.xvg and mg_ow_rdf_half2.xvg.
+
+6. Mg-Cl distances
+   Cl1 minimum: 0.420 nm at 654 ps.
+   Cl2 minimum: 0.397 nm at 656 ps.
+   Both chloride ions show approach and departure.
+   No dedicated ion-pair classification has been applied.
+   The Mg-water oxygen cutoff is not a Mg-Cl contact criterion.
+   Data: analysis/mg_cl_distances.xvg.
+
+7. Comparison with Mg CM replicates 01 and 02
+   All three full 2 ns RDFs have their first peak at 0.202 nm and similar overall shapes.
+   Coordination remains 6 at the three tested cutoffs in all three runs.
+   All three runs retain the same six shell-water IDs at every saved frame.
+   Mean exported temperatures: 298.037, 298.035, and 297.976 K for replicates 01, 02, and 03.
+   Mean exported densities: 0.992233, 0.992042, and 0.990783 g/mL, respectively.
+   The three trajectory files have distinct SHA-256 hashes.
+   The comparison uses three complete trajectories, not three segments of one trajectory.
+   Figure: analysis/mg_ow_rdf_replicates.png.
+   These observations support consistency of local hydration structure for the three tested seeds under the same starting-configuration protocol.
+
+LIMITATIONS AND REMAINING WORK
+- These results describe the third Mg CM trajectory, using the same starting configuration as replicates 01 and 02.
+- Different seeds do not establish independence from the shared starting configuration or complete sampling of slow processes.
+- The persistent common six-water shell limits what these repeats establish about water exchange and alternative shell configurations.
+- Similar RDFs across repeats or trajectory halves do not establish full convergence.
+- Sampling every 1 ps cannot resolve all brief departures and returns.
+- No reliable water-exchange rate or robust between-replicate uncertainty has been estimated.
+- The three planned Mg CM seeds are complete; Ca CM replicate 03 and IOD parameter comparisons remain pending at the time of this record.
+- A complete cross-engine periodic-system energy/force comparison remains unfinished.
+- These water-box results do not establish NMDAR binding, permeation, or blockade mechanisms.
